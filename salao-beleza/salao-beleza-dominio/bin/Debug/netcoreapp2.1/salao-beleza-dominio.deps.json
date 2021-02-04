@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.1": {
+      "salao-beleza-dominio/1.0.0": {
+        "runtime": {
+          "salao-beleza-dominio.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "salao-beleza-dominio/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

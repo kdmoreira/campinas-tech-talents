@@ -1,0 +1,15 @@
+C:\Users\Karina Moreira\C#\salao-beleza\salao-beleza\obj\Debug\netcoreapp2.1\salao-beleza.csprojAssemblyReference.cache
+C:\Users\Karina Moreira\C#\salao-beleza\salao-beleza\obj\Debug\netcoreapp2.1\salao-beleza.csproj.CoreCompileInputs.cache
+C:\Users\Karina Moreira\C#\salao-beleza\salao-beleza\obj\Debug\netcoreapp2.1\salao-beleza.AssemblyInfoInputs.cache
+C:\Users\Karina Moreira\C#\salao-beleza\salao-beleza\obj\Debug\netcoreapp2.1\salao-beleza.AssemblyInfo.cs
+C:\Users\Karina Moreira\C#\salao-beleza\salao-beleza\bin\Debug\netcoreapp2.1\salao-beleza.deps.json
+C:\Users\Karina Moreira\C#\salao-beleza\salao-beleza\bin\Debug\netcoreapp2.1\salao-beleza.runtimeconfig.json
+C:\Users\Karina Moreira\C#\salao-beleza\salao-beleza\bin\Debug\netcoreapp2.1\salao-beleza.runtimeconfig.dev.json
+C:\Users\Karina Moreira\C#\salao-beleza\salao-beleza\bin\Debug\netcoreapp2.1\salao-beleza.dll
+C:\Users\Karina Moreira\C#\salao-beleza\salao-beleza\bin\Debug\netcoreapp2.1\salao-beleza.pdb
+C:\Users\Karina Moreira\C#\salao-beleza\salao-beleza\bin\Debug\netcoreapp2.1\salao-beleza-dominio.dll
+C:\Users\Karina Moreira\C#\salao-beleza\salao-beleza\bin\Debug\netcoreapp2.1\salao-beleza-dominio.pdb
+C:\Users\Karina Moreira\C#\salao-beleza\salao-beleza\obj\Debug\netcoreapp2.1\salao-beleza.csproj.CopyComplete
+C:\Users\Karina Moreira\C#\salao-beleza\salao-beleza\obj\Debug\netcoreapp2.1\salao-beleza.dll
+C:\Users\Karina Moreira\C#\salao-beleza\salao-beleza\obj\Debug\netcoreapp2.1\salao-beleza.pdb
+C:\Users\Karina Moreira\C#\salao-beleza\salao-beleza\obj\Debug\netcoreapp2.1\salao-beleza.genruntimeconfig.cache

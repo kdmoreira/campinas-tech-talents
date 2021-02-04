@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1340
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "salao-beleza", "salao-beleza\salao-beleza.csproj", "{CD6B5F7E-9FB4-4AB5-AD8A-88CE171C4EE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "salao-beleza-dominio", "salao-beleza-dominio\salao-beleza-dominio.csproj", "{AC6157C9-4CE5-460E-A47E-3B2F30CCAF07}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD6B5F7E-9FB4-4AB5-AD8A-88CE171C4EE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD6B5F7E-9FB4-4AB5-AD8A-88CE171C4EE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD6B5F7E-9FB4-4AB5-AD8A-88CE171C4EE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD6B5F7E-9FB4-4AB5-AD8A-88CE171C4EE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC6157C9-4CE5-460E-A47E-3B2F30CCAF07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC6157C9-4CE5-460E-A47E-3B2F30CCAF07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC6157C9-4CE5-460E-A47E-3B2F30CCAF07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC6157C9-4CE5-460E-A47E-3B2F30CCAF07}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CB312AE3-62DD-496C-8356-7E31F27C2C3E}
+	EndGlobalSection
+EndGlobal
