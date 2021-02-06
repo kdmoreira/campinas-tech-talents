@@ -15,6 +15,8 @@
             CPF = cpf;
         }
 
+        /* Incluir verificação string.IsNullOrEmpty em todos os métodos de
+        alteração em todas as classes? */
         public void Alterar(string nome, string telefone)
         {
             Nome = string.IsNullOrEmpty(nome) ? Nome : nome;

@@ -9,7 +9,7 @@ namespace salao_beleza_dominio
 
         public void Incluir(int id, string nome, int minutosParaExecucao, float preco)
         {
-            Agendamento a = new Agendamento();
+            //Agendamento a = new Agendamento();
             Id = id;
             Nome = nome;
             MinutosParaExecucao = minutosParaExecucao;

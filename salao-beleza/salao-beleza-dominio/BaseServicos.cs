@@ -17,7 +17,9 @@ namespace salao_beleza_dominio
             Servicos.Add(serv);
         }
 
-        public void AlterarUmServico(int id, string nomeNovo, int minutosParaExecucaoNovo, float precoNovo)
+        /* Método reduntante? Ele altera propriedades de Serviço, existe um
+        muito parecido na classe Serviço, este aqui está na base */
+        public void AlterarServico(int id, string nomeNovo, int minutosParaExecucaoNovo, float precoNovo)
         {
             Servico servico = Servicos.FirstOrDefault();
             if (servico != null)

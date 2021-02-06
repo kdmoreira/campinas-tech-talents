@@ -10,7 +10,9 @@ namespace salao_beleza_dominio
         {
             Servicos = new List<Servico>();
         }
-
+        /* Propriedade Matrícula só teM valor definido ao adicionar funcionário
+         * na base de funcionários: fazer o mesmo com todas as classes
+         * cujos objetos serão inclusos em Bases? */
         public int Matricula { get; set; }
         public string Nome { get; set; }
         public string Telefone { get; set; }

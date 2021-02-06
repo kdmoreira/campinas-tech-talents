@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Karina Moreira\\C#\\salao-beleza\\salao-beleza-dominio\\salao-beleza-dominio.csproj": {}
+    "C:\\Users\\Karina Moreira\\capinas-tech-talents\\salao-beleza\\salao-beleza-dominio\\salao-beleza-dominio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Karina Moreira\\C#\\salao-beleza\\salao-beleza-dominio\\salao-beleza-dominio.csproj": {
+    "C:\\Users\\Karina Moreira\\capinas-tech-talents\\salao-beleza\\salao-beleza-dominio\\salao-beleza-dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Karina Moreira\\C#\\salao-beleza\\salao-beleza-dominio\\salao-beleza-dominio.csproj",
+        "projectUniqueName": "C:\\Users\\Karina Moreira\\capinas-tech-talents\\salao-beleza\\salao-beleza-dominio\\salao-beleza-dominio.csproj",
         "projectName": "salao-beleza-dominio",
-        "projectPath": "C:\\Users\\Karina Moreira\\C#\\salao-beleza\\salao-beleza-dominio\\salao-beleza-dominio.csproj",
+        "projectPath": "C:\\Users\\Karina Moreira\\capinas-tech-talents\\salao-beleza\\salao-beleza-dominio\\salao-beleza-dominio.csproj",
         "packagesPath": "C:\\Users\\Karina Moreira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Karina Moreira\\C#\\salao-beleza\\salao-beleza-dominio\\obj\\",
+        "outputPath": "C:\\Users\\Karina Moreira\\capinas-tech-talents\\salao-beleza\\salao-beleza-dominio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -21,15 +21,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp2.1"
+          "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp2.1": {
-            "targetAlias": "netcoreapp2.1",
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -40,16 +40,8 @@
         }
       },
       "frameworks": {
-        "netcoreapp2.1": {
-          "targetAlias": "netcoreapp2.1",
-          "dependencies": {
-            "Microsoft.NETCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.1.0, )",
-              "autoReferenced": true
-            }
-          },
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -60,6 +52,11 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }

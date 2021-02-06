@@ -10,7 +10,7 @@ public class Agendamento
         public Cliente Cliente { get; set; }
         public ServicoSolicitado ServicoSolicitado { get; set; }
         public DateTime DataAgendamento { get; set; }
-        public DateTime DataChegada { get; set; }
+        public DateTime DataChegada { get; set; } /* O que é esta data? */
         public string Anotacao { get; set; }
         public StatusAgenda Status { get; set; }
 
@@ -63,9 +63,9 @@ public class Agendamento
             }
         }
 
-        /* Alterei: incluí agenda da classe BaseAgendamentos como 
-        parâmetro, a consulta é feita na lista Agendamentos, contida na
-        classe */
+        // Alterei: incluí agenda da classe BaseAgendamentos como 
+        //parâmetro, a consulta é feita na lista Agendamentos, contida na
+        //classe
         private bool PermiteAgendar(BaseAgendamentos agenda, ServicoSolicitado servicoParaAgendar, DateTime dataAgendamento)
         {
             DateTime dataTerminoParaAgendar = dataAgendamento.AddMinutes(servicoParaAgendar.Servico.MinutosParaExecucao);
@@ -81,7 +81,7 @@ public class Agendamento
             ss.Incluir(id, servico, func, data);
         }
 
-        /* Incluí: editar status do agendamento */
+        // Incluí: editar status do agendamento
         public void EditarStatus(StatusAgenda status, DateTime novaData)
         {
             Status = status;
