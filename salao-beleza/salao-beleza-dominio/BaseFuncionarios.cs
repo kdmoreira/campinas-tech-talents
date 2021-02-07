@@ -14,38 +14,39 @@ namespace salao_beleza_dominio
             Funcionarios = new List<Funcionario>();
         }
 
-
-        /* Por consistência, gerar número de Ids de clientes,
-        serviços, agendamentos, etc, da mesma forma que foi gerado
-        o número da matrícula de funcionários automaticamente? */
-        public void Incluir(Funcionario func)
+        // Inclusão individual de funcionários
+        public void Incluir(Funcionario funcionario)
         {
             int matricula = 0;
             if (Funcionarios.Any())
                 matricula = Funcionarios.Last().Matricula + 1;
             else
                 matricula++;
-            func.Matricula = matricula;
-            Funcionarios.Add(func);
+            funcionario.Matricula = matricula;
+            Funcionarios.Add(funcionario);
         }
 
-        /* Método redundante? Já existe um na classe Funcionário, é necessário
-         ter um método similar na base? Porque assim que um objeto Funcionário
-        fosse modificado, ele seria alterado na base por ser uma referência, ñ?*/
+        // Inclusão de vários funcionários
+        public void Incluir(params Funcionario[] funcionarios)
+        {
+            foreach (Funcionario funcionario in funcionarios)
+            {
+                this.Incluir(funcionario);
+            }
+        }
+
         public void AlterarFuncionario(int matricula, string nomeNovo, string telefoneNovo, Endereco enderecoNovo, CargoFunc cargoNovo)
         {
             Funcionarios.Find(func => func.Matricula == matricula)
                 .Alterar(nomeNovo, telefoneNovo, enderecoNovo, cargoNovo);
         }
 
-        /* Mesma consideração acima: já existe um método parecido em Funcionario*/
         public void IncluirServicoDeFuncionario(int matricula, Servico servico)
         {
             Funcionarios.Find(func => func.Matricula == matricula)
                 .IncluirServico(servico);
         }
 
-        /* Ver acima */
         public void ExcluirServicoDeFuncionario(int matricula, int idServ)
         {
             Funcionario func = Funcionarios.Find(funcionario => funcionario.Matricula == matricula);
@@ -60,10 +61,9 @@ namespace salao_beleza_dominio
             Funcionarios.RemoveAll(func => func.Matricula.Equals(matricula));
         }
 
-        // Método para visualizar todos os funcionários
         public void Visualizar()
         {
-            Console.WriteLine("Funcionários: ");
+            Console.WriteLine("FUNCIONÁRIOS: ");
             foreach (Funcionario funcionario in Funcionarios)
             {
                 Console.WriteLine(funcionario);

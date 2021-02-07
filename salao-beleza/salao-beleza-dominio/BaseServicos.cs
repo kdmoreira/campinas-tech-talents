@@ -3,22 +3,36 @@ using System.Linq;
 
 namespace salao_beleza_dominio
 {
-    public class MinhaBaseServicos
+    public class BaseServicos
     {
         public List<Servico> Servicos { get; set; }
 
-        public MinhaBaseServicos()
+        public BaseServicos()
         {
             Servicos = new List<Servico>();
         }
 
+        // Inclusão individual de serviços
         public void Incluir(Servico serv)
         {
+            int id = 0;
+            if (this.Servicos.Any())
+                id = Servicos.Last().Id + 1;
+            else
+                id++;
+            serv.Id = id;
             Servicos.Add(serv);
         }
 
-        /* Método reduntante? Ele altera propriedades de Serviço, existe um
-        muito parecido na classe Serviço, este aqui está na base */
+        // Inclusão de vários serviços
+        public void Incluir(params Servico[] servicos)
+        {
+            foreach (Servico servico in servicos)
+            {
+                this.Incluir(servico);
+            }
+        }
+
         public void AlterarServico(int id, string nomeNovo, int minutosParaExecucaoNovo, float precoNovo)
         {
             Servico servico = Servicos.FirstOrDefault();

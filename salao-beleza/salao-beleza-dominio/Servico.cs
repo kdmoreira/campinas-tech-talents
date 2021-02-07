@@ -7,10 +7,8 @@ namespace salao_beleza_dominio
         public int MinutosParaExecucao { get; set; }
         public float Preco { get; set; }
 
-        public void Incluir(int id, string nome, int minutosParaExecucao, float preco)
+        public void Incluir(string nome, int minutosParaExecucao, float preco)
         {
-            //Agendamento a = new Agendamento();
-            Id = id;
             Nome = nome;
             MinutosParaExecucao = minutosParaExecucao;
             Preco = preco;

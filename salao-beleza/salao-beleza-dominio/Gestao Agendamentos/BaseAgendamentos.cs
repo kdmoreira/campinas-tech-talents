@@ -15,12 +15,27 @@ namespace salao_beleza_dominio
 
         public void Agendar(Agendamento agendamento)
         {
+            int id = 0;
+            if (Agendamentos.Any())
+                id = Agendamentos.Last().Id + 1;
+            else
+                id++;
+            agendamento.Id = id;
             Agendamentos.Add(agendamento);
+        }
+
+        // Inclusão de vários agendamentos
+        public void Agendar(params Agendamento[] agendamentos)
+        {
+            foreach (Agendamento agendamento in agendamentos)
+            {
+                this.Agendar(agendamento);
+            }
         }
 
         public void Visualizar()
         {
-            Console.WriteLine("Agendamentos:");
+            Console.WriteLine("TODOS OS AGENDAMENTOS:");
             foreach (Agendamento agendamento in Agendamentos)
             {
                 Console.WriteLine(agendamento);
@@ -30,12 +45,12 @@ namespace salao_beleza_dominio
 
         public void VisualizarData(DateTime data)
         {
-            Console.WriteLine("Agendamentos na data informada:");
+            Console.WriteLine("AGENDAMENTOS NA DATA INFORMADA:");
             List<Agendamento> agendamentosWhere =
-            Agendamentos.Where(x => x.DataChegada.Equals(data.Date)).ToList();
+            Agendamentos.Where(x => x.DataAgendamento.Equals(data)).ToList();
             if (agendamentosWhere.Count == 0)
             {
-                Console.WriteLine("Não há agendamentos nesta data.");
+                Console.WriteLine("Não há agendamentos nesta data.\n");
             }
             else
             {

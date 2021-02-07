@@ -4,32 +4,36 @@ using System;
 
 namespace salao_beleza_dominio
 {
-    public class MinhaBaseClientes
+    public class BaseClientes
     {
         public List<Cliente> Clientes { get; set; }
 
-        public MinhaBaseClientes()
+        public BaseClientes()
         {
             Clientes = new List<Cliente>();
         }
 
+        // Inclusão individual
         public void Incluir(Cliente cliente)
         {
+            int id = 0;
+            if (Clientes.Any())
+                id = Clientes.Last().Id + 1;
+            else
+                id++;
+            cliente.Id = id;
             Clientes.Add(cliente);
         }
 
-        /* A diferença do método Incluir é que este adiciona dois,
-         em vez de um, mas haveria uma forma de adicionar N funcionários
-        como se fosse usar um "spread operator" que aceita todos os argumentos
-        passados para o parâmetro? */
-        public void IncluirLista(Cliente cliente1, Cliente cliente2)
+        // Inclusão de vários clientes
+        public void Incluir(params Cliente[] clientes)
         {
-            List<Cliente> lst = new List<Cliente> { cliente1, cliente2 };
-            Clientes.AddRange(lst);
+            foreach (Cliente cliente in clientes)
+            {
+                this.Incluir(cliente);
+            }
         }
 
-        /* Mesma consideração feita sobre métodos da BaseFuncionários (já
-         * existe método de alteração na classe Cliente */
         public void AlterarUmCliente(int id, string nomeNovo, string telefoneNovo)
         {
             Cliente cliente = Clientes.FirstOrDefault(cli => cli.Id == id);
@@ -44,10 +48,9 @@ namespace salao_beleza_dominio
             Clientes.RemoveAll(cli => cli.Id == id);
         }
 
-        /* Método para visualizar todos os clientes */
         public void Visualizar()
         {
-            Console.WriteLine("Clientes:");
+            Console.WriteLine("CLIENTES:");
             foreach (Cliente cliente in Clientes)
             {
                 Console.WriteLine(cliente);

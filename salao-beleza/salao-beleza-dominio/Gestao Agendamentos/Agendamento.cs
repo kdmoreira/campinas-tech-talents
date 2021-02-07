@@ -10,7 +10,6 @@ public class Agendamento
         public Cliente Cliente { get; set; }
         public ServicoSolicitado ServicoSolicitado { get; set; }
         public DateTime DataAgendamento { get; set; }
-        public DateTime DataChegada { get; set; } /* O que é esta data? */
         public string Anotacao { get; set; }
         public StatusAgenda Status { get; set; }
 
@@ -24,17 +23,34 @@ public class Agendamento
             Pendente
         }
 
-        public void IncluirAgendamento(int id, Cliente cliente, 
+        public void IncluirAgendamento(Cliente cliente, 
             ServicoSolicitado servicoParaAgendar,
             DateTime dataAgendamento, BaseAgendamentos agenda, string anotacao = "")
         {
-            if (PermiteAgendar(agenda, servicoParaAgendar, dataAgendamento))
+            if (PermiteAgendar(agenda, servicoParaAgendar, dataAgendamento) == true)
+            {
+                Console.WriteLine("Esse horário não está livre.\n");
+            }
+            else
+            {
+                Cliente = cliente;
+                ServicoSolicitado = servicoParaAgendar;
+                DataAgendamento = dataAgendamento;
+                Anotacao = anotacao;
+
+                Console.WriteLine("Agendamento feito com sucesso.\n");
+            }
+        }
+
+        public void AlterarAgendamento(Cliente cliente, ServicoSolicitado servicoParaAgendar,
+            DateTime dataAgendamento, BaseAgendamentos agenda, string anotacao = "")
+        {
+            if (PermiteAgendar(agenda, servicoParaAgendar, dataAgendamento) == true)
             {
                 Console.WriteLine("Esse horário não está livre.");
             }
             else
             {
-                Id = id;
                 Cliente = cliente;
                 ServicoSolicitado = servicoParaAgendar;
                 DataAgendamento = dataAgendamento;
@@ -44,52 +60,29 @@ public class Agendamento
             }
         }
 
-        public string AlterarAgendamento(Cliente cliente, ServicoSolicitado servicoParaAgendar,
-            DateTime dataAgendamento, BaseAgendamentos agenda, string anotacao = "")
+        public bool PermiteAgendar(BaseAgendamentos agenda, ServicoSolicitado servicoParaAgendar, DateTime dataAgendamento)
         {
-            if (PermiteAgendar(agenda, servicoParaAgendar, dataAgendamento))
-            {
-                return "Esse horário não está livre.";
-            }
-            else
-            {
-                servicoParaAgendar.Status = ServicoSolicitado.StatusServico.Reagendado;
-                Cliente = cliente;
-                ServicoSolicitado = servicoParaAgendar;
-                DataAgendamento = dataAgendamento;
-                Anotacao = anotacao;
-
-                return "Agendamento feito com sucesso.";
-            }
+            return agenda.Agendamentos.Any(ag => (servicoParaAgendar.Funcionario == ag.ServicoSolicitado.Funcionario)
+            && (dataAgendamento >= ag.DataAgendamento && dataAgendamento <= ag.DataAgendamento.AddMinutes(servicoParaAgendar.Servico.MinutosParaExecucao)) 
+            && ag != this && (ag.Status != StatusAgenda.CanceladoPeloSalao || ag.Status != StatusAgenda.CanceladoPeloCliente));
         }
 
-        // Alterei: incluí agenda da classe BaseAgendamentos como 
-        //parâmetro, a consulta é feita na lista Agendamentos, contida na
-        //classe
-        private bool PermiteAgendar(BaseAgendamentos agenda, ServicoSolicitado servicoParaAgendar, DateTime dataAgendamento)
-        {
-            DateTime dataTerminoParaAgendar = dataAgendamento.AddMinutes(servicoParaAgendar.Servico.MinutosParaExecucao);
-            return (agenda.Agendamentos.Any(a => a.DataAgendamento >= dataAgendamento &&
-                    (a.Status != StatusAgenda.CanceladoPeloSalao || a.Status != StatusAgenda.CanceladoPeloCliente)) &&
-                agenda.Agendamentos.Any(a => a.DataAgendamento <= dataTerminoParaAgendar &&
-                    (a.Status != StatusAgenda.CanceladoPeloSalao || a.Status != StatusAgenda.CanceladoPeloCliente)));
-        }
-
-        public void IncluirServicoSolicitado(int id, Servico servico, Funcionario func, DateTime data)
+        public void IncluirServicoSolicitado(int id, Servico servico, Funcionario func)
         {
             ServicoSolicitado ss = new ServicoSolicitado();
-            ss.Incluir(id, servico, func, data);
+            ss.Incluir(id, servico, func);
         }
 
-        // Incluí: editar status do agendamento
-        public void EditarStatus(StatusAgenda status, DateTime novaData)
+        public void EditarStatus(StatusAgenda status, DateTime novaData, BaseAgendamentos agenda)
         {
             Status = status;
+            this.AlterarAgendamento(this.Cliente, this.ServicoSolicitado, novaData, agenda);
         }
 
         public override string ToString()
         {
-            return Id + ": " + Cliente.Nome + " / " + ServicoSolicitado + " / Status agenda: " + Status;
+            return DataAgendamento + ": " + Cliente.Nome + " / " + ServicoSolicitado +
+                " / Status agenda: " + Status;
         }
 
     }
