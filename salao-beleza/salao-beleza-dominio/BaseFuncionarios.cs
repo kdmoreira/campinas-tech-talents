@@ -12,6 +12,7 @@ namespace salao_beleza_dominio
         public BaseFuncionarios()
         {
             Funcionarios = new List<Funcionario>();
+            DadosIniciais();
         }
 
         // Inclusão individual de funcionários
@@ -68,6 +69,32 @@ namespace salao_beleza_dominio
             {
                 Console.WriteLine(funcionario);
             }
+        }
+
+        public Funcionario FuncionarioPorMatricula(int matricula)
+        {
+            return Funcionarios.FirstOrDefault(x => x.Matricula == matricula);
+        }
+
+        public void DadosIniciais()
+        {
+            Endereco end1 = new Endereco();
+            end1.Incluir(2, "Rua Z", "1234-1",
+                "Santa Maria", "São Paulo", "SP", "123", "1");
+
+            Servico serv1 = new Servico();
+            serv1.Incluir("Tingimento", 40, 70);
+            Servico serv2 = new Servico();
+            serv2.Incluir("Corte de Barba", 15, 25);
+
+            Funcionario func1 = new Funcionario();
+            func1.Incluir("Tânia", "3720-0000", end1, Funcionario.CargoFunc.Cabeleireiro);
+            func1.IncluirServico(serv1);
+            Funcionario func2 = new Funcionario();
+            func2.Incluir("Marcos", "7376-9879", end1, Funcionario.CargoFunc.Barbeiro);
+            func2.IncluirServico(serv2);
+
+            this.Incluir(func1, func2);
         }
     }
 }

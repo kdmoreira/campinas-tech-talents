@@ -10,6 +10,7 @@ namespace salao_beleza_dominio
         public BaseServicos()
         {
             Servicos = new List<Servico>();
+            DadosIniciais();
         }
 
         // Inclusão individual de serviços
@@ -46,6 +47,20 @@ namespace salao_beleza_dominio
         public void ExcluirUmServico(int id)
         {
             Servicos.RemoveAll(serv => serv.Id == id);
+        }
+
+        public Servico ServicoPorId(int id)
+        {
+            return Servicos.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void DadosIniciais()
+        {
+            Servico serv1 = new Servico();
+            serv1.Incluir("Tingimento", 40, 70);
+            Servico serv2 = new Servico();
+            serv2.Incluir("Corte de Barba", 15, 25);
+            this.Incluir(serv1, serv2);
         }
     }
 }
