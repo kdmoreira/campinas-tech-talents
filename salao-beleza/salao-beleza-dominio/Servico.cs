@@ -1,4 +1,4 @@
-manamespace salao_beleza_dominio
+namespace salao_beleza_dominio
 {
     public class Servico
     {

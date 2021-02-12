@@ -17,7 +17,9 @@ namespace salao_beleza
                 BaseServicos baseServicos = new BaseServicos();
 
                 Endereco end1 = new Endereco();
-                end1.Incluir(2, "Rua Z", "1234-1", "Santa Maria", "São Paulo", "SP", "123", "1");
+                end1.Incluir(1, "Rua Z", "12734-188", "Santa Maria", "São Paulo", "SP", "123", "1");
+                Endereco end2 = new Endereco();
+                end2.Incluir(2, "Rua Sem Fim", "14405-870", "Centro", "São Paulo", "SP", "321", "2");
 
                 Servico serv1 = new Servico();
                 serv1.Incluir("Tingimento", 40, 70);
@@ -36,9 +38,9 @@ namespace salao_beleza
                 baseFuncionarios.Incluir(func1, func2);
 
                 Cliente cli1 = new Cliente();
-                cli1.Incluir("Karina Moreira", "9999-9999", "3216546-76");
+                cli1.Incluir("Karina Moreira", "9999-9999", "3216546-76", end2);
                 Cliente cli2 = new Cliente();
-                cli2.Incluir("Pedro Andrade", "7799-8888", "1234567-90");
+                cli2.Incluir("Pedro Andrade", "7799-8888", "1234567-90", end2);
 
                 baseClientes.Incluir(cli1, cli2);
 

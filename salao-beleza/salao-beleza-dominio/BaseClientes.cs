@@ -34,12 +34,13 @@ namespace salao_beleza_dominio
             }
         }
 
-        public void AlterarUmCliente(int id, string nomeNovo, string telefoneNovo)
+        public void AlterarCliente(int id, string nomeNovo, string telefoneNovo, 
+            Endereco enderecoNovo)
         {
             Cliente cliente = Clientes.FirstOrDefault(cli => cli.Id == id);
             if (cliente != null)
             {
-                cliente.Alterar(nomeNovo, telefoneNovo);
+                cliente.Alterar(nomeNovo, telefoneNovo, enderecoNovo);
             }
         }
 
