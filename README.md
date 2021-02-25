@@ -1,6 +1,6 @@
 # Campinas Tech Talents
 
-Este repositório contém meus projetos feitos durante a trilha de formação .NET(C#) para o Campinas Tech Talents.
+Este repositório contém projetos feitos durante a trilha de formação .NET(C#) para o Campinas Tech Talents.  
 Instrutoras: Thamirys Gameiro e Thaise Medeiros.
 
 ---
@@ -22,4 +22,4 @@ Instrutoras: Thamirys Gameiro e Thaise Medeiros.
 
    ![Diagrama ER](diagrama/DiagramaEntidadeRelacionamento.png)
 
-4. **Utilizando Entity Framework**: em andamento...
+4. **Escola API**: projeto ASP.NET Web API desenvolvido com o objetivo de demonstrar a utilização do Entity Framework Core (além do EF Core, foram utilizados os pacotes Design, Tools, SQLServer). Consiste num sistema de cadastramento de professores, alunos, aulas e turmas com inclusão num banco de dados SQL Server. O Postman foi utilizado para testar a inclusão, atualização e exclusão de registros do banco de dados.

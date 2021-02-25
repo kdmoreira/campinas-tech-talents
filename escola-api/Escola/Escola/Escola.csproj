@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Escola.Data\Escola.Data.csproj" />
+    <ProjectReference Include="..\Escola.Domain\Escola.Domain.csproj" />
+  </ItemGroup>
+
+
+</Project>
