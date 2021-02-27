@@ -11,7 +11,7 @@ namespace salao_beleza_dominio
             Servicos = new List<Servico>();
         }
 
-        public int Matricula { get; set; }
+        public int Id { get; set; }
         public string Nome { get; set; }
         public string Telefone { get; set; }
         public Endereco Endereco { get; set; }
@@ -27,6 +27,7 @@ namespace salao_beleza_dominio
         }
         public List<Servico> Servicos { get; set; }
         public float ComissaoAReceber { get; set; }
+        public List<FuncionarioServico> FuncionarioServico { get; set; }
 
         public void Incluir(string nome, string telefone, Endereco endereco, CargoFunc cargo)
         {
@@ -60,7 +61,7 @@ namespace salao_beleza_dominio
 
         public override string ToString()
         {
-            return Matricula + ": " + Nome + ", Tel: " + Telefone + ", Cargo: " +
+            return Id + ": " + Nome + ", Tel: " + Telefone + ", Cargo: " +
                 Cargo + ", " + HorarioEntrada.Hour.ToString("D2") + ":" +
                 HorarioEntrada.Minute.ToString("D2") + " às " + HorarioSaida.Hour.ToString("D2") +
                 ":" + HorarioSaida.Minute.ToString("D2") + ", a receber: " + ComissaoAReceber;

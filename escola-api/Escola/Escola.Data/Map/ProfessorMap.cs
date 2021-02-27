@@ -27,8 +27,6 @@ namespace Escola.Data.Map
             builder.Property(x => x.Ativo).IsRequired();
 
             builder.HasMany<Aula>(x => x.Aulas).WithOne(x => x.Professor);
-
-
         }
     }
 }

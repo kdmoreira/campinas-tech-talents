@@ -20,10 +20,10 @@ namespace salao_beleza_dominio
         {
             int matricula = 0;
             if (Funcionarios.Any())
-                matricula = Funcionarios.Last().Matricula + 1;
+                matricula = Funcionarios.Last().Id + 1;
             else
                 matricula++;
-            funcionario.Matricula = matricula;
+            funcionario.Id = matricula;
             Funcionarios.Add(funcionario);
         }
 
@@ -36,21 +36,21 @@ namespace salao_beleza_dominio
             }
         }
 
-        public void AlterarFuncionario(int matricula, string nomeNovo, string telefoneNovo, Endereco enderecoNovo, CargoFunc cargoNovo)
+        public void AlterarFuncionario(int id, string nomeNovo, string telefoneNovo, Endereco enderecoNovo, CargoFunc cargoNovo)
         {
-            Funcionarios.Find(func => func.Matricula == matricula)
+            Funcionarios.Find(func => func.Id == id)
                 .Alterar(nomeNovo, telefoneNovo, enderecoNovo, cargoNovo);
         }
 
-        public void IncluirServicoDeFuncionario(int matricula, Servico servico)
+        public void IncluirServicoDeFuncionario(int id, Servico servico)
         {
-            Funcionarios.Find(func => func.Matricula == matricula)
+            Funcionarios.Find(func => func.Id == id)
                 .IncluirServico(servico);
         }
 
-        public void ExcluirServicoDeFuncionario(int matricula, int idServ)
+        public void ExcluirServicoDeFuncionario(int id, int idServ)
         {
-            Funcionario func = Funcionarios.Find(funcionario => funcionario.Matricula == matricula);
+            Funcionario func = Funcionarios.Find(funcionario => funcionario.Id == id);
             if (func != null)
             {
                 func.Servicos.RemoveAll(serv => serv.Id == idServ);
@@ -59,7 +59,7 @@ namespace salao_beleza_dominio
 
         public void ExcluirFuncionario(int matricula)
         {
-            Funcionarios.RemoveAll(func => func.Matricula.Equals(matricula));
+            Funcionarios.RemoveAll(func => func.Id.Equals(matricula));
         }
 
         public void Visualizar()
@@ -71,9 +71,9 @@ namespace salao_beleza_dominio
             }
         }
 
-        public Funcionario FuncionarioPorMatricula(int matricula)
+        public Funcionario FuncionarioPorMatricula(int id)
         {
-            return Funcionarios.FirstOrDefault(x => x.Matricula == matricula);
+            return Funcionarios.FirstOrDefault(x => x.Id == id);
         }
 
         public void DadosIniciais()

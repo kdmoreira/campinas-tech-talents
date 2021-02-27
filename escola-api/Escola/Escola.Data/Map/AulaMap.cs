@@ -12,9 +12,8 @@ namespace Escola.Data.Map
 
             builder.HasKey(x => x.Id);
           
-            builder.Property(x => x.Disciplina)
-                .HasColumnType("varchar(30)").IsRequired();
-
+            builder.Property(x => x.Assunto)
+                .HasColumnType("varchar(50)").IsRequired();
         }
     }
 }

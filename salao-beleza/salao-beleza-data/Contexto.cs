@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using salao_beleza_data.Map;
 using salao_beleza_dominio;
 using System;
 
@@ -12,6 +13,10 @@ namespace salao_beleza_data
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<ServicoSolicitado> ServicoSolicitado { get; set; }
         public DbSet<Agendamento> Agendamento { get; set; }
+        public DbSet<Pagamento> Pagamento { get; set; }
+        public DbSet<Gasto> Gasto { get; set; }
+        public DbSet<Caixa> Caixa { get; set; }
+        public DbSet<BalancoMensal> BalancoMensal { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -27,6 +32,10 @@ namespace salao_beleza_data
             modelBuilder.ApplyConfiguration(new ClienteMap());
             modelBuilder.ApplyConfiguration(new ServicoSolicitadoMap());
             modelBuilder.ApplyConfiguration(new AgendamentoMap());
+            modelBuilder.ApplyConfiguration(new PagamentoMap());
+            modelBuilder.ApplyConfiguration(new GastoMap());
+            modelBuilder.ApplyConfiguration(new CaixaMap());
+            modelBuilder.ApplyConfiguration(new BalancoMensalMap());
 
             base.OnModelCreating(modelBuilder);
         }

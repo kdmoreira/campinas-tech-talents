@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace salao_beleza_dominio
 {
     public class Servico
@@ -6,6 +8,7 @@ namespace salao_beleza_dominio
         public string Nome { get; set; }
         public int MinutosParaExecucao { get; set; }
         public float Preco { get; set; }
+        public List<FuncionarioServico> FuncionarioServico { get; set; }
 
         public void Incluir(string nome, int minutosParaExecucao, float preco)
         {
