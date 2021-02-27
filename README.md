@@ -20,6 +20,6 @@ Instrutoras: Thamirys Gameiro e Thaise Medeiros.
    1ª etapa: individualmente, determinar a cardinalidade entre entidades pertencentes ao projeto Salão de Beleza e elaborar um diagrama ligando entidades de duas em duas.  
    2ª etapa: elaboração individual do Diagrama Entidade-Relacionamento completo para o projeto Salão de Beleza:
 
-   ![Diagrama ER](diagrama/DiagramaEntidadeRelacionamento.png)
+   ![Diagrama ER](sql-server/DiagramaEntidadeRelacionamento.png)
 
 4. **Escola API**: projeto ASP.NET Web API desenvolvido com o objetivo de demonstrar a utilização do Entity Framework Core. Consiste num sistema de cadastramento de professores, alunos, aulas e turmas com inclusão num banco de dados SQL Server. O Postman foi utilizado para testar a inclusão, atualização e exclusão de registros do banco de dados.
