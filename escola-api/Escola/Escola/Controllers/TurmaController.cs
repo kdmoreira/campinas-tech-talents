@@ -55,6 +55,7 @@ namespace Escola.Controllers
         [HttpDelete("{id}")]
         public IEnumerable<Turma> Delete(int id)
         {
+            repo.Excluir(id);
             return repo.SelecionarTudo();
         }
     }

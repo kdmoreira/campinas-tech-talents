@@ -11,6 +11,9 @@ namespace Escola.Data
         public DbSet<Professor> Professor { get; set; }
         public DbSet<Aula> Aula { get; set; }
         public DbSet<Turma> Turma { get; set; }
+        public DbSet<TurmaProfessor> TurmaProfessor { get; set; }
+        public DbSet<TurmaAluno> TurmaAluno { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=DESKTOP-JETDHQT\\SQLEXPRESS; DataBase=Escola; Trusted_Connection=True");
@@ -23,6 +26,8 @@ namespace Escola.Data
             modelBuilder.ApplyConfiguration(new ProfessorMap());
             modelBuilder.ApplyConfiguration(new AulaMap());
             modelBuilder.ApplyConfiguration(new TurmaMap());
+            modelBuilder.ApplyConfiguration(new TurmaProfessorMap());
+            modelBuilder.ApplyConfiguration(new TurmaAlunoMap());
 
             base.OnModelCreating(modelBuilder);
         }

@@ -12,48 +12,48 @@ namespace Escola.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AlunoController : ControllerBase
+    public class AulaController : ControllerBase
     {
-        private readonly AlunoRepository repo;
+        private readonly AulaRepository repo;
 
-        public AlunoController()
+        public AulaController()
         {
-            repo = new AlunoRepository();
+            repo = new AulaRepository();
         }
 
-        // GET: api/<AlunoController>
+        // GET: api/<AulaController>
         [HttpGet]
-        public IEnumerable<Aluno> GetAll()
+        public IEnumerable<Aula> GetAll()
         {
             return repo.SelecionarTudo();
         }
 
-        // GET api/<AlunoController>/5
+        // GET api/<AulaController>/5
         [HttpGet("{id}")]
-        public Aluno Get(int id)
+        public Aula Get(int id)
         {
             return repo.Selecionar(id);
         }
 
-        // POST api/<AlunoController>
+        // POST api/<AulaController>
         [HttpPost]
-        public IEnumerable<Aluno> Post([FromBody] Aluno aluno)
+        public IEnumerable<Aula> Post([FromBody] Aula aula)
         {
-            repo.Incluir(aluno);
+            repo.Incluir(aula);
             return repo.SelecionarTudo();
         }
 
-        // PUT api/<AlunoController>/5
+        // PUT api/<AulaController>/5
         [HttpPut("{id}")]
-        public IEnumerable<Aluno> Put(int id, [FromBody] Aluno aluno)
+        public IEnumerable<Aula> Put(int id, [FromBody] Aula aula)
         {
-            repo.Alterar(aluno);
+            repo.Alterar(aula);
             return repo.SelecionarTudo();
         }
 
-        // DELETE api/<AlunoController>/5
+        // DELETE api/<AulaController>/5
         [HttpDelete("{id}")]
-        public IEnumerable<Aluno> Delete(int id)
+        public IEnumerable<Aula> Delete(int id)
         {
             repo.Excluir(id);
             return repo.SelecionarTudo();

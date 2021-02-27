@@ -12,48 +12,48 @@ namespace Escola.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AlunoController : ControllerBase
+    public class TurmaAlunoController : ControllerBase
     {
-        private readonly AlunoRepository repo;
+        private readonly TurmaAlunoRepository repo;
 
-        public AlunoController()
+        public TurmaAlunoController()
         {
-            repo = new AlunoRepository();
+            repo = new TurmaAlunoRepository();
         }
 
-        // GET: api/<AlunoController>
+        // GET: api/<TurmaAlunoController>
         [HttpGet]
-        public IEnumerable<Aluno> GetAll()
+        public IEnumerable<TurmaAluno> GetAll()
         {
             return repo.SelecionarTudo();
         }
 
-        // GET api/<AlunoController>/5
+        // GET api/<TurmaAlunoController>/5
         [HttpGet("{id}")]
-        public Aluno Get(int id)
+        public TurmaAluno Get(int id)
         {
             return repo.Selecionar(id);
         }
 
-        // POST api/<AlunoController>
+        // POST api/<TurmaAlunoController>
         [HttpPost]
-        public IEnumerable<Aluno> Post([FromBody] Aluno aluno)
+        public IEnumerable<TurmaAluno> Post([FromBody] TurmaAluno turmaAluno)
         {
-            repo.Incluir(aluno);
+            repo.Incluir(turmaAluno);
             return repo.SelecionarTudo();
         }
 
-        // PUT api/<AlunoController>/5
-        [HttpPut("{id}")]
-        public IEnumerable<Aluno> Put(int id, [FromBody] Aluno aluno)
+        // PUT api/<TurmaAlunoController>/5
+        [HttpPut]
+        public IEnumerable<TurmaAluno> Put([FromBody] TurmaAluno turmaAluno)
         {
-            repo.Alterar(aluno);
+            repo.Alterar(turmaAluno);
             return repo.SelecionarTudo();
         }
 
-        // DELETE api/<AlunoController>/5
+        // DELETE api/<TurmaAlunoController>/5
         [HttpDelete("{id}")]
-        public IEnumerable<Aluno> Delete(int id)
+        public IEnumerable<TurmaAluno> Delete(int id)
         {
             repo.Excluir(id);
             return repo.SelecionarTudo();

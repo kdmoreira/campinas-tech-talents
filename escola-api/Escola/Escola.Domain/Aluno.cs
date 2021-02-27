@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Escola.Domain
 {
@@ -8,9 +9,8 @@ namespace Escola.Domain
         public string Nome { get; set; }
         public bool Ativo { get; set; }
         public int TurmaID { get; set; }
-
-        // Navigation property
-        public Turma Turma { get; set; }
+        
+        public List<TurmaAluno> TurmaAluno { get; set; }
 
         public decimal Calcular(decimal n1, decimal n2, decimal n3)
         {

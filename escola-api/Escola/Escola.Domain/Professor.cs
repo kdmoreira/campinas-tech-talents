@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Escola.Domain
 {
@@ -14,7 +13,7 @@ namespace Escola.Domain
         public string Conta { get; set; }
         public bool Ativo { get; set; }
 
-        // Navigation property
+        public List<TurmaProfessor> TurmaProfessor { get; set; }
         public List<Aula> Aulas { get; set; }
     }
 }

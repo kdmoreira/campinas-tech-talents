@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Escola.Data.Repository;
+using Escola.Domain;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,36 +14,49 @@ namespace Escola.Controllers
     [ApiController]
     public class ProfessorController : ControllerBase
     {
+        private readonly ProfessorRepository repo;
+
+        public ProfessorController()
+        {
+            repo = new ProfessorRepository();
+        }
+
         // GET: api/<ProfessorController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Professor> GetAll()
         {
-            return new string[] { "value1", "value2" };
+            return repo.SelecionarTudo();
         }
 
         // GET api/<ProfessorController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Professor Get(int id)
         {
-            return "value";
+            return repo.Selecionar(id);
         }
 
         // POST api/<ProfessorController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IEnumerable<Professor> Post([FromBody] Professor professor)
         {
+            repo.Incluir(professor);
+            return repo.SelecionarTudo();
         }
 
         // PUT api/<ProfessorController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IEnumerable<Professor> Put(int id, [FromBody] Professor professor)
         {
+            repo.Alterar(professor);
+            return repo.SelecionarTudo();
         }
 
         // DELETE api/<ProfessorController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IEnumerable<Professor> Delete(int id)
         {
+            repo.Excluir(id);
+            return repo.SelecionarTudo();
         }
     }
 }
