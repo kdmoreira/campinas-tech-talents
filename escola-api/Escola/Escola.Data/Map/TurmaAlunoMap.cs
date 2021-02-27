@@ -10,8 +10,6 @@ namespace Escola.Data.Map
         {
             builder.ToTable("TurmaAluno");
 
-            builder.Property(x => x.Id).UseIdentityColumn();
-
             builder.HasKey(x => new { x.IdAluno, x.IdTurma });
 
             builder.HasOne(t => t.Turma).WithMany(ta => ta.TurmaAluno)
@@ -19,6 +17,8 @@ namespace Escola.Data.Map
 
             builder.HasOne(a => a.Aluno).WithMany(ta => ta.TurmaAluno)
                .HasForeignKey(x => x.IdAluno);
+
+            builder.Property(x => x.Id).UseIdentityColumn();
         }
     }
 }

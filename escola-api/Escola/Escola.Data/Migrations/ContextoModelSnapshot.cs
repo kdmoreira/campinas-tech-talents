@@ -29,12 +29,13 @@ namespace Escola.Data.Migrations
                     b.Property<bool>("Ativo")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Cpf")
+                        .IsRequired()
+                        .HasColumnType("varchar(11)");
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("varchar(150)");
-
-                    b.Property<int>("TurmaID")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

@@ -13,10 +13,15 @@ namespace Escola.Data.Repository
         {
             contexto = new Contexto();
         }
-        public void Incluir(Aluno aluno)
+        public string Incluir(Aluno aluno)
         {
-            contexto.Aluno.Add(aluno);
-            contexto.SaveChanges();
+            if (PermiteCadastro(aluno))
+            {
+                contexto.Aluno.Add(aluno);
+                contexto.SaveChanges();
+                return "Cadastro feito com sucesso!";
+            }
+            return "Aluno já cadastrado.";
         }
 
         public Aluno Selecionar(int id)
@@ -29,10 +34,15 @@ namespace Escola.Data.Repository
             return contexto.Aluno.ToList();
         }
 
-        public void Alterar(Aluno aluno)
+        public string Alterar(Aluno aluno)
         {
-            contexto.Aluno.Update(aluno);
-            contexto.SaveChanges();
+            if (PermiteTurma(aluno))
+            {
+                contexto.Aluno.Update(aluno);
+                contexto.SaveChanges();
+                return "Alteração realizada.";
+            }
+            return "Aluno já frequenta um curso.";
         }
 
         public void Excluir(int id)
@@ -40,6 +50,25 @@ namespace Escola.Data.Repository
             var aluno = Selecionar(id);
             contexto.Aluno.Remove(aluno);
             contexto.SaveChanges();
+        }
+
+        public bool PermiteCadastro(Aluno aluno)
+        {
+            Aluno alunoQuery = contexto.Aluno.FirstOrDefault(x => x.Cpf == aluno.Cpf);
+            if (alunoQuery == null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool PermiteTurma(Aluno aluno)
+        {
+            if (aluno.Ativo)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

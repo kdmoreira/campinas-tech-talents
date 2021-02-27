@@ -37,18 +37,16 @@ namespace Escola.Controllers
 
         // POST api/<AlunoController>
         [HttpPost]
-        public IEnumerable<Aluno> Post([FromBody] Aluno aluno)
+        public string Post([FromBody] Aluno aluno)
         {
-            repo.Incluir(aluno);
-            return repo.SelecionarTudo();
+            return repo.Incluir(aluno);
         }
 
         // PUT api/<AlunoController>/5
         [HttpPut("{id}")]
-        public IEnumerable<Aluno> Put(int id, [FromBody] Aluno aluno)
+        public string Put(int id, [FromBody] Aluno aluno)
         {
-            repo.Alterar(aluno);
-            return repo.SelecionarTudo();
+            return repo.Alterar(aluno);
         }
 
         // DELETE api/<AlunoController>/5

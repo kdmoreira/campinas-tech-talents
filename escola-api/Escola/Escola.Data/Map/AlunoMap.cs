@@ -12,6 +12,9 @@ namespace Escola.Data.Map
 
             builder.HasKey(x => x.Id);
 
+            builder.Property(x => x.Cpf).HasColumnType("varchar(11)")
+                .IsRequired();
+
             builder.Property(x => x.Nome).HasColumnType("varchar(150)")
                 .IsRequired();
 

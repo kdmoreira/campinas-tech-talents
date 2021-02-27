@@ -6,9 +6,9 @@ namespace Escola.Domain
     public class Aluno : ICalculoNota
     {
         public int Id { get; set; }
+        public string Cpf { get; set; }
         public string Nome { get; set; }
         public bool Ativo { get; set; }
-        public int TurmaID { get; set; }
         
         public List<TurmaAluno> TurmaAluno { get; set; }
 
