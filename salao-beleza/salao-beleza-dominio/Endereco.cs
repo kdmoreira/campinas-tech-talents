@@ -1,6 +1,6 @@
 namespace salao_beleza_dominio
 {
-    public class Endereco
+    public class Endereco : IEntity
     {
         public int Id { get; set; }
         public string Logradouro { get; set; }

@@ -4,7 +4,7 @@ using System;
 
 namespace salao_beleza_dominio
 {
-public class Caixa
+public class Caixa : IEntity
     {
         /* Criação de um Caixa por dia, para controle de tudo o que
         foi pago ao salão, devendo ser incluído no BalancoMensal ao final do dia. O caixa registra o total de comissão do dia, o 

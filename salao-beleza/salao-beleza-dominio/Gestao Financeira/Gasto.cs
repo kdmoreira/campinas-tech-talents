@@ -4,7 +4,7 @@ using System.Text;
 
 namespace salao_beleza_dominio
 {
-    public class Gasto
+    public class Gasto : IEntity
     {
         public int Id { get; set; }
         public float Valor { get; set; }

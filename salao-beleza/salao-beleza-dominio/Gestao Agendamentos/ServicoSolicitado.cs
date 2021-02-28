@@ -2,7 +2,7 @@ using System;
 
 namespace salao_beleza_dominio
 {
-public class ServicoSolicitado
+public class ServicoSolicitado : IEntity
     {
         public int Id { get; set; }
         public Servico Servico { get; set; }

@@ -1,6 +1,6 @@
 namespace salao_beleza_dominio
 {
-    public class Pagamento
+    public class Pagamento : IEntity
     {
         /* Pagamento tem um Id para identificar a transação, com agendamento ao qual se refere,
         usado para buscar o funcionário prestador do serviço para que seja creditada a sua comissão

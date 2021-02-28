@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace salao_beleza_dominio
 {
-    public class Funcionario
+    public class Funcionario : IEntity
     {
         public Funcionario()
         {

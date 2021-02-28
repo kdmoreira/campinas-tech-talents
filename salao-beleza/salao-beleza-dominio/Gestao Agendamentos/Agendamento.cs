@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace salao_beleza_dominio
 {
-public class Agendamento
+public class Agendamento : IEntity
     {
         public int Id { get; set; }
         public Cliente Cliente { get; set; }

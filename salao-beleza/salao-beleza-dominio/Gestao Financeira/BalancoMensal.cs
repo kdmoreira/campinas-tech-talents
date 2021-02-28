@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace salao_beleza_dominio
 {
-public class BalancoMensal
+public class BalancoMensal : IEntity
     {
         /*Criação de um BalancoMensal no início mês, no qual deverão
         ser incluídos os caixas (classe Caixa) */

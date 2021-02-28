@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace salao_beleza_dominio
 {
-    public class Servico
+    public class Servico : IEntity
     {
         public int Id { get; set; }
         public string Nome { get; set; }

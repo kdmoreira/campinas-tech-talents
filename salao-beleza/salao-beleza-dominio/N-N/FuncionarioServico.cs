@@ -4,7 +4,7 @@ using System.Text;
 
 namespace salao_beleza_dominio
 {
-    public class FuncionarioServico
+    public class FuncionarioServico : IEntity
     {
         public int Id { get; set; }
         public int IdFuncionario { get; set; }
