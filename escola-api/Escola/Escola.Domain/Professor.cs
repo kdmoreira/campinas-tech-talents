@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Escola.Domain
 {
-    public class Professor
+    public class Professor : IEntity
     {
         public int Id { get; set; }
         public string Nome { get; set; }
@@ -12,7 +12,16 @@ namespace Escola.Domain
         public string Agencia { get; set; }
         public string Conta { get; set; }
         public bool Ativo { get; set; }
+        public Turno Turno { get; set; }
         public List<TurmaProfessor> TurmaProfessor { get; set; }
         public List<Aula> Aulas { get; set; }
+    }
+
+    public enum Turno
+    {
+        Manha,
+        Tarde,
+        Noite,
+        Integral
     }
 }

@@ -56,3 +56,6 @@ C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\obj\Debug\
 C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\obj\Debug\net5.0\ref\Escola.dll
 C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\obj\Debug\net5.0\Escola.pdb
 C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\obj\Debug\net5.0\Escola.genruntimeconfig.cache
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll

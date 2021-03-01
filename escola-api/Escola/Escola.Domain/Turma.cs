@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Escola.Domain
 {
-    public class Turma
+    public class Turma : IEntity
     {
         public int Id { get; set; }
         public string Curso { get; set; }

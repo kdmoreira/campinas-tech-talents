@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Escola.Domain
 {
-    public class Aula
+    public class Aula : IEntity
     {
         public int Id { get; set; }
         public string Assunto { get; set; }

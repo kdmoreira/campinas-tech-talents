@@ -39,14 +39,14 @@ namespace Escola.Controllers
         [HttpPost]
         public string Post([FromBody] Aluno aluno)
         {
-            return repo.Incluir(aluno);
+            return repo.IncluirAluno(aluno);
         }
 
         // PUT api/<AlunoController>/5
         [HttpPut("{id}")]
         public string Put(int id, [FromBody] Aluno aluno)
         {
-            return repo.Alterar(aluno);
+            return repo.AlterarAluno(aluno);
         }
 
         // DELETE api/<AlunoController>/5

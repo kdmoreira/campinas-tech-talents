@@ -2,7 +2,7 @@
 
 namespace Escola.Domain
 {
-    public class TurmaProfessor
+    public class TurmaProfessor : IEntity
     {
         public int Id { get; set; }
         public int IdProfessor { get; set; }

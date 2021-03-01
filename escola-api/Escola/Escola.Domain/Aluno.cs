@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Escola.Domain
 {
-    public class Aluno : ICalculoNota
+    public class Aluno : ICalculoNota, IEntity
     {
         public int Id { get; set; }
         public string Cpf { get; set; }
