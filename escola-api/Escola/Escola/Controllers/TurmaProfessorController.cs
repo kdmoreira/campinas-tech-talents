@@ -25,7 +25,7 @@ namespace Escola.Controllers
         [HttpGet]
         public IEnumerable<TurmaProfessor> GetAll()
         {
-            return repo.SelecionarTudo();
+            return repo.SelecionarTudoCompleto();
         }
 
         // GET api/<TurmaProfessorController>/5

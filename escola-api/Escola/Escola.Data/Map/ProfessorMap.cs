@@ -24,6 +24,8 @@ namespace Escola.Data.Map
 
             builder.Property(x => x.Conta).HasColumnType("varchar(20)");
 
+            builder.Property(x => x.Turno).HasColumnType("int");
+
             builder.Property(x => x.Ativo).IsRequired();
 
             builder.HasMany<Aula>(x => x.Aulas).WithOne(x => x.Professor);
