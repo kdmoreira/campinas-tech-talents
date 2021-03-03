@@ -1,4 +1,5 @@
-﻿using Escola.Data.Repository;
+﻿using Escola.Data.Interface;
+using Escola.Data.Repository;
 using Escola.Domain;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -14,49 +15,49 @@ namespace Escola.Controllers
     [ApiController]
     public class AulaController : ControllerBase
     {
-        private readonly AulaRepository repo;
+        private readonly IAulaRepository _repo;
 
-        public AulaController()
+        public AulaController(IAulaRepository repo)
         {
-            repo = new AulaRepository();
+            _repo = repo;
         }
 
         // GET: api/<AulaController>
         [HttpGet]
         public IEnumerable<Aula> GetAll()
         {
-            return repo.SelecionarTudo();
+            return _repo.SelecionarTudoCompleto();
         }
 
         // GET api/<AulaController>/5
         [HttpGet("{id}")]
         public Aula Get(int id)
         {
-            return repo.Selecionar(id);
+            return _repo.Selecionar(id);
         }
 
         // POST api/<AulaController>
         [HttpPost]
         public IEnumerable<Aula> Post([FromBody] Aula aula)
         {
-            repo.Incluir(aula);
-            return repo.SelecionarTudo();
+            _repo.Incluir(aula);
+            return _repo.SelecionarTudo();
         }
 
         // PUT api/<AulaController>/5
         [HttpPut("{id}")]
         public IEnumerable<Aula> Put(int id, [FromBody] Aula aula)
         {
-            repo.Alterar(aula);
-            return repo.SelecionarTudo();
+            _repo.Alterar(aula);
+            return _repo.SelecionarTudo();
         }
 
         // DELETE api/<AulaController>/5
         [HttpDelete("{id}")]
         public IEnumerable<Aula> Delete(int id)
         {
-            repo.Excluir(id);
-            return repo.SelecionarTudo();
+            _repo.Excluir(id);
+            return _repo.SelecionarTudo();
         }
     }
 }

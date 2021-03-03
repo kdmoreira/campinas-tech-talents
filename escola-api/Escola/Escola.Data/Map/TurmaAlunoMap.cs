@@ -12,13 +12,19 @@ namespace Escola.Data.Map
 
             builder.HasKey(x => new { x.IdAluno, x.IdTurma });
 
-            builder.HasOne(t => t.Turma).WithMany(ta => ta.TurmaAluno)
+            builder.HasOne<Aluno>(ta => ta.Aluno).WithMany(a => a.TurmaAluno)
+                .HasForeignKey(ta => ta.IdAluno);
+
+            builder.HasOne<Turma>(tp => tp.Turma).WithMany(t => t.TurmaAluno)
+                .HasForeignKey(tp => tp.IdTurma);
+
+            /* builder.HasOne(t => t.Turma).WithMany(ta => ta.TurmaAluno)
                 .HasForeignKey(x => x.IdTurma);
 
             builder.HasOne(a => a.Aluno).WithMany(ta => ta.TurmaAluno)
                .HasForeignKey(x => x.IdAluno);
 
-            builder.Property(x => x.Id).UseIdentityColumn();
+            builder.Property(x => x.Id).UseIdentityColumn(); */
         }
     }
 }

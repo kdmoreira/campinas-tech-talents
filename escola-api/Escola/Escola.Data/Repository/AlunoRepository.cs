@@ -3,11 +3,26 @@ using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Escola.Data.Interface;
+using Microsoft.EntityFrameworkCore;
 
 namespace Escola.Data.Repository
 {
-    public class AlunoRepository : BaseRepository<Aluno>
+    public class AlunoRepository : BaseRepository<Aluno>, IAlunoRepository
     {
+        private readonly Guid _guid;
+        public AlunoRepository(Contexto contexto) : base(contexto)
+        {
+            _guid = Guid.NewGuid();
+        }
+
+        public List<Aluno> SelecionarTudoCompleto()
+        {
+            return _contexto.Aluno
+                .Include(x => x.TurmaAluno)
+                .ToList();
+        }
+
         public string IncluirAluno(Aluno aluno)
         {
             if (PermiteCadastro(aluno))
@@ -30,7 +45,7 @@ namespace Escola.Data.Repository
 
         public bool PermiteCadastro(Aluno aluno)
         {
-            Aluno alunoQuery = contexto.Aluno.FirstOrDefault(x => x.Cpf == aluno.Cpf);
+            Aluno alunoQuery = _contexto.Aluno.FirstOrDefault(x => x.Cpf == aluno.Cpf);
             if (alunoQuery == null)
             {
                 return true;

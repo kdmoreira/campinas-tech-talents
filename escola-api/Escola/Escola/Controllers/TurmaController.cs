@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Escola.Data.Interface;
+using Microsoft.Extensions.Logging;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,49 +16,61 @@ namespace Escola.Controllers
     [ApiController]
     public class TurmaController : ControllerBase
     {
-        private readonly TurmaRepository repo;
+        private readonly ITurmaRepository _repo;
+        // Caso queiramos monitorar nosso TurmaController (note no construtor também):
+        private readonly ILogger _logger;
 
-        public TurmaController()
+        public TurmaController(ITurmaRepository repo, ILogger<TurmaController> logger)
         {
-            repo = new TurmaRepository();
+            _repo = repo;
+            _logger = logger;
         }
 
         // GET: api/<TurmaController>
         [HttpGet]
         public IEnumerable<Turma> GetAll()
         {
-            return repo.SelecionarTudo();
+            // Uma recomendação é loggar o que importa, como as exceções
+            try
+            {
+                // throw new System.Exception();
+            }
+            catch (System.Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao recuperar todas as turmas.");
+            }
+            return _repo.SelecionarTudoCompleto();
         }
 
         // GET api/<TurmaController>/5
         [HttpGet("{id}")]
         public Turma Get(int id)
         {
-            return repo.Selecionar(id);
+            return _repo.Selecionar(id);
         }
 
         // POST api/<TurmaController>
         [HttpPost]
         public IEnumerable<Turma> Post([FromBody] Turma turma)
         {
-            repo.Incluir(turma);
-            return repo.SelecionarTudo();
+            _repo.Incluir(turma);
+            return _repo.SelecionarTudo();
         }
 
         // PUT api/<TurmaController>/5
         [HttpPut("{id}")]
         public IEnumerable<Turma> Put(int id, [FromBody] Turma turma)
         {
-            repo.Alterar(turma);
-            return repo.SelecionarTudo();
+            _repo.Alterar(turma);
+            return _repo.SelecionarTudo();
         }
 
         // DELETE api/<TurmaController>/5
         [HttpDelete("{id}")]
         public IEnumerable<Turma> Delete(int id)
         {
-            repo.Excluir(id);
-            return repo.SelecionarTudo();
+            _repo.Excluir(id);
+            return _repo.SelecionarTudo();
         }
     }
 }

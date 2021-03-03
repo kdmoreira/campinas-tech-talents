@@ -1,4 +1,5 @@
-﻿using Escola.Data.Repository;
+﻿using Escola.Data.Interface;
+using Escola.Data.Repository;
 using Escola.Domain;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -14,49 +15,49 @@ namespace Escola.Controllers
     [ApiController]
     public class TurmaAlunoController : ControllerBase
     {
-        private readonly TurmaAlunoRepository repo;
+        private readonly ITurmaAlunoRepository _repo;
 
-        public TurmaAlunoController()
+        public TurmaAlunoController(ITurmaAlunoRepository repo)
         {
-            repo = new TurmaAlunoRepository();
+            _repo = repo;
         }
 
         // GET: api/<TurmaAlunoController>
         [HttpGet]
         public IEnumerable<TurmaAluno> GetAll()
         {
-            return repo.SelecionarTudo();
+            return _repo.SelecionarTudoCompleto();
         }
 
         // GET api/<TurmaAlunoController>/5
         [HttpGet("{id}")]
         public TurmaAluno Get(int id)
         {
-            return repo.Selecionar(id);
+            return _repo.Selecionar(id);
         }
 
         // POST api/<TurmaAlunoController>
         [HttpPost]
         public IEnumerable<TurmaAluno> Post([FromBody] TurmaAluno turmaAluno)
         {
-            repo.Incluir(turmaAluno);
-            return repo.SelecionarTudo();
+            _repo.Incluir(turmaAluno);
+            return _repo.SelecionarTudo();
         }
 
         // PUT api/<TurmaAlunoController>/5
         [HttpPut]
         public IEnumerable<TurmaAluno> Put([FromBody] TurmaAluno turmaAluno)
         {
-            repo.Alterar(turmaAluno);
-            return repo.SelecionarTudo();
+            _repo.Alterar(turmaAluno);
+            return _repo.SelecionarTudo();
         }
 
         // DELETE api/<TurmaAlunoController>/5
         [HttpDelete("{id}")]
         public IEnumerable<TurmaAluno> Delete(int id)
         {
-            repo.Excluir(id);
-            return repo.SelecionarTudo();
+            _repo.Excluir(id);
+            return _repo.SelecionarTudo();
         }
     }
 }

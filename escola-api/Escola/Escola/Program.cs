@@ -18,6 +18,13 @@ namespace Escola
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureLogging(logging =>
+                {
+                    // Loggings mostram infos de como nossa app está se comportando em produção,
+                    // incluindo: erros, partes do código, consumo de memória, CPU, etc
+                    logging.ClearProviders(); // Removendo loggings antigos
+                    logging.AddConsole(); // Indicando que será mostrado no console
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

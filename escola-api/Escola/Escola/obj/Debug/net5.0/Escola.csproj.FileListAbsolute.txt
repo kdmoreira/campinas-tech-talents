@@ -59,3 +59,10 @@ C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\obj\Debug\
 C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\obj\Debug\net5.0\Escola.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\bin\Debug\net5.0\Escola.xml
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\obj\Debug\net5.0\Escola.xml

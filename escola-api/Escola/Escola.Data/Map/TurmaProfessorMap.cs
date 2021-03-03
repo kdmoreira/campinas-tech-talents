@@ -10,15 +10,21 @@ namespace Escola.Data.Map
         {
             builder.ToTable("TurmaProfessor");
 
-            builder.HasKey(x => new { x.IdProfessor, x.IdTurma });
+            builder.HasKey(tp => new { tp.IdProfessor, tp.IdTurma });
 
-            builder.HasOne(t => t.Turma).WithMany(tp => tp.TurmaProfessor)
+            builder.HasOne<Professor>(tp => tp.Professor).WithMany(p => p.TurmaProfessor)
+                .HasForeignKey(tp => tp.IdProfessor);
+
+            builder.HasOne<Turma>(tp => tp.Turma).WithMany(t => t.TurmaProfessor)
+                .HasForeignKey(tp => tp.IdTurma);
+
+            /* builder.HasOne(t => t.Turma).WithMany(tp => tp.TurmaProfessor)
                 .HasForeignKey(x => x.IdTurma);
 
             builder.HasOne(p => p.Professor).WithMany(tp => tp.TurmaProfessor)
                .HasForeignKey(x => x.IdProfessor);
 
-            builder.Property(x => x.Id).UseIdentityColumn();
+            builder.Property(x => x.Id).UseIdentityColumn(); */
         }
     }
 }

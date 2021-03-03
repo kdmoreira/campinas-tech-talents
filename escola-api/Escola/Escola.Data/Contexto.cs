@@ -14,6 +14,11 @@ namespace Escola.Data
         public DbSet<TurmaProfessor> TurmaProfessor { get; set; }
         public DbSet<TurmaAluno> TurmaAluno { get; set; }
 
+        public Contexto(DbContextOptions<Contexto> options) : base(options)
+        {
+
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=DESKTOP-JETDHQT\\SQLEXPRESS; DataBase=Escola; Trusted_Connection=True");
