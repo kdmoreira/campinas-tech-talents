@@ -15,10 +15,8 @@ namespace salao_beleza_data.Map
 
             builder.HasKey(x => x.Id);
 
-            // incluir servico
             builder.HasOne<Servico>(ss => ss.Servico).WithMany(s => s.ServicosSolicitados);
 
-            // incluir funcionario
             builder.HasOne<Funcionario>(ss => ss.Funcionario).WithMany(f => f.ServicosSolicitados);
 
         }

@@ -1,4 +1,6 @@
-﻿namespace salao_beleza_dominio
+﻿using System.Collections.Generic;
+
+namespace salao_beleza_dominio
 {
     public class Cliente : IEntity
     {
@@ -7,6 +9,7 @@
         public string Telefone { get; set; }
         public string Cpf { get; set; }
         public Endereco Endereco { get; set; }
+        public List<Agendamento> Agendamentos { get; set; }
 
         public void Incluir(string nome, string telefone, string cpf, Endereco endereco)
         {

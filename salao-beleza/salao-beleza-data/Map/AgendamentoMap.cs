@@ -15,17 +15,18 @@ namespace salao_beleza_data.Map
 
             builder.HasKey(x => x.Id);
 
-            // incluir cliente
+            builder.HasOne<Cliente>(a => a.Cliente).WithMany(c => c.Agendamentos);
 
-            // incluir servico solicitado
+            builder.HasOne<ServicoSolicitado>(a => a.ServicoSolicitado)
+                .WithMany(ss => ss.Agendamentos);
 
-            // incluir data agendamento
-
-            builder.Property(x => x.Anotacao).HasColumnType("varchar(100)")
+            builder.Property(a => a.DataAgendamento).HasColumnType("datetime")
                 .IsRequired();
 
-            builder.Property(x => x.Status).HasColumnType("varchar(20)")
-                .IsRequired(); // Qual column type para enum?
+            builder.Property(x => x.Anotacao).HasColumnType("varchar(100)");
+
+            builder.Property(x => x.Status).HasColumnType("int")
+                .IsRequired();
 
         }
     }

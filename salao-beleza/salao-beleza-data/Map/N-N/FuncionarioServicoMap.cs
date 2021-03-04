@@ -17,14 +17,11 @@ namespace salao_beleza_data.Map.N_N
 
             builder.HasKey(x => new { x.IdFuncionario, x.IdServico });
 
-            builder.HasOne(x => x.Funcionario).WithMany(x => x.FuncionarioServico)
-                .HasForeignKey(x => x.IdFuncionario);
+            builder.HasOne<Funcionario>(fs => fs.Funcionario).WithMany(f => f.FuncionarioServico)
+                .HasForeignKey(fs => fs.IdFuncionario);
 
-            builder.HasOne(x => x.Servico).WithMany(x => x.FuncionarioServico)
-               .HasForeignKey(x => x.IdServico);
-
-            builder.Property(x => x.Id).UseIdentityColumn();
-
+            builder.HasOne<Servico>(fs => fs.Servico).WithMany(s => s.FuncionarioServico)
+                .HasForeignKey(fs => fs.IdServico);
         }
     }
 }

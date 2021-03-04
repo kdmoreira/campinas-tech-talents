@@ -23,8 +23,6 @@ namespace salao_beleza_data.Map
 
             builder.Property(x => x.Cpf).HasColumnType("varchar(11)")
                .IsRequired();
-
-            // incluir endereço
         }
     }
 }
