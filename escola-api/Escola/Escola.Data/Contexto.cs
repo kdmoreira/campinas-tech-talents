@@ -19,11 +19,12 @@ namespace Escola.Data
 
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        // O método a seguir fica desnecessário após a inclusão no Startup:
+        /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=DESKTOP-JETDHQT\\SQLEXPRESS; DataBase=Escola; Trusted_Connection=True");
             base.OnConfiguring(optionsBuilder);
-        }
+        } */
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

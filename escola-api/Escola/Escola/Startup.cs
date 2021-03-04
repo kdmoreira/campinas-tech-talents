@@ -52,7 +52,9 @@ namespace Escola
 
             // Opção para deixar a connection string nas configurações json:
             //services.AddDbContext<Contexto>(options => options.UseSqlServer(Configuration.GetConnectionString("Escola")));
-            services.AddDbContext<Contexto>(options => options.UseSqlServer(@"Data Source=DESKTOP-JETDHQT\\SQLEXPRESS;Initial Catalog=Escola;Integrated Security=True"));
+            services.AddDbContext<Contexto>(options
+                => options.UseSqlServer(
+                    "Data Source=DESKTOP-JETDHQT\\SQLEXPRESS;Initial Catalog=Escola;Integrated Security=True"));
 
             // Swagger: conjunto de ferramentas desenvolvido para utilizar a OpenAPI (especificação
             // para descrever suas APIs) e tratar esta informação para expô-la
