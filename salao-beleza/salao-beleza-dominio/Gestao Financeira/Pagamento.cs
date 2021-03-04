@@ -9,6 +9,7 @@ namespace salao_beleza_dominio
         public Agendamento AgendamentoRealizado { get; set; }
         public float ValorServico { get; set; }
         public float Comissao { get; set; }
+        public Caixa Caixa { get; set; }
 
         /* No momento da inclusão, o método busca o valor do servico pelo
          agendamento referente ao pagamento, calcula a comissão e atualiza

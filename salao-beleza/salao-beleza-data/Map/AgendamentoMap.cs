@@ -28,6 +28,8 @@ namespace salao_beleza_data.Map
             builder.Property(x => x.Status).HasColumnType("int")
                 .IsRequired();
 
+            builder.HasOne<Pagamento>(a => a.Pagamento)
+                .WithOne(p => p.AgendamentoRealizado);
         }
     }
 }

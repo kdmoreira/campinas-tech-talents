@@ -12,6 +12,7 @@ public class Agendamento : IEntity
         public DateTime DataAgendamento { get; set; }
         public string Anotacao { get; set; }
         public StatusAgenda Status { get; set; }
+        public Pagamento Pagamento { get; set; }
 
         public enum StatusAgenda
         {

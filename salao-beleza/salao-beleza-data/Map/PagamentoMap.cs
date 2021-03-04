@@ -15,13 +15,15 @@ namespace salao_beleza_data.Map
 
             builder.HasKey(x => x.Id);
 
-            // incluir agendamento
+            builder.HasOne<Agendamento>(p => p.AgendamentoRealizado).WithOne(a => a.Pagamento);
 
             builder.Property(x => x.ValorServico).HasColumnType("float")
                 .IsRequired();
 
             builder.Property(x => x.Comissao).HasColumnType("float")
                 .IsRequired();
+
+            builder.HasOne(p => p.Caixa).WithMany(cx => cx.Pagamentos);
         }
     }
 }
