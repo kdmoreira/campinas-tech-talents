@@ -22,6 +22,8 @@ namespace salao_beleza_data.Map
                 .IsRequired();
 
             builder.Property(x => x.Preco).HasColumnType("float").IsRequired();
+
+            builder.HasMany<ServicoSolicitado>(s => s.ServicosSolicitados).WithOne(s => s.Servico);
         }
     }
 }

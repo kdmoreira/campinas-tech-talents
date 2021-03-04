@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Escola.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class TurmaAlunoController : ControllerBase
@@ -24,40 +25,91 @@ namespace Escola.Controllers
 
         // GET: api/<TurmaAlunoController>
         [HttpGet]
-        public IEnumerable<TurmaAluno> GetAll()
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public IActionResult GetAll()
         {
-            return _repo.SelecionarTudoCompleto();
+            try
+            {
+                return Ok(_repo.SelecionarTudoCompleto());
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Aconteceu um erro");
+            }
         }
 
         // GET api/<TurmaAlunoController>/5
         [HttpGet("{id}")]
-        public TurmaAluno Get(int id)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public IActionResult Get(int id)
         {
-            return _repo.Selecionar(id);
+            try
+            {
+                return Ok(_repo.Selecionar(id));
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Aconteceu um erro");
+            }
         }
 
         // POST api/<TurmaAlunoController>
         [HttpPost]
-        public IEnumerable<TurmaAluno> Post([FromBody] TurmaAluno turmaAluno)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public IActionResult Post([FromBody] TurmaAluno turmaAluno)
         {
-            _repo.Incluir(turmaAluno);
-            return _repo.SelecionarTudo();
+            try
+            {
+                _repo.Incluir(turmaAluno);
+                return Ok(_repo.SelecionarTudo());
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Aconteceu um erro");
+            }
+            
         }
 
         // PUT api/<TurmaAlunoController>/5
         [HttpPut]
-        public IEnumerable<TurmaAluno> Put([FromBody] TurmaAluno turmaAluno)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public IActionResult Put([FromBody] TurmaAluno turmaAluno)
         {
-            _repo.Alterar(turmaAluno);
-            return _repo.SelecionarTudo();
+            try
+            {
+                _repo.Alterar(turmaAluno);
+                return Ok(_repo.SelecionarTudo());
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Aconteceu um erro");
+            }         
         }
 
         // DELETE api/<TurmaAlunoController>/5
         [HttpDelete("{id}")]
-        public IEnumerable<TurmaAluno> Delete(int id)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public IActionResult Delete(int id)
         {
-            _repo.Excluir(id);
-            return _repo.SelecionarTudo();
+            try
+            {
+                _repo.Excluir(id);
+                return Ok(_repo.SelecionarTudo());
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Aconteceu um erro");
+            }
         }
     }
 }

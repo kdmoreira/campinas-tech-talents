@@ -19,7 +19,6 @@ namespace Escola.Data.Map
                 .IsRequired();
 
             builder.Property(x => x.Ativo).IsRequired();
-
         }
     }
 }

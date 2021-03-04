@@ -19,7 +19,6 @@ namespace Escola.Data.Map
                 HasColumnType("int").IsRequired();
 
             builder.HasMany<Aula>(x => x.Aulas).WithOne(x => x.Turma);
-
         }
     }
 }

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Escola.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class AulaController : ControllerBase
@@ -24,40 +25,90 @@ namespace Escola.Controllers
 
         // GET: api/<AulaController>
         [HttpGet]
-        public IEnumerable<Aula> GetAll()
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public IActionResult GetAll()
         {
-            return _repo.SelecionarTudoCompleto();
+            try
+            {
+                return Ok(_repo.SelecionarTudoCompleto());
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Aconteceu um erro");
+            }
         }
 
         // GET api/<AulaController>/5
         [HttpGet("{id}")]
-        public Aula Get(int id)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public IActionResult Get(int id)
         {
-            return _repo.Selecionar(id);
+            try
+            {
+                return Ok(_repo.Selecionar(id));
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Aconteceu um erro");
+            }
         }
 
         // POST api/<AulaController>
         [HttpPost]
-        public IEnumerable<Aula> Post([FromBody] Aula aula)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public IActionResult Post([FromBody] Aula aula)
         {
-            _repo.Incluir(aula);
-            return _repo.SelecionarTudo();
+            try
+            {
+                _repo.Incluir(aula);
+                return Ok(_repo.SelecionarTudo());
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Aconteceu um erro");
+            }
         }
 
         // PUT api/<AulaController>/5
         [HttpPut("{id}")]
-        public IEnumerable<Aula> Put(int id, [FromBody] Aula aula)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public IActionResult Put(int id, [FromBody] Aula aula)
         {
-            _repo.Alterar(aula);
-            return _repo.SelecionarTudo();
+            try
+            {
+                _repo.Alterar(aula);
+                return Ok(_repo.SelecionarTudo());
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Aconteceu um erro");
+            }
         }
 
         // DELETE api/<AulaController>/5
         [HttpDelete("{id}")]
-        public IEnumerable<Aula> Delete(int id)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public IActionResult Delete(int id)
         {
-            _repo.Excluir(id);
-            return _repo.SelecionarTudo();
+            try
+            {
+                _repo.Excluir(id);
+                return Ok(_repo.SelecionarTudo());
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Aconteceu um erro");
+            }
         }
     }
 }

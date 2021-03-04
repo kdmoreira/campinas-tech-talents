@@ -15,8 +15,8 @@ namespace Escola.Data.Map
             builder.Property(x => x.Assunto)
                 .HasColumnType("varchar(50)").IsRequired();
 
-            // 03/03
             builder.HasOne<Professor>(a => a.Professor).WithMany(p => p.Aulas);
+
             builder.HasOne<Turma>(a => a.Turma).WithMany(t => t.Aulas);
         }
     }

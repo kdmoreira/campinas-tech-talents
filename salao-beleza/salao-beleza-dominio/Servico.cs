@@ -9,6 +9,7 @@ namespace salao_beleza_dominio
         public int MinutosParaExecucao { get; set; }
         public float Preco { get; set; }
         public List<FuncionarioServico> FuncionarioServico { get; set; }
+        public List<ServicoSolicitado> ServicosSolicitados { get; set; }
 
         public void Incluir(string nome, int minutosParaExecucao, float preco)
         {

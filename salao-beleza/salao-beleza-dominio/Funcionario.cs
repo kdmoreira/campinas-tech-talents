@@ -28,6 +28,7 @@ namespace salao_beleza_dominio
         public List<Servico> Servicos { get; set; }
         public float ComissaoAReceber { get; set; }
         public List<FuncionarioServico> FuncionarioServico { get; set; }
+        public List<ServicoSolicitado> ServicosSolicitados { get; set; }
 
         public void Incluir(string nome, string telefone, Endereco endereco, CargoFunc cargo)
         {

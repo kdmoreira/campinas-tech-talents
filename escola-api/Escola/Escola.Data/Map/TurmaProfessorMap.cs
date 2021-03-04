@@ -17,14 +17,6 @@ namespace Escola.Data.Map
 
             builder.HasOne<Turma>(tp => tp.Turma).WithMany(t => t.TurmaProfessor)
                 .HasForeignKey(tp => tp.IdTurma);
-
-            /* builder.HasOne(t => t.Turma).WithMany(tp => tp.TurmaProfessor)
-                .HasForeignKey(x => x.IdTurma);
-
-            builder.HasOne(p => p.Professor).WithMany(tp => tp.TurmaProfessor)
-               .HasForeignKey(x => x.IdProfessor);
-
-            builder.Property(x => x.Id).UseIdentityColumn(); */
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Escola.Data
         public DbSet<TurmaProfessor> TurmaProfessor { get; set; }
         public DbSet<TurmaAluno> TurmaAluno { get; set; }
 
-        public Contexto(DbContextOptions<Contexto> options) : base(options)
+        public Contexto(DbContextOptions options) : base(options)
         {
 
         }

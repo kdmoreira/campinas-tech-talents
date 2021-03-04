@@ -24,10 +24,20 @@ namespace Escola.Controllers
             _repo = repo;
         }
 
+        /// <summary>
+        /// Retorna todos os alunos registrados.
+        /// </summary>
+        /// <remarks>
+        /// Exemplo de request:
+        /// Get/api/aluno
+        /// </remarks>
+        /// <response code="200">Retorna todos os alunos.</response>
+        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
         // GET: api/<AlunoController>
+        [HttpGet]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
-        [HttpGet]
+        [ProducesResponseType(500)]
         public IActionResult GetAll()
         {
             try
@@ -40,35 +50,115 @@ namespace Escola.Controllers
             }
         }
 
+        /// <summary>
+        /// Retorna um aluno pelo id.
+        /// </summary>
+        /// <param name="id">Identificador do aluno.</param>
+        /// <remarks>
+        /// Exemplo de request:
+        /// Get/api/aluno/id
+        /// </remarks>
+        /// <response code="200">Retorna o aluno com o identificador informado.</response>
+        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
         // GET api/<AlunoController>/5
         [HttpGet("{id}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
-        public Aluno Get(int id)
+        [ProducesResponseType(500)]
+        public IActionResult Get(int id)
         {
-            return _repo.Selecionar(id);
+            try
+            {
+                return Ok(_repo.Selecionar(id));
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Aconteceu um erro");
+            }
         }
 
+        /// <summary>
+        /// Inclui um novo aluno.
+        /// </summary>
+        /// <param name="aluno">Dados do aluno.</param>
+        /// <remarks>
+        /// Exemplo de request:
+        /// Post/api/aluno
+        /// </remarks>
+        /// <response code="200">Retorna todos os alunos.</response>
+        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
         // POST api/<AlunoController>
         [HttpPost]
-        public string Post([FromBody] Aluno aluno)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public IActionResult Post([FromBody] Aluno aluno)
         {
-            return _repo.IncluirAluno(aluno);
+            try
+            {
+                _repo.IncluirAluno(aluno);
+                return Ok(_repo.SelecionarTudo());
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Aconteceu um erro");
+            }
         }
 
+        /// <summary>
+        /// Altera os dados do aluno pelo id informado.
+        /// </summary>
+        /// <param name="id">Identificador do aluno.</param>
+        /// <param name="aluno">Dados do aluno.</param>
+        /// <remarks>
+        /// Exemplo de request:
+        /// Put/api/aluno/id
+        /// </remarks>
+        /// <response code="200">Altera os dados do aluno.</response>
+        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
         // PUT api/<AlunoController>/5
         [HttpPut("{id}")]
-        public string Put(int id, [FromBody] Aluno aluno)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public IActionResult Put(int id, [FromBody] Aluno aluno)
         {
-            return _repo.AlterarAluno(aluno);
+            try
+            {
+                return Ok(_repo.AlterarAluno(aluno));
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Aconteceu um erro");
+            }
         }
 
+        /// <summary>
+        /// Deleta um aluno pelo id.
+        /// </summary>
+        /// <param name="id">Identificador do aluno.</param>
+        /// <remarks>
+        /// Exemplo de request:
+        /// Delete/api/aluno/id
+        /// </remarks>
+        /// <response code="200">Retorna todos os alunos.</response>
+        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
         // DELETE api/<AlunoController>/5
         [HttpDelete("{id}")]
-        public IEnumerable<Aluno> Delete(int id)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public IActionResult Delete(int id)
         {
-            _repo.Excluir(id);
-            return _repo.SelecionarTudo();
+            try
+            {
+                _repo.Excluir(id);
+                return Ok(_repo.SelecionarTudo());
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Aconteceu um erro");
+            }
         }
     }
 }

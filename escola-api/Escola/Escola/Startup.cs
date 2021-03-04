@@ -36,22 +36,23 @@ namespace Escola
                 Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             // Diferenças entre Transient, Scoped e Singleton (ciclos de vida):
-            // Transient: sempre que for solicitado um objeto do continer de injeção de
+            // Transient: sempre que for solicitado um objeto do conteiner de injeção de
             // dependência, um novo objeto será criado
-            services.AddTransient<IAlunoRepository, AlunoRepository>();
-            services.AddTransient<IProfessorRepository, ProfessorRepository>();
             // Scoped: sempre que um escopo é criado, ele cria os objetos e os
             // reutiliza dentro daquele escopo
+            // Singleton: Cria apenas uma instância que existirá enquanto a aplicação rodar, não importa o escopo,
+            // é mais usado em apps desktop, para APIs é recomendado Scoped ou Transient
+            services.AddScoped<IAlunoRepository, AlunoRepository>();
+            services.AddScoped<IProfessorRepository, ProfessorRepository>();
             services.AddScoped<IAulaRepository, AulaRepository>();
             services.AddScoped<ITurmaRepository, TurmaRepository>();
             services.AddScoped<ITurmaProfessorRepository, TurmaProfessorRepository>();
             services.AddScoped<ITurmaAlunoRepository, TurmaAlunoRepository>();
-            // Cria apenas uma instância que existirá enquanto a aplicação rodar, não importa o escopo
-            // é mais usado em apps desktop, para APIs é recomendado Scoped ou Transient
             services.AddSingleton<ITesteSingletonRepository, TesteSingletonRepository>();
 
             // Opção para deixar a connection string nas configurações json:
-            services.AddDbContext<Contexto>(options => options.UseSqlServer(Configuration.GetConnectionString("Escola")));
+            //services.AddDbContext<Contexto>(options => options.UseSqlServer(Configuration.GetConnectionString("Escola")));
+            services.AddDbContext<Contexto>(options => options.UseSqlServer(@"Data Source=DESKTOP-JETDHQT\\SQLEXPRESS;Initial Catalog=Escola;Integrated Security=True"));
 
             // Swagger: conjunto de ferramentas desenvolvido para utilizar a OpenAPI (especificação
             // para descrever suas APIs) e tratar esta informação para expô-la
@@ -89,7 +90,7 @@ namespace Escola
             app.UseSwagger();
             app.UseSwaggerUI(x =>
             {
-                x.SwaggerEndpoint("/swagger/v1/swagger.json", "Meu Projeto");
+                x.SwaggerEndpoint("/swagger/v1/swagger.json", "Projeto Escola");
             });
 
             app.UseRouting();
