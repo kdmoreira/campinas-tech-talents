@@ -26,8 +26,9 @@ namespace salao_beleza_data.Map
             builder.Property(x => x.LucroDiario).HasColumnType("varchar(15)")
                 .IsRequired();
 
-            // Lista pagamentos
+            builder.HasMany<Pagamento>(cx => cx.Pagamentos).WithOne(p => p.Caixa);
 
+            builder.HasOne<BalancoMensal>(cx => cx.BalancoMensal).WithMany(bm => bm.Caixas);
         }
     }
 }

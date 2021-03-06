@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wtNFShKNL0Waac5t/6zUHVu3dVGm8Nk+a6sPGJpzO3mAWH571B4eV39gyXqt8+rachwExYq07CESmdwzJd1xdQ==",
+  "dgSpecHash": "vETcNK6+7SEHKAPKCCwsE2Y3VktnkfNbqCbHFRcyK3ZTbfvjxqylQsay3402oUIB5KkbnUZFUj1FQ1C+mATN8A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Karina Moreira\\capinas-tech-talents\\escola-api\\Escola\\Escola.Data\\Escola.Data.csproj",
+  "projectFilePath": "C:\\Users\\Karina Moreira\\capinas-tech-talents\\escola-api\\Escola\\Escola.Data\\ProjetoEscola.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Karina Moreira\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Karina Moreira\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

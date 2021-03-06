@@ -1,0 +1,12 @@
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola.Domain\bin\Debug\net5.0\ProjetoEscola.Domain.deps.json
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola.Domain\bin\Debug\net5.0\ProjetoEscola.Domain.dll
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola.Domain\bin\Debug\net5.0\ref\ProjetoEscola.Domain.dll
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola.Domain\bin\Debug\net5.0\ProjetoEscola.Domain.pdb
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola.Domain\obj\Debug\net5.0\ProjetoEscola.Domain.csprojAssemblyReference.cache
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola.Domain\obj\Debug\net5.0\ProjetoEscola.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola.Domain\obj\Debug\net5.0\ProjetoEscola.Domain.AssemblyInfoInputs.cache
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola.Domain\obj\Debug\net5.0\ProjetoEscola.Domain.AssemblyInfo.cs
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola.Domain\obj\Debug\net5.0\ProjetoEscola.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola.Domain\obj\Debug\net5.0\ProjetoEscola.Domain.dll
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola.Domain\obj\Debug\net5.0\ref\ProjetoEscola.Domain.dll
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola.Domain\obj\Debug\net5.0\ProjetoEscola.Domain.pdb

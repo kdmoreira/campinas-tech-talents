@@ -15,6 +15,7 @@ public class Caixa : IEntity
         public float ComissaoDiaria { get; set; }
         public float LucroDiario { get; set; }
         public List<Pagamento> Pagamentos { get; set; }
+        public BalancoMensal BalancoMensal { get; set; }
 
         public void AbrirCaixa(DateTime data)
         {

@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProjetoEscola</name>
+    </assembly>
+    <members>
+        <member name="M:Escola.Controllers.AlunoController.GetAll">
+            <summary>
+            Retorna todos os alunos registrados.
+            </summary>
+            <remarks>
+            Exemplo de request:
+            Get/api/aluno
+            </remarks>
+            <response code="200">Retorna todos os alunos.</response>
+            <response code="400">Se acontecer alguma exceção não tratada.</response>
+        </member>
+        <member name="M:Escola.Controllers.AlunoController.Get(System.Int32)">
+            <summary>
+            Retorna um aluno pelo id.
+            </summary>
+            <param name="id">Identificador do aluno.</param>
+            <remarks>
+            Exemplo de request:
+            Get/api/aluno/id
+            </remarks>
+            <response code="200">Retorna o aluno com o identificador informado.</response>
+            <response code="400">Se acontecer alguma exceção não tratada.</response>
+        </member>
+        <member name="M:Escola.Controllers.AlunoController.Post(Escola.Domain.Aluno)">
+            <summary>
+            Inclui um novo aluno.
+            </summary>
+            <param name="aluno">Dados do aluno.</param>
+            <remarks>
+            Exemplo de request:
+            Post/api/aluno
+            </remarks>
+            <response code="200">Retorna todos os alunos.</response>
+            <response code="400">Se acontecer alguma exceção não tratada.</response>
+        </member>
+        <member name="M:Escola.Controllers.AlunoController.Put(System.Int32,Escola.Domain.Aluno)">
+            <summary>
+            Altera os dados do aluno pelo id informado.
+            </summary>
+            <param name="id">Identificador do aluno.</param>
+            <param name="aluno">Dados do aluno.</param>
+            <remarks>
+            Exemplo de request:
+            Put/api/aluno/id
+            </remarks>
+            <response code="200">Altera os dados do aluno.</response>
+            <response code="400">Se acontecer alguma exceção não tratada.</response>
+        </member>
+        <member name="M:Escola.Controllers.AlunoController.Delete(System.Int32)">
+            <summary>
+            Deleta um aluno pelo id.
+            </summary>
+            <param name="id">Identificador do aluno.</param>
+            <remarks>
+            Exemplo de request:
+            Delete/api/aluno/id
+            </remarks>
+            <response code="200">Retorna todos os alunos.</response>
+            <response code="400">Se acontecer alguma exceção não tratada.</response>
+        </member>
+    </members>
+</doc>

@@ -30,11 +30,11 @@ namespace salao_beleza_data.Map
             builder.Property(x => x.LucroMensal).HasColumnType("float")
                 .IsRequired();
 
-            // lista gastos
+            builder.HasMany<Gasto>(bm => bm.Gastos).WithOne(g => g.BalancoMensal);
 
-            // lista caixa
+            builder.HasMany<Caixa>(bm => bm.Caixas).WithOne(cx => cx.BalancoMensal);
 
-            // dicionário comissões pagas
+            // comissões pagas
         }
     }
 }

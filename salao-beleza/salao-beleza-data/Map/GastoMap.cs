@@ -20,6 +20,8 @@ namespace salao_beleza_data.Map
 
             builder.Property(x => x.Motivo).HasColumnType("varchar(50)")
                 .IsRequired();
+
+            builder.HasOne<BalancoMensal>(g => g.BalancoMensal).WithMany(bm => bm.Gastos);
         }
     }
 }

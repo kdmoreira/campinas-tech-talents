@@ -9,6 +9,7 @@ namespace salao_beleza_dominio
         public int Id { get; set; }
         public float Valor { get; set; }
         public string Motivo { get; set; }
+        public BalancoMensal BalancoMensal { get; set; }
 
         public void Incluir(float valor, string motivo)
         {

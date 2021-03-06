@@ -1816,29 +1816,29 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Escola.Data/1.0.0": {
+      "ProjetoEscola.Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "Escola.Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.3",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.3"
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.3",
+          "ProjetoEscola.Domain": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/Escola.Data.dll": {}
+          "bin/placeholder/ProjetoEscola.Data.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Escola.Data.dll": {}
+          "bin/placeholder/ProjetoEscola.Data.dll": {}
         }
       },
-      "Escola.Domain/1.0.0": {
+      "ProjetoEscola.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "compile": {
-          "bin/placeholder/Escola.Domain.dll": {}
+          "bin/placeholder/ProjetoEscola.Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Escola.Domain.dll": {}
+          "bin/placeholder/ProjetoEscola.Domain.dll": {}
         }
       }
     }
@@ -6258,25 +6258,25 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
-    "Escola.Data/1.0.0": {
+    "ProjetoEscola.Data/1.0.0": {
       "type": "project",
-      "path": "../Escola.Data/Escola.Data.csproj",
-      "msbuildProject": "../Escola.Data/Escola.Data.csproj"
+      "path": "../Escola.Data/ProjetoEscola.Data.csproj",
+      "msbuildProject": "../Escola.Data/ProjetoEscola.Data.csproj"
     },
-    "Escola.Domain/1.0.0": {
+    "ProjetoEscola.Domain/1.0.0": {
       "type": "project",
-      "path": "../Escola.Domain/Escola.Domain.csproj",
-      "msbuildProject": "../Escola.Domain/Escola.Domain.csproj"
+      "path": "../Escola.Domain/ProjetoEscola.Domain.csproj",
+      "msbuildProject": "../Escola.Domain/ProjetoEscola.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "Escola.Data >= 1.0.0",
-      "Escola.Domain >= 1.0.0",
       "Microsoft.AspNetCore.Authentication >= 2.2.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.3",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 5.0.3",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.3",
+      "ProjetoEscola.Data >= 1.0.0",
+      "ProjetoEscola.Domain >= 1.0.0",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
@@ -6287,9 +6287,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Karina Moreira\\capinas-tech-talents\\escola-api\\Escola\\Escola\\Escola.csproj",
-      "projectName": "Escola",
-      "projectPath": "C:\\Users\\Karina Moreira\\capinas-tech-talents\\escola-api\\Escola\\Escola\\Escola.csproj",
+      "projectUniqueName": "C:\\Users\\Karina Moreira\\capinas-tech-talents\\escola-api\\Escola\\Escola\\ProjetoEscola.csproj",
+      "projectName": "ProjetoEscola",
+      "projectPath": "C:\\Users\\Karina Moreira\\capinas-tech-talents\\escola-api\\Escola\\Escola\\ProjetoEscola.csproj",
       "packagesPath": "C:\\Users\\Karina Moreira\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Karina Moreira\\capinas-tech-talents\\escola-api\\Escola\\Escola\\obj\\",
       "projectStyle": "PackageReference",
@@ -6311,11 +6311,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Karina Moreira\\capinas-tech-talents\\escola-api\\Escola\\Escola.Data\\Escola.Data.csproj": {
-              "projectPath": "C:\\Users\\Karina Moreira\\capinas-tech-talents\\escola-api\\Escola\\Escola.Data\\Escola.Data.csproj"
+            "C:\\Users\\Karina Moreira\\capinas-tech-talents\\escola-api\\Escola\\Escola.Data\\ProjetoEscola.Data.csproj": {
+              "projectPath": "C:\\Users\\Karina Moreira\\capinas-tech-talents\\escola-api\\Escola\\Escola.Data\\ProjetoEscola.Data.csproj"
             },
-            "C:\\Users\\Karina Moreira\\capinas-tech-talents\\escola-api\\Escola\\Escola.Domain\\Escola.Domain.csproj": {
-              "projectPath": "C:\\Users\\Karina Moreira\\capinas-tech-talents\\escola-api\\Escola\\Escola.Domain\\Escola.Domain.csproj"
+            "C:\\Users\\Karina Moreira\\capinas-tech-talents\\escola-api\\Escola\\Escola.Domain\\ProjetoEscola.Domain.csproj": {
+              "projectPath": "C:\\Users\\Karina Moreira\\capinas-tech-talents\\escola-api\\Escola\\Escola.Domain\\ProjetoEscola.Domain.csproj"
             }
           }
         }

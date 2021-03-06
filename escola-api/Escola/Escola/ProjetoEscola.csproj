@@ -18,8 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Escola.Data\Escola.Data.csproj" />
-    <ProjectReference Include="..\Escola.Domain\Escola.Domain.csproj" />
+    <ProjectReference Include="..\Escola.Data\ProjetoEscola.Data.csproj" />
+    <ProjectReference Include="..\Escola.Domain\ProjetoEscola.Domain.csproj" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
