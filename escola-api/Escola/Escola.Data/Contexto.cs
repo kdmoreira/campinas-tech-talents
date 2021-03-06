@@ -13,6 +13,7 @@ namespace Escola.Data
         public DbSet<Turma> Turma { get; set; }
         public DbSet<TurmaProfessor> TurmaProfessor { get; set; }
         public DbSet<TurmaAluno> TurmaAluno { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
 
         public Contexto(DbContextOptions options) : base(options)
         {
@@ -34,6 +35,7 @@ namespace Escola.Data
             modelBuilder.ApplyConfiguration(new TurmaMap());
             modelBuilder.ApplyConfiguration(new TurmaProfessorMap());
             modelBuilder.ApplyConfiguration(new TurmaAlunoMap());
+            modelBuilder.ApplyConfiguration(new UsuarioMap());
 
             base.OnModelCreating(modelBuilder);
         }

@@ -1,6 +1,7 @@
 ﻿using Escola.Data.Interface;
 using Escola.Data.Repository;
 using Escola.Domain;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -15,6 +16,7 @@ namespace Escola.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize] // Aqui o controller todo precisa de autorização
     public class AlunoController : ControllerBase
     {
         private readonly IAlunoRepository _repo;
@@ -38,6 +40,7 @@ namespace Escola.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
+        [Authorize] // É possível aplicar autorização apenas para métodos também
         public IActionResult GetAll()
         {
             try
@@ -65,6 +68,8 @@ namespace Escola.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
+        [AllowAnonymous] // Mesmo com a controller pedindo autorização,
+        // é possível liberar alguns métodos específicos
         public IActionResult Get(int id)
         {
             try
@@ -92,16 +97,20 @@ namespace Escola.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
+        [Authorize(Roles = "marketing,manager")] // Se alguém não autorizado tentar acessar, ocorrerá um Forbidden
+        // Também serve para a controller inteira
         public IActionResult Post([FromBody] Aluno aluno)
         {
             try
             {
+                if (string.IsNullOrEmpty(aluno.Cpf) || string.IsNullOrEmpty(aluno.Nome))
+                    return BadRequest("Cpf ou Nome não foram informados.");
                 _repo.IncluirAluno(aluno);
                 return Ok(_repo.SelecionarTudo());
             }
             catch (System.Exception)
             {
-                return BadRequest("Aconteceu um erro");
+                return StatusCode(500);
             }
         }
 

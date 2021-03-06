@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Escola.Data.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20210303232117_selecionarTudoCompleto")]
-    partial class selecionarTudoCompleto
+    [Migration("20210306131828_usuario")]
+    partial class usuario
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -158,6 +158,29 @@ namespace Escola.Data.Migrations
                     b.HasIndex("IdTurma");
 
                     b.ToTable("TurmaProfessor");
+                });
+
+            modelBuilder.Entity("Escola.Domain.Usuario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Perfil")
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Usuario");
                 });
 
             modelBuilder.Entity("Escola.Domain.Aula", b =>

@@ -4,14 +4,16 @@ using Escola.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Escola.Data.Migrations
 {
     [DbContext(typeof(Contexto))]
-    partial class ContextoModelSnapshot : ModelSnapshot
+    [Migration("20210304235552_novasMigracoes")]
+    partial class novasMigracoes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -169,12 +171,12 @@ namespace Escola.Data.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(100)");
 
-                    b.Property<string>("Perfil")
-                        .HasColumnType("varchar(100)");
-
                     b.Property<string>("Senha")
                         .IsRequired()
                         .HasColumnType("varchar(20)");
+
+                    b.Property<string>("Token")
+                        .HasColumnType("varchar(MAX)");
 
                     b.HasKey("Id");
 

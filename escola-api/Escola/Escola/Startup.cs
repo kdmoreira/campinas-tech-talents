@@ -1,6 +1,7 @@
 ﻿using Escola.Data;
 using Escola.Data.Interface;
 using Escola.Data.Repository;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -9,12 +10,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Escola
@@ -49,6 +52,7 @@ namespace Escola
             services.AddScoped<ITurmaProfessorRepository, TurmaProfessorRepository>();
             services.AddScoped<ITurmaAlunoRepository, TurmaAlunoRepository>();
             services.AddSingleton<ITesteSingletonRepository, TesteSingletonRepository>();
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
             // Opção para deixar a connection string nas configurações json:
             //services.AddDbContext<Contexto>(options => options.UseSqlServer(Configuration.GetConnectionString("Escola")));
@@ -58,7 +62,7 @@ namespace Escola
 
             // Swagger: conjunto de ferramentas desenvolvido para utilizar a OpenAPI (especificação
             // para descrever suas APIs) e tratar esta informação para expô-la
-            services.AddSwaggerGen(c => 
+            services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
@@ -79,6 +83,23 @@ namespace Escola
                 c.IncludeXmlComments(xmlPath);
             });
 
+            var key = Encoding.ASCII.GetBytes(Configuracoes.Secret);
+            services.AddAuthentication(a =>
+            {
+                a.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                a.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(b =>
+            {
+                b.RequireHttpsMetadata = false;
+                b.SaveToken = true;
+                b.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -97,6 +118,7 @@ namespace Escola
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -63,8 +63,9 @@ C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\bin\Debug\
 C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\obj\Debug\net5.0\Escola.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\bin\Debug\net5.0\Escola.xml
 C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\obj\Debug\net5.0\Escola.xml
 C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\bin\Debug\net5.0\Humanizer.dll
 C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Karina Moreira\capinas-tech-talents\escola-api\Escola\Escola\obj\Debug\net5.0\Escola.MvcApplicationPartsAssemblyInfo.cs
