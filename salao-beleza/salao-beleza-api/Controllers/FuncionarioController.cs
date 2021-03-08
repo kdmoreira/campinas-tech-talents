@@ -42,9 +42,9 @@ namespace salao_beleza_api.Controllers
         [HttpPut("{matricula}")]
         public IEnumerable<Funcionario> Put([FromBody] Funcionario funcionario)
         {
-            baseFuncionarios.AlterarFuncionario(funcionario.Matricula, funcionario.Nome,
+            baseFuncionarios.AlterarFuncionario(funcionario.Id, funcionario.Nome,
                 funcionario.Telefone, funcionario.Endereco, funcionario.Cargo);
-            return baseFuncionarios.Funcionarios;
+            return baseFuncionarios.Funcionarios ;
         }
 
         [HttpDelete("{matricula}")]

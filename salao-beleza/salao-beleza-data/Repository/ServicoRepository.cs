@@ -7,6 +7,11 @@ namespace salao_beleza_data.Repository
 {
     public class ServicoRepository : BaseRepository<Servico>
     {
-
+        /* public List<Servico> SelecionarTudoCompleto()
+        {
+            return _contexto.Servico
+                .Include(x => x.ServicoSolicitado)
+                .ToList();
+        } */
     }
 }

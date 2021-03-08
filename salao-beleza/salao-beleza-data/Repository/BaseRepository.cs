@@ -1,4 +1,5 @@
-﻿using salao_beleza_dominio;
+﻿using salao_beleza_data.Interface;
+using salao_beleza_dominio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,42 +7,46 @@ using System.Text;
 
 namespace salao_beleza_data.Repository
 {
-    public class BaseRepository<T> where T : class, IEntity
+    public class BaseRepository<T> : IBaseRepository<T> where T : class, IEntity
     {
-        protected readonly Contexto contexto;
-
-        public BaseRepository()
+        protected readonly Contexto _contexto;
+        public BaseRepository(Contexto contexto)
         {
-            contexto = new Contexto();
+            _contexto = contexto;
         }
 
         public virtual void Incluir(T entity)
         {
-            contexto.Set<T>().Add(entity);
-            contexto.SaveChanges();
+            _contexto.Set<T>().Add(entity);
+            _contexto.SaveChanges();
         }
 
         public void Alterar(T entity)
         {
-            contexto.Set<T>().Update(entity);
-            contexto.SaveChanges();
+            _contexto.Set<T>().Update(entity);
+            _contexto.SaveChanges();
         }
 
         public T Selecionar(int id)
         {
-            return contexto.Set<T>().FirstOrDefault(x => x.Id == id);
+            return _contexto.Set<T>().FirstOrDefault(x => x.Id == id);
         }
 
-        public List<T> SelecionarTodos()
+        public List<T> SelecionarTudo()
         {
-            return contexto.Set<T>().ToList();
+            return _contexto.Set<T>().ToList();
         }
 
         public void Excluir(int id)
         {
             var entity = Selecionar(id);
-            contexto.Set<T>().Remove(entity);
-            contexto.SaveChanges();
+            _contexto.Set<T>().Remove(entity);
+            _contexto.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            _contexto.Dispose();
         }
     }
 }

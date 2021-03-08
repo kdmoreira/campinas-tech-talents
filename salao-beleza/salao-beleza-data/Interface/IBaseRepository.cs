@@ -1,10 +1,22 @@
-﻿using System;
+﻿using salao_beleza_dominio;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace salao_beleza_data.Interface
 {
-    interface IBaseRepository
+    public interface IBaseRepository<T> where T : class, IEntity
     {
+        void Incluir(T entity);
+
+        void Alterar(T entity);
+
+        T Selecionar(int id);
+
+        List<T> SelecionarTudo();
+
+        void Excluir(int id);
+
+        void Dispose();
     }
 }
