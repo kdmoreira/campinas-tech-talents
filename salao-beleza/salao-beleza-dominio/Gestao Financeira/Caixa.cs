@@ -4,7 +4,7 @@ using System;
 
 namespace salao_beleza_dominio
 {
-public class Caixa : IEntity
+    public class Caixa : IEntity
     {
         /* Criação de um Caixa por dia, para controle de tudo o que
         foi pago ao salão, devendo ser incluído no BalancoMensal ao final do dia. O caixa registra o total de comissão do dia, o 
@@ -17,14 +17,14 @@ public class Caixa : IEntity
         public List<Pagamento> Pagamentos { get; set; }
         public BalancoMensal BalancoMensal { get; set; }
 
-        public void AbrirCaixa(DateTime data)
+        /* public void AbrirCaixa(DateTime data)
         {
             Pagamentos = new List<Pagamento>();
             Data = data;
         }
 
-        /* O id do pagamento é gerado assim que ele é adicionado ao caixa,
-        o valor do pagamento passa a compor o total, a comissão e o lucro */
+        // O id do pagamento é gerado assim que ele é adicionado ao caixa,
+        // o valor do pagamento passa a compor o total, a comissão e o lucro
         public void AdicionarPagamento(Pagamento pagamento)
         {
             int id = 0;
@@ -39,7 +39,7 @@ public class Caixa : IEntity
             LucroDiario = TotalDiario - ComissaoDiaria;
         }
 
-        /* Ao ser fechado, os valores do Caixa passam a integrar o BalancoMensal */
+        // Ao ser fechado, os valores do Caixa passam a integrar o BalancoMensal
         public void FecharCaixa(BalancoMensal balancoMensal)
         {
             int id = 0;
@@ -59,6 +59,6 @@ public class Caixa : IEntity
             return "Caixa: " + Data + "\n" + "Total diário: " + TotalDiario +
                 "\nComissão diária: " + ComissaoDiaria + "\nLucro diário: " +
                 LucroDiario + "\n";
-        }
+        } */
     }
 }

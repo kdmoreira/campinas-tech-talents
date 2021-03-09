@@ -11,7 +11,7 @@ namespace salao_beleza_dominio
         public string Motivo { get; set; }
         public BalancoMensal BalancoMensal { get; set; }
 
-        public void Incluir(float valor, string motivo)
+        /* public void Incluir(float valor, string motivo)
         {
             Valor = valor;
             Motivo = motivo;
@@ -20,6 +20,6 @@ namespace salao_beleza_dominio
         public override string ToString()
         {
             return Motivo + ": " + Valor + "\n";
-        }
+        } */
     }
 }

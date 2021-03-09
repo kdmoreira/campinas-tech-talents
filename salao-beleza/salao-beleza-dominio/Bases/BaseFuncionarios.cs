@@ -7,6 +7,7 @@ namespace salao_beleza_dominio
 {
     public class BaseFuncionarios
     {
+        /*
         public List<Funcionario> Funcionarios { get; set; }
 
         public BaseFuncionarios()
@@ -95,6 +96,6 @@ namespace salao_beleza_dominio
             func2.IncluirServico(serv2);
 
             this.Incluir(func1, func2);
-        }
+        } */
     }
 }

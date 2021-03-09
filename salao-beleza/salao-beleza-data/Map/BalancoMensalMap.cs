@@ -21,20 +21,17 @@ namespace salao_beleza_data.Map
             builder.Property(x => x.Ano).HasColumnType("int")
                 .IsRequired();
 
-            builder.Property(x => x.TotalMensal).HasColumnType("float")
-                .IsRequired();
+            builder.Property(x => x.TotalMensal).HasColumnType("float");
 
-            builder.Property(x => x.ComissaoMensal).HasColumnType("float")
-                .IsRequired();
+            builder.Property(x => x.ComissaoMensal).HasColumnType("float");
 
-            builder.Property(x => x.LucroMensal).HasColumnType("float")
-                .IsRequired();
+            builder.Property(x => x.LucroMensal).HasColumnType("float");
 
             builder.HasMany<Gasto>(bm => bm.Gastos).WithOne(g => g.BalancoMensal);
 
             builder.HasMany<Caixa>(bm => bm.Caixas).WithOne(cx => cx.BalancoMensal);
 
-            // comissões pagas
+            builder.HasMany<Comissao>(bm => bm.ComissoesPagas).WithOne(c => c.BalancoMensal);
         }
     }
 }

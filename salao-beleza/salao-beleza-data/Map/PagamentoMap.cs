@@ -15,7 +15,8 @@ namespace salao_beleza_data.Map
 
             builder.HasKey(x => x.Id);
 
-            builder.HasOne<Agendamento>(p => p.AgendamentoRealizado).WithOne(a => a.Pagamento);
+            builder.HasOne<Agendamento>(p => p.AgendamentoRealizado).WithOne(a => a.Pagamento)
+                .HasForeignKey<Agendamento>(a => a.Id);
 
             builder.Property(x => x.ValorServico).HasColumnType("float")
                 .IsRequired();
@@ -23,7 +24,7 @@ namespace salao_beleza_data.Map
             builder.Property(x => x.Comissao).HasColumnType("float")
                 .IsRequired();
 
-            builder.HasOne(p => p.Caixa).WithMany(cx => cx.Pagamentos);
+            builder.HasOne<Caixa>(p => p.Caixa).WithMany(cx => cx.Pagamentos);
         }
     }
 }

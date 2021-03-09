@@ -13,7 +13,7 @@
             Get/api/aluno
             </remarks>
             <response code="200">Retorna todos os alunos.</response>
-            <response code="400">Se acontecer alguma exceção não tratada.</response>
+            <response code="500">Erro do servidor.</response>
         </member>
         <member name="M:Escola.Controllers.AlunoController.Get(System.Int32)">
             <summary>
@@ -25,7 +25,7 @@
             Get/api/aluno/id
             </remarks>
             <response code="200">Retorna o aluno com o identificador informado.</response>
-            <response code="400">Se acontecer alguma exceção não tratada.</response>
+            <response code="500">Erro do servidor.</response>
         </member>
         <member name="M:Escola.Controllers.AlunoController.Post(Escola.Domain.Aluno)">
             <summary>
@@ -37,7 +37,8 @@
             Post/api/aluno
             </remarks>
             <response code="200">Retorna todos os alunos.</response>
-            <response code="400">Se acontecer alguma exceção não tratada.</response>
+            <response code="400">Se CPF ou Nome não forem informados.</response>
+            <response code="500">Erro do servidor.</response>
         </member>
         <member name="M:Escola.Controllers.AlunoController.Put(System.Int32,Escola.Domain.Aluno)">
             <summary>
@@ -50,7 +51,7 @@
             Put/api/aluno/id
             </remarks>
             <response code="200">Altera os dados do aluno.</response>
-            <response code="400">Se acontecer alguma exceção não tratada.</response>
+            <response code="500">Erro do servidor.</response>
         </member>
         <member name="M:Escola.Controllers.AlunoController.Delete(System.Int32)">
             <summary>
@@ -62,7 +63,333 @@
             Delete/api/aluno/id
             </remarks>
             <response code="200">Retorna todos os alunos.</response>
-            <response code="400">Se acontecer alguma exceção não tratada.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.AulaController.GetAll">
+            <summary>
+            Retorna todas as aulas registradas.
+            </summary>
+            <remarks>
+            Exemplo de request:
+            Get/api/aula
+            </remarks>
+            <response code="200">Retorna todas as aulas.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.AulaController.Get(System.Int32)">
+            <summary>
+            Retorna uma aula pelo id.
+            </summary>
+            <param name="id">Identificador da aula.</param>
+            <remarks>
+            Exemplo de request:
+            Get/api/aula/id
+            </remarks>
+            <response code="200">Retorna a aula com o identificador informado.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.AulaController.Post(Escola.Domain.Aula)">
+            <summary>
+            Inclui uma nova aula.
+            </summary>
+            <param name="aula">Dados da aula.</param>
+            <remarks>
+            Exemplo de request:
+            Post/api/aula
+            </remarks>
+            <response code="200">Retorna todas as aulas.</response>
+            <response code="400">Se o Assunto da aula não for informado.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.AulaController.Put(System.Int32,Escola.Domain.Aula)">
+            <summary>
+            Altera os dados da aula pelo id informado.
+            </summary>
+            <param name="id">Identificador da aula.</param>
+            <param name="aula">Dados da aula.</param>
+            <remarks>
+            Exemplo de request:
+            Put/api/aula/id
+            </remarks>
+            <response code="200">Altera a aula.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.AulaController.Delete(System.Int32)">
+            <summary>
+            Deleta uma aula pelo id.
+            </summary>
+            <param name="id">Identificador da aula.</param>
+            <remarks>
+            Exemplo de request:
+            Delete/api/aula/id
+            </remarks>
+            <response code="200">Retorna todas as aulas.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.HomeController.Login(Escola.Domain.Usuario)">
+            <summary>
+            Realiza login de usuário.
+            </summary>
+            <param name="usuarioDto">Dados do usuário.</param>
+            <remarks>
+            Exemplo de request:
+            Post/api/home/login
+            </remarks>
+            <response code="200">Gera um token para o usuário.</response>
+            <response code="400">Se Nome ou Senha forem nulos.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.ProfessorController.GetAll">
+            <summary>
+            Retorna todos os professores registrados.
+            </summary>
+            <remarks>
+            Exemplo de request:
+            Get/api/professor
+            </remarks>
+            <response code="200">Retorna todos os professores.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.ProfessorController.Get(System.Int32)">
+            <summary>
+            Retorna um professor pelo id.
+            </summary>
+            <param name="id">Identificador do professor.</param>
+            <remarks>
+            Exemplo de request:
+            Get/api/professor/id
+            </remarks>
+            <response code="200">Retorna o professor com o identificador informado.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.ProfessorController.Post(Escola.Domain.Professor)">
+            <summary>
+            Inclui um novo professor.
+            </summary>
+            <param name="professor">Dados do professor.</param>
+            <remarks>
+            Exemplo de request:
+            Post/api/professor
+            </remarks>
+            <response code="200">Retorna todos os professores.</response>
+            <response code="400">Se o Nome ou Email do professor não forem informados.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.ProfessorController.Put(System.Int32,Escola.Domain.Professor)">
+            <summary>
+            Altera os dados do professor pelo id informado.
+            </summary>
+            <param name="id">Identificador do professor.</param>
+            <param name="professor">Dados do professor.</param>
+            <remarks>
+            Exemplo de request:
+            Put/api/professor/id
+            </remarks>
+            <response code="200">Altera os dados do professor.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.ProfessorController.Delete(System.Int32)">
+            <summary>
+            Deleta um professor pelo id.
+            </summary>
+            <param name="id">Identificador do professor.</param>
+            <remarks>
+            Exemplo de request:
+            Delete/api/professor/id
+            </remarks>
+            <response code="200">Retorna todos os professores.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.TurmaAlunoController.GetAll">
+            <summary>
+            Retorna todas as TurmaAluno registradas.
+            </summary>
+            <remarks>
+            Exemplo de request:
+            Get/api/turmaaluno
+            </remarks>
+            <response code="200">Retorna todas as TurmaAluno.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.TurmaAlunoController.Get(System.Int32)">
+            <summary>
+            Retorna uma TurmaAluno pelo id.
+            </summary>
+            <param name="id">Identificador da TurmaAluno.</param>
+            <remarks>
+            Exemplo de request:
+            Get/api/turmaaluno/id
+            </remarks>
+            <response code="200">Retorna a TurmaAluno com o identificador informado.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.TurmaAlunoController.Post(Escola.Domain.TurmaAluno)">
+            <summary>
+            Inclui uma nova TurmaAluno.
+            </summary>
+            <param name="turmaAluno">Dados da TurmaAluno.</param>
+            <remarks>
+            Exemplo de request:
+            Post/api/turmaaluno
+            </remarks>
+            <response code="200">Retorna todas as TurmaAluno.</response>
+            <response code="400">Se houver algum erro na inclusão.</response>
+        </member>
+        <member name="M:Escola.Controllers.TurmaAlunoController.Put(Escola.Domain.TurmaAluno)">
+            <summary>
+            Altera os dados da TurmaAluno pelo id informado.
+            </summary>
+            <param name="turmaAluno">Dados da TurmaAluno.</param>
+            <remarks>
+            Exemplo de request:
+            Put/api/turmaaluno/id
+            </remarks>
+            <response code="200">Altera os dados da TurmaAluno.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.TurmaAlunoController.Delete(System.Int32)">
+            <summary>
+            Deleta uma TurmaAluno pelo id.
+            </summary>
+            <param name="id">Identificador da TurmaAluno.</param>
+            <remarks>
+            Exemplo de request:
+            Delete/api/turmaaluno/id
+            </remarks>
+            <response code="200">Retorna todas as TurmaAluno.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.TurmaController.GetAll">
+            <summary>
+            Retorna todas as turmas registradas.
+            </summary>
+            <remarks>
+            Exemplo de request:
+            Get/api/turma
+            </remarks>
+            <response code="200">Retorna todas as turmas.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.TurmaController.Get(System.Int32)">
+            <summary>
+            Retorna uma turma pelo id.
+            </summary>
+            <param name="id">Identificador da turma.</param>
+            <remarks>
+            Exemplo de request:
+            Get/api/turma/id
+            </remarks>
+            <response code="200">Retorna a turma com o identificador informado.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.TurmaController.Post(Escola.Domain.Turma)">
+            <summary>
+            Inclui uma nova turma.
+            </summary>
+            <param name="turma">Dados da turma.</param>
+            <remarks>
+            Exemplo de request:
+            Post/api/turma
+            </remarks>
+            <response code="200">Retorna todas as turmas.</response>
+            <response code="400">Se Curso ou Edição não forem informados.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.TurmaController.Put(System.Int32,Escola.Domain.Turma)">
+            <summary>
+            Altera os dados da turma pelo id informado.
+            </summary>
+            <param name="id">Identificador da turma.</param>
+            <param name="turma">Dados da turma.</param>
+            <remarks>
+            Exemplo de request:
+            Put/api/turma/id
+            </remarks>
+            <response code="200">Altera os dados da turma.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.TurmaController.Delete(System.Int32)">
+            <summary>
+            Deleta uma turma pelo id.
+            </summary>
+            <param name="id">Identificador da turma.</param>
+            <remarks>
+            Exemplo de request:
+            Delete/api/turma/id
+            </remarks>
+            <response code="200">Retorna todas as turmas.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.TurmaProfessorController.GetAll">
+            <summary>
+            Retorna todas as TurmaProfessor registradas.
+            </summary>
+            <remarks>
+            Exemplo de request:
+            Get/api/turmaprofessor
+            </remarks>
+            <response code="200">Retorna todas as TurmaProfessor.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.TurmaProfessorController.Get(System.Int32)">
+            <summary>
+            Retorna uma TurmaProfessor pelo id.
+            </summary>
+            <param name="id">Identificador da TurmaProfessor.</param>
+            <remarks>
+            Exemplo de request:
+            Get/api/turmaprofessor/id
+            </remarks>
+            <response code="200">Retorna a TurmaProfessor com o identificador informado.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.TurmaProfessorController.Post(Escola.Domain.TurmaProfessor)">
+            <summary>
+            Inclui uma nova TurmaProfessor.
+            </summary>
+            <param name="turmaProfessor">Dados da TurmaProfessor.</param>
+            <remarks>
+            Exemplo de request:
+            Post/api/turmaprofessor
+            </remarks>
+            <response code="200">Retorna todas as TurmaProfessor.</response>
+            <response code="400">Se houver algum erro na inclusão.</response>
+        </member>
+        <member name="M:Escola.Controllers.TurmaProfessorController.Put(Escola.Domain.TurmaProfessor)">
+            <summary>
+            Altera os dados da TurmaProfessor pelo id informado.
+            </summary>
+            <param name="turmaProfessor">Dados da TurmaProfessor.</param>
+            <remarks>
+            Exemplo de request:
+            Put/api/turmaprofessor/id
+            </remarks>
+            <response code="200">Altera os dados da TurmaProfessor.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.TurmaProfessorController.Delete(System.Int32)">
+            <summary>
+            Deleta uma TurmaProfessor pelo id.
+            </summary>
+            <param name="id">Identificador da TurmaProfessor.</param>
+            <remarks>
+            Exemplo de request:
+            Delete/api/turmaprofessor/id
+            </remarks>
+            <response code="200">Retorna todas as TurmaProfessor.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:Escola.Controllers.UsuarioController.Post(Escola.Domain.Usuario)">
+            <summary>
+            Inclui um novo usuário.
+            </summary>
+            <remarks>
+            Exemplo de request:
+            Get/api/usuario
+            </remarks>
+            <response code="200">Retorna todos os usuários.</response>
+            <response code="400">Se Nome ou Senha não forem informados.</response>
+            <response code="500">Erro do servidor.</response>
         </member>
     </members>
 </doc>

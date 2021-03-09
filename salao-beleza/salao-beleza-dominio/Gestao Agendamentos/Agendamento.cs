@@ -24,7 +24,7 @@ public class Agendamento : IEntity
             Pendente
         }
 
-        public void IncluirAgendamento(Cliente cliente, 
+        /* public void IncluirAgendamento(Cliente cliente, 
             ServicoSolicitado servicoParaAgendar,
             DateTime dataAgendamento, BaseAgendamentos agenda, string anotacao = "")
         {
@@ -84,7 +84,7 @@ public class Agendamento : IEntity
         {
             return DataAgendamento + ": " + Cliente.Nome + " / " + ServicoSolicitado +
                 " / Status agenda: " + Status;
-        }
+        } */
 
     }
 }

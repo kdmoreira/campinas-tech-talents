@@ -33,8 +33,11 @@ namespace salao_beleza_data.Map
             builder.Property(x => x.Numero).HasColumnType("varchar(10)")
                 .IsRequired();
 
-            builder.Property(x => x.Complemento).HasColumnType("varchar(10)")
-                .IsRequired();
+            builder.Property(x => x.Complemento).HasColumnType("varchar(10)");
+
+            builder.HasMany<Cliente>(e => e.Clientes).WithOne(c => c.Endereco);
+
+            builder.HasMany<Funcionario>(e => e.Funcionarios).WithOne(f => f.Endereco);
         }
     }
 }

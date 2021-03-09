@@ -20,8 +20,7 @@ namespace salao_beleza_data.Map
             builder.HasOne<ServicoSolicitado>(a => a.ServicoSolicitado)
                 .WithMany(ss => ss.Agendamentos);
 
-            builder.Property(a => a.DataAgendamento).HasColumnType("datetime")
-                .IsRequired();
+            builder.Property(a => a.DataAgendamento).HasColumnType("datetime");
 
             builder.Property(x => x.Anotacao).HasColumnType("varchar(100)");
 

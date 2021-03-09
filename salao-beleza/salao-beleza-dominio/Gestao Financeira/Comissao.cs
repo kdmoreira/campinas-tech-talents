@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace salao_beleza_dominio.Gestao_Financeira
+namespace salao_beleza_dominio
 {
-    class Comissao
+    public class Comissao : IEntity
     {
+        public int Id { get; set; }
+        public Funcionario Funcionario { get; set; }
+        public float Valor { get; set; }
+        public BalancoMensal BalancoMensal { get; set; }
     }
 }

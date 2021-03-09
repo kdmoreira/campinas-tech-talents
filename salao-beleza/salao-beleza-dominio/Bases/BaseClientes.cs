@@ -6,7 +6,7 @@ namespace salao_beleza_dominio
 {
     public class BaseClientes
     {
-        public List<Cliente> Clientes { get; set; }
+        /* public List<Cliente> Clientes { get; set; }
 
         public BaseClientes()
         {
@@ -57,6 +57,6 @@ namespace salao_beleza_dominio
                 Console.WriteLine(cliente);
             }
             Console.WriteLine();
-        }
+        } */
     }
 }

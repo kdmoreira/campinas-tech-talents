@@ -11,7 +11,7 @@ namespace salao_beleza_dominio
         public Endereco Endereco { get; set; }
         public List<Agendamento> Agendamentos { get; set; }
 
-        public void Incluir(string nome, string telefone, string cpf, Endereco endereco)
+        /* public void Incluir(string nome, string telefone, string cpf, Endereco endereco)
         {
             Nome = nome;
             Telefone = telefone;
@@ -29,6 +29,6 @@ namespace salao_beleza_dominio
         public override string ToString()
         {
             return Id + ": " + Nome + ", Tel: " + Telefone + ", CPF: " + Cpf;
-        }
+        } */
     }
 }

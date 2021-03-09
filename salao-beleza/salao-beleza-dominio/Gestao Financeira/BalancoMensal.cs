@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using salao_beleza_dominio;
 
 namespace salao_beleza_dominio
 {
@@ -16,16 +17,16 @@ public class BalancoMensal : IEntity
         public float LucroMensal { get; set; }
         public List<Gasto> Gastos { get; set; }
         public List<Caixa> Caixas { get; set; }
-        public Dictionary<Funcionario, float> ComissoesPagas { get; set; }
+        public List<Comissao> ComissoesPagas { get; set; }
 
-        public void NovoBalanco(int id, DateTime data)
+        /* public void NovoBalanco(int id, DateTime data)
         {
             Id = Id;
             Mes = data.Month;
             Ano = data.Year;
             Gastos = new List<Gasto>();
             Caixas = new List<Caixa>();
-            ComissoesPagas = new Dictionary<Funcionario, float>();
+            ComissoesPagas = new List<Comissao>();
         }
 
         // Recebe um gasto, inclui na lista e debita o valor do lucro mensal
@@ -44,7 +45,8 @@ public class BalancoMensal : IEntity
         /* O método abaixo equivale a pagar todas as comissões de uma
         vez, zerando a propriedade ComissaoAReceber de cada funcionário
         do salão, e registrando no dicionário ComissoesPagas o quanto
-        cada funcionário recebeu naquele mês */
+        cada funcionário recebeu naquele mês
+
         public void PagarComissoes(BaseFuncionarios baseFuncionarios)
         {
             foreach (Funcionario funcionario in baseFuncionarios.Funcionarios)
@@ -67,6 +69,6 @@ public class BalancoMensal : IEntity
             return "Balanço Mensal: " + Mes + "/" + Ano + "\n" + "Total mensal: " + TotalMensal +
                 "\nComissão mensal: " + ComissaoMensal + "\nLucro mensal: " +
                 LucroMensal + "\n";
-        }
+        } */
     }
 }

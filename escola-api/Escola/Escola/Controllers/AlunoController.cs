@@ -34,13 +34,12 @@ namespace Escola.Controllers
         /// Get/api/aluno
         /// </remarks>
         /// <response code="200">Retorna todos os alunos.</response>
-        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
+        /// <response code="500">Erro do servidor.</response>
         // GET: api/<AlunoController>
         [HttpGet]
         [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
         [ProducesResponseType(500)]
-        [Authorize] // É possível aplicar autorização apenas para métodos também
+        //[Authorize] // É possível aplicar autorização apenas para métodos também
         public IActionResult GetAll()
         {
             try
@@ -49,7 +48,7 @@ namespace Escola.Controllers
             }
             catch (System.Exception)
             {
-                return BadRequest("Aconteceu um erro");
+                return StatusCode(500);
             }
         }
 
@@ -62,11 +61,10 @@ namespace Escola.Controllers
         /// Get/api/aluno/id
         /// </remarks>
         /// <response code="200">Retorna o aluno com o identificador informado.</response>
-        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
+        /// <response code="500">Erro do servidor.</response>
         // GET api/<AlunoController>/5
         [HttpGet("{id}")]
         [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
         [ProducesResponseType(500)]
         [AllowAnonymous] // Mesmo com a controller pedindo autorização,
         // é possível liberar alguns métodos específicos
@@ -78,7 +76,7 @@ namespace Escola.Controllers
             }
             catch (System.Exception)
             {
-                return BadRequest("Aconteceu um erro");
+                return StatusCode(500);
             }
         }
 
@@ -91,7 +89,8 @@ namespace Escola.Controllers
         /// Post/api/aluno
         /// </remarks>
         /// <response code="200">Retorna todos os alunos.</response>
-        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
+        /// <response code="400">Se CPF ou Nome não forem informados.</response>
+        /// <response code="500">Erro do servidor.</response>
         // POST api/<AlunoController>
         [HttpPost]
         [ProducesResponseType(200)]
@@ -124,21 +123,21 @@ namespace Escola.Controllers
         /// Put/api/aluno/id
         /// </remarks>
         /// <response code="200">Altera os dados do aluno.</response>
-        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
+        /// <response code="500">Erro do servidor.</response>
         // PUT api/<AlunoController>/5
         [HttpPut("{id}")]
         [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
         [ProducesResponseType(500)]
         public IActionResult Put(int id, [FromBody] Aluno aluno)
         {
             try
             {
-                return Ok(_repo.AlterarAluno(aluno));
+                _repo.AlterarAluno(aluno);
+                return Ok(_repo.SelecionarTudo());
             }
             catch (System.Exception)
             {
-                return BadRequest("Aconteceu um erro");
+                return StatusCode(500);
             }
         }
 
@@ -151,11 +150,10 @@ namespace Escola.Controllers
         /// Delete/api/aluno/id
         /// </remarks>
         /// <response code="200">Retorna todos os alunos.</response>
-        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
+        /// <response code="500">Erro do servidor.</response>
         // DELETE api/<AlunoController>/5
         [HttpDelete("{id}")]
         [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
         [ProducesResponseType(500)]
         public IActionResult Delete(int id)
         {
@@ -166,7 +164,7 @@ namespace Escola.Controllers
             }
             catch (System.Exception)
             {
-                return BadRequest("Aconteceu um erro");
+                return StatusCode(500);
             }
         }
     }

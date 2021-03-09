@@ -16,35 +16,23 @@ namespace Escola.Controllers
     public class HomeController : ControllerBase
     {
         private readonly IUsuarioRepository _usuarioRepo;
-
-        // Testando o Logger:
-        
-        /* private readonly IAlunoRepository _alunoRepo;
+        private readonly IAlunoRepository _alunoRepo;
         private readonly ITurmaRepository _turmaRepo;
         private readonly IProfessorRepository _professorRepo;
-        private readonly ITesteRepository _testeRepo;
-        private readonly ITesteSingletonRepository _testeSingletonRepo;
         private readonly ILogger _logger;
 
-        public HomeController(IAlunoRepository alunoRepo, ITurmaRepository turmaRepo,
-            IProfessorRepository professorRepo, ITesteRepository testeRepo,
-            ITesteSingletonRepository testeSingletonRepo, ILogger<HomeController> logger)
+        public HomeController(IUsuarioRepository usuarioRepo, IAlunoRepository alunoRepo, ITurmaRepository turmaRepo,
+            IProfessorRepository professorRepo, ILogger<HomeController> logger)
         {
             _alunoRepo = alunoRepo;
             _turmaRepo = turmaRepo;
             _professorRepo = professorRepo;
-            _testeRepo = testeRepo;
-            _testeSingletonRepo = testeSingletonRepo;
             _logger = logger;
-        } */
-
-        public HomeController(IUsuarioRepository usuarioRepo)
-        {
             _usuarioRepo = usuarioRepo;
         }
 
         // Método referente ao logger:
-        /*
+        
         [HttpGet]
         public string GetLogger()
         {
@@ -56,8 +44,19 @@ namespace Escola.Controllers
 
             return "";
         }
-        */
+        
 
+        /// <summary>
+        /// Realiza login de usuário.
+        /// </summary>
+        /// <param name="usuarioDto">Dados do usuário.</param>
+        /// <remarks>
+        /// Exemplo de request:
+        /// Post/api/home/login
+        /// </remarks>
+        /// <response code="200">Gera um token para o usuário.</response>
+        /// <response code="400">Se Nome ou Senha forem nulos.</response>
+        /// <response code="500">Erro do servidor.</response>
         [HttpPost]
         [Route("login")]
         public IActionResult Login([FromBody] Usuario usuarioDto)

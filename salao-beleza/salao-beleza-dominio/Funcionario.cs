@@ -6,18 +6,18 @@ namespace salao_beleza_dominio
 {
     public class Funcionario : IEntity
     {
-        public Funcionario()
-        {
-            Servicos = new List<Servico>();
-        }
+        //public Funcionario()
+        //{
+        //    Servicos = new List<Servico>();
+        //}
 
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Telefone { get; set; }
         public Endereco Endereco { get; set; }
         public CargoFunc Cargo { get; set; }
-        public DateTime HorarioEntrada { get { return Convert.ToDateTime("10:00"); } }
-        public DateTime HorarioSaida { get { return Convert.ToDateTime("19:00"); } }
+        public DateTime HorarioEntrada { get; set; }
+        public DateTime HorarioSaida { get; set; }
         public enum CargoFunc
         {
             Cabeleireiro,
@@ -25,12 +25,13 @@ namespace salao_beleza_dominio
             Esteticista,
             Barbeiro
         }
-        public List<Servico> Servicos { get; set; }
+        // public List<Servico> Servicos { get; set; }
         public float ComissaoAReceber { get; set; }
+        public List<Comissao> ComissoesRecebidas { get; set; }
         public List<FuncionarioServico> FuncionarioServico { get; set; }
         public List<ServicoSolicitado> ServicosSolicitados { get; set; }
 
-        public void Incluir(string nome, string telefone, Endereco endereco, CargoFunc cargo)
+        /* public void Incluir(string nome, string telefone, Endereco endereco, CargoFunc cargo)
         {
             Nome = nome;
             Telefone = telefone;
@@ -66,6 +67,6 @@ namespace salao_beleza_dominio
                 Cargo + ", " + HorarioEntrada.Hour.ToString("D2") + ":" +
                 HorarioEntrada.Minute.ToString("D2") + " às " + HorarioSaida.Hour.ToString("D2") +
                 ":" + HorarioSaida.Minute.ToString("D2") + ", a receber: " + ComissaoAReceber;
-        }
+        } */
     }
 }

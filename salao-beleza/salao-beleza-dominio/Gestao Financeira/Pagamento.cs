@@ -11,9 +11,10 @@ namespace salao_beleza_dominio
         public float Comissao { get; set; }
         public Caixa Caixa { get; set; }
 
-        /* No momento da inclusão, o método busca o valor do servico pelo
-         agendamento referente ao pagamento, calcula a comissão e atualiza
-        a propriedade "ComissãoAReceber", em Funcionario */
+        // No momento da inclusão, o método busca o valor do servico pelo
+        // agendamento referente ao pagamento, calcula a comissão e atualiza
+        // a propriedade "ComissãoAReceber", em Funcionario
+        /* 
         public void Incluir(Agendamento agendamentoRealizado, Caixa caixa)
         {
             AgendamentoRealizado = agendamentoRealizado;
@@ -27,6 +28,6 @@ namespace salao_beleza_dominio
         {
             return "Pagamento: ref. agendamento " + AgendamentoRealizado.Id +
                 ", valor: " + ValorServico + ", comissão: " + Comissao + "\n";
-        }
+        } */
     }
 }

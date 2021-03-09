@@ -13,8 +13,6 @@ namespace salao_beleza_data.Map.N_N
         {
             builder.ToTable("FuncionarioServico");
 
-            builder.HasKey(x => x.Id);
-
             builder.HasKey(x => new { x.IdFuncionario, x.IdServico });
 
             builder.HasOne<Funcionario>(fs => fs.Funcionario).WithMany(f => f.FuncionarioServico)

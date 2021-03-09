@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace salao_beleza_dominio
 {
     public class Endereco : IEntity
@@ -10,8 +12,10 @@ namespace salao_beleza_dominio
         public string UF { get; set; }
         public string Numero { get; set; }
         public string Complemento { get; set; }
+        public List<Funcionario> Funcionarios { get; set; }
+        public List<Cliente> Clientes { get; set; }
 
-        public void Incluir(int id, string logradouro, string cep, string bairro, string cidade,
+        /* public void Incluir(int id, string logradouro, string cep, string bairro, string cidade,
             string uf, string numero, string compl)
         {
             Id = id;
@@ -34,6 +38,6 @@ namespace salao_beleza_dominio
             UF = uf;
             Numero = numero;
             Complemento = compl;
-        }
+        } */
     }
 }

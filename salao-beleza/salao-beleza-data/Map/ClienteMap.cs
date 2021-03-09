@@ -23,6 +23,8 @@ namespace salao_beleza_data.Map
 
             builder.Property(x => x.Cpf).HasColumnType("varchar(11)")
                .IsRequired();
+
+            builder.HasOne<Endereco>(c => c.Endereco).WithMany(e => e.Clientes);
         }
     }
 }

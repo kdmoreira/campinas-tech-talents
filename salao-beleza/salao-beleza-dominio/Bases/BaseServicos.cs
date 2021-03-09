@@ -5,7 +5,7 @@ namespace salao_beleza_dominio
 {
     public class BaseServicos
     {
-        public List<Servico> Servicos { get; set; }
+        /* public List<Servico> Servicos { get; set; }
 
         public BaseServicos()
         {
@@ -61,6 +61,6 @@ namespace salao_beleza_dominio
             Servico serv2 = new Servico();
             serv2.Incluir("Corte de Barba", 15, 25);
             this.Incluir(serv1, serv2);
-        }
+        } */
     }
 }

@@ -1,0 +1,15 @@
+C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-data\obj\Debug\netcoreapp3.1\salao-beleza-data.csprojAssemblyReference.cache
+C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-data\obj\Debug\netcoreapp3.1\salao-beleza-data.AssemblyInfoInputs.cache
+C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-data\obj\Debug\netcoreapp3.1\salao-beleza-data.AssemblyInfo.cs
+C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-data\obj\Debug\netcoreapp3.1\salao-beleza-data.csproj.CoreCompileInputs.cache
+C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-data\bin\Debug\netcoreapp3.1\salao-beleza-data.deps.json
+C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-data\bin\Debug\netcoreapp3.1\salao-beleza-data.runtimeconfig.json
+C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-data\bin\Debug\netcoreapp3.1\salao-beleza-data.runtimeconfig.dev.json
+C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-data\bin\Debug\netcoreapp3.1\salao-beleza-data.dll
+C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-data\bin\Debug\netcoreapp3.1\salao-beleza-data.pdb
+C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-data\bin\Debug\netcoreapp3.1\salao-beleza-dominio.dll
+C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-data\bin\Debug\netcoreapp3.1\salao-beleza-dominio.pdb
+C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-data\obj\Debug\netcoreapp3.1\salao-beleza-data.csproj.CopyComplete
+C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-data\obj\Debug\netcoreapp3.1\salao-beleza-data.dll
+C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-data\obj\Debug\netcoreapp3.1\salao-beleza-data.pdb
+C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-data\obj\Debug\netcoreapp3.1\salao-beleza-data.genruntimeconfig.cache

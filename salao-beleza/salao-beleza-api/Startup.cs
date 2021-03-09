@@ -34,6 +34,8 @@ namespace salao_beleza_api
                 Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddScoped<IBalancoMensalRepository, BalancoMensalRepository>();
+            services.AddScoped<IFuncionarioRepository, FuncionarioRepository>();
+            services.AddScoped<IServicoRepository, ServicoRepository>();
 
             services.AddDbContext<Contexto>(options
                 => options.UseSqlServer("Server=DESKTOP-JETDHQT\\SQLEXPRESS; DataBase=SalaoBeleza; Trusted_Connection=True"));

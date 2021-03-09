@@ -17,6 +17,12 @@ namespace salao_beleza_data
         public DbSet<Gasto> Gasto { get; set; }
         public DbSet<Caixa> Caixa { get; set; }
         public DbSet<BalancoMensal> BalancoMensal { get; set; }
+        public DbSet<Comissao> Comissao { get; set; }
+
+        public Contexto(DbContextOptions options) : base(options)
+        {
+
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -36,6 +42,7 @@ namespace salao_beleza_data
             modelBuilder.ApplyConfiguration(new GastoMap());
             modelBuilder.ApplyConfiguration(new CaixaMap());
             modelBuilder.ApplyConfiguration(new BalancoMensalMap());
+            modelBuilder.ApplyConfiguration(new ComissaoMap());
 
             base.OnModelCreating(modelBuilder);
         }

@@ -24,16 +24,16 @@ namespace salao_beleza_data.Map
             builder.Property(x => x.Cargo).HasColumnType("int")
                 .IsRequired();
 
-            builder.Property(x => x.HorarioEntrada).HasColumnType("datetime")
-                .IsRequired();
+            builder.Property(x => x.HorarioEntrada).HasColumnType("datetime");
 
-            builder.Property(x => x.HorarioSaida).HasColumnType("datetime")
-                .IsRequired();
+            builder.Property(x => x.HorarioSaida).HasColumnType("datetime");
 
             builder.Property(x => x.ComissaoAReceber).HasColumnType("float");
 
             builder.HasMany<ServicoSolicitado>(f => f.ServicosSolicitados)
                 .WithOne(ss => ss.Funcionario);
+
+            builder.HasOne<Endereco>(f => f.Endereco).WithMany(e => e.Funcionarios);
 
         }
     }

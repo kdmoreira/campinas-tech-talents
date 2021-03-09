@@ -76,7 +76,7 @@ namespace salao_beleza_api.Controllers
         /// <summary>
         /// Inclui um novo balanço mensal.
         /// </summary>
-        /// <param name="balancoMensal">Dados do Balanço Mensal.</param>
+        /// <param name="balancoMensal">Dados do balanço mensal.</param>
         /// <remarks>
         /// Exemplo de request:
         /// Post/api/balancomensal
@@ -131,16 +131,16 @@ namespace salao_beleza_api.Controllers
         }
 
         /// <summary>
-        /// Deleta um Balanco Mensal pelo id.
+        /// Deleta um balanço mensal pelo id.
         /// </summary>
-        /// <param name="id">Identificador do Balanco Mensal.</param>
+        /// <param name="id">Identificador do balanço mensal.</param>
         /// <remarks>
         /// Exemplo de request:
-        /// Delete/api/Balanco Mensal/id
+        /// Delete/api/balancomensal/id
         /// </remarks>
-        /// <response code="200">Retorna todos os Balanco Mensals.</response>
+        /// <response code="200">Retorna todos os balanços mensais.</response>
         /// <response code="400">Se acontecer alguma exceção não tratada.</response>
-        // DELETE api/<Balanco MensalController>/5
+        // DELETE api/<BalancoMensalController>/5
         [HttpDelete("{id}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]

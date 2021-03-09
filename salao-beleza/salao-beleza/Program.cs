@@ -8,6 +8,7 @@ namespace salao_beleza
     {
         static void Main(string[] args)
         {
+            /*
             try
             {
                 // TESTANDO GESTÃO DE AGENDAMENTOS
@@ -133,7 +134,8 @@ namespace salao_beleza
                 Console.WriteLine("Deu ruim!!!");
             }
             Console.WriteLine("Tudo OK...");
-            Console.ReadLine();
+            Console.ReadLine(); 
+            */
         }
     }
 }

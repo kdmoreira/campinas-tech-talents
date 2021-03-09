@@ -15,7 +15,7 @@ namespace salao_beleza_data.Map
 
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.Data).HasColumnType("datetime").IsRequired();
+            builder.Property(x => x.Data).HasColumnType("datetime");
 
             builder.Property(x => x.TotalDiario).HasColumnType("float")
                 .IsRequired();

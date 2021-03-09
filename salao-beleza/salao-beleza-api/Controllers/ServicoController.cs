@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using salao_beleza_dominio;
+using salao_beleza_data.Interface;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,50 +14,149 @@ namespace salao_beleza_api.Controllers
     [ApiController]
     public class ServicoController : ControllerBase
     {
-        private readonly BaseServicos baseServicos;
+        private readonly IServicoRepository _repo;
 
-        public ServicoController()
+        public ServicoController(IServicoRepository repo)
         {
-            baseServicos = new BaseServicos();
+            _repo = repo;
         }
 
+        /// <summary>
+        /// Retorna todos os serviços registrados.
+        /// </summary>
+        /// <remarks>
+        /// Exemplo de request:
+        /// Get/api/servico
+        /// </remarks>
+        /// <response code="200">Retorna todos os serviços.</response>
+        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
         // GET: api/<ServicoController>
         [HttpGet]
-        public IEnumerable<Servico> Get()
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public IActionResult GetAll()
         {
-            return baseServicos.Servicos;
+            try
+            {
+                return Ok(_repo.SelecionarTudo());
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Aconteceu um erro");
+            }
         }
 
+        /// <summary>
+        /// Retorna um serviço pelo id.
+        /// </summary>
+        /// <param name="id">Identificador do serviço.</param>
+        /// <remarks>
+        /// Exemplo de request:
+        /// Get/api/servico/id
+        /// </remarks>
+        /// <response code="200">Retorna o serviço com o identificador informado.</response>
+        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
         // GET api/<ServicoController>/5
         [HttpGet("{id}")]
-        public Servico Get(int id)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public IActionResult Get(int id)
         {
-            return baseServicos.ServicoPorId(id);
+            try
+            {
+                return Ok(_repo.Selecionar(id));
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Aconteceu um erro");
+            }
         }
 
+        /// <summary>
+        /// Inclui um novo serviço.
+        /// </summary>
+        /// <param name="servico">Dados do serviço.</param>
+        /// <remarks>
+        /// Exemplo de request:
+        /// Post/api/servico
+        /// </remarks>
+        /// <response code="200">Retorna todos os serviços após a inclusão.</response>
+        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
         // POST api/<ServicoController>
         [HttpPost]
-        public IEnumerable<Servico> Post([FromBody] Servico servico)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public IActionResult Post([FromBody] Servico servico)
         {
-            baseServicos.Incluir(servico);
-            return baseServicos.Servicos;
+            try
+            {
+                _repo.Incluir(servico);
+                return Ok(_repo.SelecionarTudo());
+            }
+            catch (System.Exception)
+            {
+                return StatusCode(500);
+            }
         }
 
+        /// <summary>
+        /// Altera os dados do serviço pelo id informado.
+        /// </summary>
+        /// <param name="id">Identificador do serviço.</param>
+        /// <param name="Servico">Dados do serviço.</param>
+        /// <remarks>
+        /// Exemplo de request:
+        /// Put/api/servico/id
+        /// </remarks>
+        /// <response code="200">Altera os dados do serviço.</response>
+        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
         // PUT api/<ServicoController>/5
         [HttpPut("{id}")]
-        public IEnumerable<Servico> Put([FromBody] Servico servico)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public IActionResult Put(int id, [FromBody] Servico servico)
         {
-            baseServicos.AlterarServico(servico.Id, servico.Nome, servico.MinutosParaExecucao,
-                servico.Preco);
-            return baseServicos.Servicos;
+            try
+            {
+                _repo.Alterar(servico);
+                return Ok();
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Aconteceu um erro");
+            }
         }
 
+        /// <summary>
+        /// Deleta um serviço pelo id.
+        /// </summary>
+        /// <param name="id">Identificador do serviço.</param>
+        /// <remarks>
+        /// Exemplo de request:
+        /// Delete/api/servico/id
+        /// </remarks>
+        /// <response code="200">Retorna todos os serviços.</response>
+        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
         // DELETE api/<ServicoController>/5
         [HttpDelete("{id}")]
-        public IEnumerable<Servico> Delete(int id)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public IActionResult Delete(int id)
         {
-            baseServicos.ExcluirUmServico(id);
-            return baseServicos.Servicos;
+            try
+            {
+                _repo.Excluir(id);
+                return Ok(_repo.SelecionarTudo());
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Aconteceu um erro");
+            }
         }
     }
 }

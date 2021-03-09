@@ -6,7 +6,7 @@ namespace salao_beleza_dominio
 {
     public class BaseAgendamentos
     {
-        public List<Agendamento> Agendamentos { get; set; }
+        /* public List<Agendamento> Agendamentos { get; set; }
 
         public BaseAgendamentos()
         {
@@ -60,6 +60,6 @@ namespace salao_beleza_dominio
                 }
                 Console.WriteLine();
             }
-        }
+        } */
     }
 }

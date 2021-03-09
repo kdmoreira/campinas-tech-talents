@@ -11,7 +11,7 @@ namespace salao_beleza_dominio
         public List<FuncionarioServico> FuncionarioServico { get; set; }
         public List<ServicoSolicitado> ServicosSolicitados { get; set; }
 
-        public void Incluir(string nome, int minutosParaExecucao, float preco)
+        /* public void Incluir(string nome, int minutosParaExecucao, float preco)
         {
             Nome = nome;
             MinutosParaExecucao = minutosParaExecucao;
@@ -28,6 +28,6 @@ namespace salao_beleza_dominio
         public override string ToString()
         {
             return Nome + " (" + MinutosParaExecucao + "min)" + ", preço: " + Preco;
-        }
+        } */
     }
 }
