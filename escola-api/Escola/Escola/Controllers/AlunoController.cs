@@ -16,7 +16,7 @@ namespace Escola.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize] // Aqui o controller todo precisa de autorização
+    //[Authorize] // Aqui o controller todo precisa de autorização
     public class AlunoController : ControllerBase
     {
         private readonly IAlunoRepository _repo;
@@ -45,6 +45,34 @@ namespace Escola.Controllers
             try
             {
                 return Ok(_repo.SelecionarTudoCompleto());
+            }
+            catch (System.Exception)
+            {
+                return StatusCode(500);
+            }
+        }
+
+        // Selecionando alunos pelo nome
+        [HttpGet("/nome")]
+        public IActionResult ByName([FromBody] string nome)
+        {
+            try
+            {
+                return Ok(_repo.SelecionarNome(nome));
+            }
+            catch (System.Exception)
+            {
+                return BadRequest("Bad request");
+            }
+        }
+
+        // Selecionando alunos pelo Email
+        [HttpGet("/email")]
+        public IActionResult ByEmail(string email)
+        {
+            try
+            {
+                return Ok(_repo.SelecionarEmail(email));
             }
             catch (System.Exception)
             {

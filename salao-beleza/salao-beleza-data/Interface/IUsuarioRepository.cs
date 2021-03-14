@@ -5,7 +5,7 @@ using System.Text;
 
 namespace salao_beleza_data.Interface
 {
-    public interface IFuncionarioServicoRepository : IBaseRepository<FuncionarioServico>
+    public interface IUsuarioRepository : IBaseRepository<Usuario>
     {
     }
 }

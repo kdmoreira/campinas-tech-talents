@@ -387,7 +387,7 @@
             Exemplo de request:
             Get/api/usuario
             </remarks>
-            <response code="200">Retorna todos os usuários.</response>
+            <response code="200">Registra o usuário.</response>
             <response code="400">Se Nome ou Senha não forem informados.</response>
             <response code="500">Erro do servidor.</response>
         </member>

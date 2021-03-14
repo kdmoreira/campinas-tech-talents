@@ -7,5 +7,6 @@ namespace salao_beleza_data.Interface
 {
     public interface IClienteRepository : IBaseRepository<Cliente>
     {
+        List<Cliente> SelecionarTudoCompleto();
     }
 }

@@ -7,5 +7,6 @@ namespace salao_beleza_data.Interface
 {
     public interface IBalancoMensalRepository : IBaseRepository<BalancoMensal>
     {
+        List<BalancoMensal> SelecionarTudoCompleto();
     }
 }

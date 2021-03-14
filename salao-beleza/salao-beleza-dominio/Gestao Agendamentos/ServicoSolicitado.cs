@@ -6,8 +6,10 @@ namespace salao_beleza_dominio
 public class ServicoSolicitado : IEntity
     {
         public int Id { get; set; }
-        public Servico Servico { get; set; }
+        public int FuncionarioId { get; set; }
         public Funcionario Funcionario { get; set; }
+        public int ServicoId { get; set; }
+        public Servico Servico { get; set; }
         public List<Agendamento> Agendamentos { get; set; }
 
         public void Incluir(int id, Servico servico, Funcionario func)

@@ -33,7 +33,10 @@ namespace salao_beleza_data.Migrations
                     b.Property<DateTime>("DataAgendamento")
                         .HasColumnType("datetime");
 
-                    b.Property<int?>("ServicoSolicitadoId")
+                    b.Property<int?>("ServicoSolicitadoFuncionarioId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ServicoSolicitadoServicoId")
                         .HasColumnType("int");
 
                     b.Property<int>("Status")
@@ -43,7 +46,7 @@ namespace salao_beleza_data.Migrations
 
                     b.HasIndex("ClienteId");
 
-                    b.HasIndex("ServicoSolicitadoId");
+                    b.HasIndex("ServicoSolicitadoFuncionarioId", "ServicoSolicitadoServicoId");
 
                     b.ToTable("Agendamento");
                 });
@@ -117,8 +120,9 @@ namespace salao_beleza_data.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(11)");
 
-                    b.Property<int?>("EnderecoId")
-                        .HasColumnType("int");
+                    b.Property<string>("Endereco")
+                        .IsRequired()
+                        .HasColumnType("varchar(200)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -129,8 +133,6 @@ namespace salao_beleza_data.Migrations
                         .HasColumnType("varchar(15)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("EnderecoId");
 
                     b.ToTable("Cliente");
                 });
@@ -160,45 +162,6 @@ namespace salao_beleza_data.Migrations
                     b.ToTable("Comissao");
                 });
 
-            modelBuilder.Entity("salao_beleza_dominio.Endereco", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Bairro")
-                        .IsRequired()
-                        .HasColumnType("varchar(40)");
-
-                    b.Property<string>("CEP")
-                        .IsRequired()
-                        .HasColumnType("varchar(10)");
-
-                    b.Property<string>("Cidade")
-                        .IsRequired()
-                        .HasColumnType("varchar(20)");
-
-                    b.Property<string>("Complemento")
-                        .HasColumnType("varchar(10)");
-
-                    b.Property<string>("Logradouro")
-                        .IsRequired()
-                        .HasColumnType("varchar(60)");
-
-                    b.Property<string>("Numero")
-                        .IsRequired()
-                        .HasColumnType("varchar(10)");
-
-                    b.Property<string>("UF")
-                        .IsRequired()
-                        .HasColumnType("varchar(10)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Endereco");
-                });
-
             modelBuilder.Entity("salao_beleza_dominio.Funcionario", b =>
                 {
                     b.Property<int>("Id")
@@ -212,8 +175,13 @@ namespace salao_beleza_data.Migrations
                     b.Property<double>("ComissaoAReceber")
                         .HasColumnType("float");
 
-                    b.Property<int?>("EnderecoId")
-                        .HasColumnType("int");
+                    b.Property<string>("Cpf")
+                        .IsRequired()
+                        .HasColumnType("varchar(11)");
+
+                    b.Property<string>("Endereco")
+                        .IsRequired()
+                        .HasColumnType("varchar(200)");
 
                     b.Property<DateTime>("HorarioEntrada")
                         .HasColumnType("datetime");
@@ -231,8 +199,6 @@ namespace salao_beleza_data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EnderecoId");
-
                     b.ToTable("Funcionario");
                 });
 
@@ -243,16 +209,10 @@ namespace salao_beleza_data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("FuncionarioId")
+                    b.Property<int>("FuncionarioId")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdFuncionario")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdServico")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ServicoId")
+                    b.Property<int>("ServicoId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -335,20 +295,16 @@ namespace salao_beleza_data.Migrations
 
             modelBuilder.Entity("salao_beleza_dominio.ServicoSolicitado", b =>
                 {
+                    b.Property<int>("FuncionarioId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ServicoId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("FuncionarioId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ServicoId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FuncionarioId");
+                    b.HasKey("FuncionarioId", "ServicoId");
 
                     b.HasIndex("ServicoId");
 
@@ -369,7 +325,7 @@ namespace salao_beleza_data.Migrations
 
                     b.HasOne("salao_beleza_dominio.ServicoSolicitado", "ServicoSolicitado")
                         .WithMany("Agendamentos")
-                        .HasForeignKey("ServicoSolicitadoId");
+                        .HasForeignKey("ServicoSolicitadoFuncionarioId", "ServicoSolicitadoServicoId");
                 });
 
             modelBuilder.Entity("salao_beleza_dominio.Caixa", b =>
@@ -377,13 +333,6 @@ namespace salao_beleza_data.Migrations
                     b.HasOne("salao_beleza_dominio.BalancoMensal", "BalancoMensal")
                         .WithMany("Caixas")
                         .HasForeignKey("BalancoMensalId");
-                });
-
-            modelBuilder.Entity("salao_beleza_dominio.Cliente", b =>
-                {
-                    b.HasOne("salao_beleza_dominio.Endereco", "Endereco")
-                        .WithMany("Clientes")
-                        .HasForeignKey("EnderecoId");
                 });
 
             modelBuilder.Entity("salao_beleza_dominio.Comissao", b =>
@@ -397,22 +346,19 @@ namespace salao_beleza_data.Migrations
                         .HasForeignKey("FuncionarioId");
                 });
 
-            modelBuilder.Entity("salao_beleza_dominio.Funcionario", b =>
-                {
-                    b.HasOne("salao_beleza_dominio.Endereco", "Endereco")
-                        .WithMany("Funcionarios")
-                        .HasForeignKey("EnderecoId");
-                });
-
             modelBuilder.Entity("salao_beleza_dominio.FuncionarioServico", b =>
                 {
                     b.HasOne("salao_beleza_dominio.Funcionario", "Funcionario")
                         .WithMany("FuncionarioServico")
-                        .HasForeignKey("FuncionarioId");
+                        .HasForeignKey("FuncionarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("salao_beleza_dominio.Servico", "Servico")
                         .WithMany("FuncionarioServico")
-                        .HasForeignKey("ServicoId");
+                        .HasForeignKey("ServicoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("salao_beleza_dominio.Gasto", b =>
@@ -433,11 +379,15 @@ namespace salao_beleza_data.Migrations
                 {
                     b.HasOne("salao_beleza_dominio.Funcionario", "Funcionario")
                         .WithMany("ServicosSolicitados")
-                        .HasForeignKey("FuncionarioId");
+                        .HasForeignKey("FuncionarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("salao_beleza_dominio.Servico", "Servico")
                         .WithMany("ServicosSolicitados")
-                        .HasForeignKey("ServicoId");
+                        .HasForeignKey("ServicoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

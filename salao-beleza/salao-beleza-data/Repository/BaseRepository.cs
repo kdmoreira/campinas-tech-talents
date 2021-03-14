@@ -23,8 +23,18 @@ namespace salao_beleza_data.Repository
 
         public void Alterar(T entity)
         {
-            _contexto.Set<T>().Update(entity);
+            var query = Selecionar(entity.Id);
+
+            _contexto.Entry(query).CurrentValues.SetValues(entity);
             _contexto.SaveChanges();
+        }
+
+        public bool Encontrar(T entity)
+        {
+            var query = Selecionar(entity.Id);
+            if (query == null)
+                return false;
+            return true;
         }
 
         public T Selecionar(int id)

@@ -21,6 +21,12 @@ namespace salao_beleza_data.Map
             builder.Property(x => x.Telefone).HasColumnType("varchar(15)")
                 .IsRequired();
 
+            builder.Property(x => x.Endereco).HasColumnType("varchar(200)")
+               .IsRequired();
+
+            builder.Property(x => x.Cpf).HasColumnType("varchar(11)")
+               .IsRequired();
+
             builder.Property(x => x.Cargo).HasColumnType("int")
                 .IsRequired();
 
@@ -32,8 +38,6 @@ namespace salao_beleza_data.Map
 
             builder.HasMany<ServicoSolicitado>(f => f.ServicosSolicitados)
                 .WithOne(ss => ss.Funcionario);
-
-            builder.HasOne<Endereco>(f => f.Endereco).WithMany(e => e.Funcionarios);
 
         }
     }

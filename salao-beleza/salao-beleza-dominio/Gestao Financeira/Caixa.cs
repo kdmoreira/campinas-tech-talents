@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using System.Globalization;
 
 namespace salao_beleza_dominio
 {

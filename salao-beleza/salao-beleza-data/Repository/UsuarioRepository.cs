@@ -6,9 +6,9 @@ using System.Text;
 
 namespace salao_beleza_data.Repository
 {
-    public class FuncionarioServicoRepository : BaseRepository<FuncionarioServico>, IFuncionarioServicoRepository
+    public class UsuarioRepository : BaseRepository<Usuario>, IUsuarioRepository
     {
-        public FuncionarioServicoRepository(Contexto contexto) : base(contexto)
+        public UsuarioRepository(Contexto contexto) : base(contexto)
         {
         }
     }

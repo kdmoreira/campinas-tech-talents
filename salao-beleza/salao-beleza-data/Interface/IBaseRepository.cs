@@ -11,6 +11,8 @@ namespace salao_beleza_data.Interface
 
         void Alterar(T entity);
 
+        bool Encontrar(T entity);
+
         T Selecionar(int id);
 
         List<T> SelecionarTudo();

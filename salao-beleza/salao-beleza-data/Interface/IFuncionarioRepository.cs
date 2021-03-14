@@ -7,5 +7,6 @@ namespace salao_beleza_data.Interface
 {
     public interface IFuncionarioRepository : IBaseRepository<Funcionario>
     {
+        List<Funcionario> SelecionarTudoCompleto();
     }
 }

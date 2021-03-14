@@ -13,12 +13,13 @@ namespace salao_beleza_data.Map
         {
             builder.ToTable("ServicoSolicitado");
 
-            builder.HasKey(x => x.Id);
+            builder.HasKey(x => new { x.FuncionarioId, x.ServicoId });
 
-            builder.HasOne<Servico>(ss => ss.Servico).WithMany(s => s.ServicosSolicitados);
+            builder.HasOne<Funcionario>(fs => fs.Funcionario).WithMany(f => f.ServicosSolicitados)
+                .HasForeignKey(fs => fs.FuncionarioId);
 
-            builder.HasOne<Funcionario>(ss => ss.Funcionario).WithMany(f => f.ServicosSolicitados);
-
+            builder.HasOne<Servico>(fs => fs.Servico).WithMany(s => s.ServicosSolicitados)
+                .HasForeignKey(fs => fs.ServicoId);
         }
     }
 }

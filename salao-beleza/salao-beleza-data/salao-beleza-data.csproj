@@ -8,6 +8,12 @@
   <ItemGroup>
     <Compile Remove="Migrations\20210308210630_bancoInicial.cs" />
     <Compile Remove="Migrations\20210308210630_bancoInicial.Designer.cs" />
+    <Compile Remove="Migrations\20210313232643_bancoInicial.cs" />
+    <Compile Remove="Migrations\20210313232643_bancoInicial.Designer.cs" />
+    <Compile Remove="Migrations\20210314011010_changeNNPropertyNames.cs" />
+    <Compile Remove="Migrations\20210314011010_changeNNPropertyNames.Designer.cs" />
+    <Compile Remove="Migrations\20210314014635_servicoSolicitado.cs" />
+    <Compile Remove="Migrations\20210314014635_servicoSolicitado.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,10 +31,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\salao-beleza-dominio\salao-beleza-dominio.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>
