@@ -66,3 +66,8 @@ C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-api\bin\D
 C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-api\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-api\bin\Debug\netcoreapp3.1\salao-beleza-data.dll
 C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-api\bin\Debug\netcoreapp3.1\salao-beleza-data.pdb
+C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-api\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-api\bin\Debug\netcoreapp3.1\salao-beleza-api.xml

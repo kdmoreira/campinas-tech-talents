@@ -1,0 +1,615 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>salao-beleza-api</name>
+    </assembly>
+    <members>
+        <member name="M:salao_beleza_api.Controllers.AgendamentoController.GetAll">
+            <summary>
+            Retorna todos os Agendamentos registrados.
+            </summary>
+            <remarks>
+            Exemplo de request:
+            Get/api/Agendamento
+            </remarks>
+            <response code="200">Retorna todos os Agendamentos.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.AgendamentoController.Get(System.Int32)">
+            <summary>
+            Retorna um Agendamento pelo id.
+            </summary>
+            <param name="id">Identificador do Agendamento.</param>
+            <remarks>
+            Exemplo de request:
+            Get/api/Agendamento/id
+            </remarks>
+            <response code="200">Retorna o Agendamento com o identificador informado.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.AgendamentoController.Post(salao_beleza_dominio.Agendamento)">
+            <summary>
+            Inclui um novo Agendamento.
+            </summary>
+            <param name="agendamento">Dados do Agendamento.</param>
+            <remarks>
+            Exemplo de request:
+            Post/api/Agendamento
+            </remarks>
+            <response code="200">Retorna todos os Agendamentos.</response>
+            <response code="400">Se data não for informada.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.AgendamentoController.Put(System.Int32,salao_beleza_dominio.Agendamento)">
+            <summary>
+            Altera os dados do Agendamento pelo id informado.
+            </summary>
+            <param name="id">Identificador do Agendamento.</param>
+            <param name="agendamento">Dados do Agendamento.</param>
+            <remarks>
+            Exemplo de request:
+            Put/api/Agendamento/id
+            </remarks>
+            <response code="200">Altera os dados do Agendamento.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.AgendamentoController.Delete(System.Int32)">
+            <summary>
+            Deleta um Agendamento pelo id.
+            </summary>
+            <param name="id">Identificador do Agendamento.</param>
+            <remarks>
+            Exemplo de request:
+            Delete/api/Agendamento/id
+            </remarks>
+            <response code="200">Retorna todos os Agendamentos.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.BalancoMensalController.GetAll">
+            <summary>
+            Retorna todos os Balanços Mensais registrados.
+            </summary>
+            <remarks>
+            Exemplo de request:
+            Get/api/BalancoMensal
+            </remarks>
+            <response code="200">Retorna todos os Balanços Mensais.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.BalancoMensalController.Get(System.Int32)">
+            <summary>
+            Retorna um Balanço Mensal pelo id.
+            </summary>
+            <param name="id">Identificador do Balanço Mensal.</param>
+            <remarks>
+            Exemplo de request:
+            Get/api/BalancoMensal/id
+            </remarks>
+            <response code="200">Retorna o Balanço Mensal com o identificador informado.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.BalancoMensalController.Post(salao_beleza_dominio.BalancoMensal)">
+            <summary>
+            Inclui um novo Balanço Mensal.
+            </summary>
+            <param name="balancoMensal">Dados do Balanço Mensal.</param>
+            <remarks>
+            Exemplo de request:
+            Post/api/BalancoMensal
+            </remarks>
+            <response code="200">Retorna todos os Balanços Mensais.</response>
+            <response code="400">Se Mês ou Ano não forem informados.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.BalancoMensalController.Put(System.Int32,salao_beleza_dominio.BalancoMensal)">
+            <summary>
+            Altera os dados do Balanço Mensal pelo id informado.
+            </summary>
+            <param name="id">Identificador do Balanço Mensal.</param>
+            <param name="balancoMensal">Dados do Balanço Mensal.</param>
+            <remarks>
+            Exemplo de request:
+            Put/api/BalancoMensal/id
+            </remarks>
+            <response code="200">Altera os dados do Balanço Mensal.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.BalancoMensalController.Delete(System.Int32)">
+            <summary>
+            Deleta um Balanço Mensal pelo id.
+            </summary>
+            <param name="id">Identificador do Balanço Mensal.</param>
+            <remarks>
+            Exemplo de request:
+            Delete/api/BalancoMensal/id
+            </remarks>
+            <response code="200">Retorna todos os Balanços Mensais.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.CaixaController.GetAll">
+            <summary>
+            Retorna todos os Caixas registrados.
+            </summary>
+            <remarks>
+            Exemplo de request:
+            Get/api/Caixa
+            </remarks>
+            <response code="200">Retorna todos os Caixas.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.CaixaController.Get(System.Int32)">
+            <summary>
+            Retorna um Caixa pelo id.
+            </summary>
+            <param name="id">Identificador do Caixa.</param>
+            <remarks>
+            Exemplo de request:
+            Get/api/Caixa/id
+            </remarks>
+            <response code="200">Retorna o Caixa com o identificador informado.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.CaixaController.Post(salao_beleza_dominio.Caixa)">
+            <summary>
+            Inclui um novo Caixa.
+            </summary>
+            <param name="caixa">Dados do Caixa.</param>
+            <remarks>
+            Exemplo de request:
+            Post/api/Caixa
+            </remarks>
+            <response code="200">Retorna todos os Caixas.</response>
+            <response code="400">Se data não for informada.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.CaixaController.Put(System.Int32,salao_beleza_dominio.Caixa)">
+            <summary>
+            Altera os dados do Caixa pelo id informado.
+            </summary>
+            <param name="id">Identificador do Caixa.</param>
+            <param name="caixa">Dados do Caixa.</param>
+            <remarks>
+            Exemplo de request:
+            Put/api/Caixa/id
+            </remarks>
+            <response code="200">Altera os dados do Caixa.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.CaixaController.Delete(System.Int32)">
+            <summary>
+            Deleta um Caixa pelo id.
+            </summary>
+            <param name="id">Identificador do Caixa.</param>
+            <remarks>
+            Exemplo de request:
+            Delete/api/Caixa/id
+            </remarks>
+            <response code="200">Retorna todos os Caixas.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.ClienteController.GetAll">
+            <summary>
+            Retorna todos os Clientes registrados.
+            </summary>
+            <remarks>
+            Exemplo de request:
+            Get/api/Cliente
+            </remarks>
+            <response code="200">Retorna todos os Clientes.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.ClienteController.Get(System.Int32)">
+            <summary>
+            Retorna um Cliente pelo id.
+            </summary>
+            <param name="id">Identificador do Cliente.</param>
+            <remarks>
+            Exemplo de request:
+            Get/api/Cliente/id
+            </remarks>
+            <response code="200">Retorna o Cliente com o identificador informado.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.ClienteController.Post(salao_beleza_dominio.Cliente)">
+            <summary>
+            Inclui um novo Cliente.
+            </summary>
+            <param name="cliente">Dados do Cliente.</param>
+            <remarks>
+            Exemplo de request:
+            Post/api/Cliente
+            </remarks>
+            <response code="200">Retorna todos os Clientes.</response>
+            <response code="400">Se Nome, CPF, Telefone ou Endereço não forem informados.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.ClienteController.Put(salao_beleza_dominio.Cliente)">
+            <summary>
+            Altera os dados do Cliente pelo id informado.
+            </summary>
+            <param name="cliente">Dados do Cliente.</param>
+            <remarks>
+            Exemplo de request:
+            Put/api/Cliente/id
+            </remarks>
+            <response code="200">Altera os dados do Cliente.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.ClienteController.Delete(System.Int32)">
+            <summary>
+            Deleta um Cliente pelo id.
+            </summary>
+            <param name="id">Identificador do Cliente.</param>
+            <remarks>
+            Exemplo de request:
+            Delete/api/Cliente/id
+            </remarks>
+            <response code="200">Retorna todos os Clientes.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.ComissaoController.GetAll">
+            <summary>
+            Retorna todas as Comissões registradas.
+            </summary>
+            <remarks>
+            Exemplo de request:
+            Get/api/Comissao
+            </remarks>
+            <response code="200">Retorna todas as Comissões.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.ComissaoController.Get(System.Int32)">
+            <summary>
+            Retorna uma Comissão pelo id.
+            </summary>
+            <param name="id">Identificador da Comissão.</param>
+            <remarks>
+            Exemplo de request:
+            Get/api/Comissao/id
+            </remarks>
+            <response code="200">Retorna a Comissão com o identificador informado.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.ComissaoController.Post(salao_beleza_dominio.Comissao)">
+            <summary>
+            Inclui uma nova Comissão.
+            </summary>
+            <param name="comissao">Dados da Comissão.</param>
+            <remarks>
+            Exemplo de request:
+            Post/api/Comissao
+            </remarks>
+            <response code="200">Retorna todas as Comissões.</response>
+            <response code="400">Se Valor não for informado.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.ComissaoController.Put(System.Int32,salao_beleza_dominio.Comissao)">
+            <summary>
+            Altera os dados da Comissão pelo id informado.
+            </summary>
+            <param name="id">Identificador da Comissão.</param>
+            <param name="comissao">Dados da Comissão.</param>
+            <remarks>
+            Exemplo de request:
+            Put/api/Comissao/id
+            </remarks>
+            <response code="200">Altera os dados da Comissão.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.ComissaoController.Delete(System.Int32)">
+            <summary>
+            Deleta uma Comissão pelo id.
+            </summary>
+            <param name="id">Identificador da Comissão.</param>
+            <remarks>
+            Exemplo de request:
+            Delete/api/Comissao/id
+            </remarks>
+            <response code="200">Retorna todas as Comissões.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.FuncionarioController.GetAll">
+            <summary>
+            Retorna todos os Funcionários registrados.
+            </summary>
+            <remarks>
+            Exemplo de request:
+            Get/api/Funcionario
+            </remarks>
+            <response code="200">Retorna todos os Funcionários.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.FuncionarioController.Get(System.Int32)">
+            <summary>
+            Retorna um Funcionário pelo id.
+            </summary>
+            <param name="id">Identificador do Funcionário.</param>
+            <remarks>
+            Exemplo de request:
+            Get/api/Funcionario/id
+            </remarks>
+            <response code="200">Retorna o Funcionário com o identificador informado.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.FuncionarioController.Post(salao_beleza_dominio.Funcionario)">
+            <summary>
+            Inclui um novo Funcionário.
+            </summary>
+            <param name="funcionario">Dados do Funcionário.</param>
+            <remarks>
+            Exemplo de request:
+            Post/api/Funcionario
+            </remarks>
+            <response code="200">Retorna todos os Funcionários.</response>
+            <response code="400">Se Nome, CPF, Telefone ou Endereço não forem informados.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.FuncionarioController.Put(salao_beleza_dominio.Funcionario)">
+            <summary>
+            Altera os dados do Funcionário pelo id informado.
+            </summary>
+            <param name="funcionario">Dados do Funcionário.</param>
+            <remarks>
+            Exemplo de request:
+            Put/api/Funcionario/id
+            </remarks>
+            <response code="200">Altera os dados do Funcionário.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.FuncionarioController.Delete(System.Int32)">
+            <summary>
+            Deleta um Funcionário pelo id.
+            </summary>
+            <param name="id">Identificador do Funcionário.</param>
+            <remarks>
+            Exemplo de request:
+            Delete/api/Funcionario/id
+            </remarks>
+            <response code="200">Retorna todos os Funcionários.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.GastoController.GetAll">
+            <summary>
+            Retorna todos os Gastos registrados.
+            </summary>
+            <remarks>
+            Exemplo de request:
+            Get/api/Gasto
+            </remarks>
+            <response code="200">Retorna todos os Gastos.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.GastoController.Get(System.Int32)">
+            <summary>
+            Retorna um Gasto pelo id.
+            </summary>
+            <param name="id">Identificador do Gasto.</param>
+            <remarks>
+            Exemplo de request:
+            Get/api/Gasto/id
+            </remarks>
+            <response code="200">Retorna o Gasto com o identificador informado.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.GastoController.Post(salao_beleza_dominio.Gasto)">
+            <summary>
+            Inclui um novo Gasto.
+            </summary>
+            <param name="gasto">Dados do Gasto.</param>
+            <remarks>
+            Exemplo de request:
+            Post/api/Gasto
+            </remarks>
+            <response code="200">Retorna todos os Gastos.</response>
+            <response code="400">Se data não for informada.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.GastoController.Put(System.Int32,salao_beleza_dominio.Gasto)">
+            <summary>
+            Altera os dados do Gasto pelo id informado.
+            </summary>
+            <param name="id">Identificador do Gasto.</param>
+            <param name="gasto">Dados do Gasto.</param>
+            <remarks>
+            Exemplo de request:
+            Put/api/Gasto/id
+            </remarks>
+            <response code="200">Altera os dados do Gasto.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.GastoController.Delete(System.Int32)">
+            <summary>
+            Deleta um Gasto pelo id.
+            </summary>
+            <param name="id">Identificador do Gasto.</param>
+            <remarks>
+            Exemplo de request:
+            Delete/api/Gasto/id
+            </remarks>
+            <response code="200">Retorna todos os Gastos.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.PagamentoController.GetAll">
+            <summary>
+            Retorna todos os Pagamentos registrados.
+            </summary>
+            <remarks>
+            Exemplo de request:
+            Get/api/Pagamento
+            </remarks>
+            <response code="200">Retorna todos os Pagamentos.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.PagamentoController.Get(System.Int32)">
+            <summary>
+            Retorna um Pagamento pelo id.
+            </summary>
+            <param name="id">Identificador do Pagamento.</param>
+            <remarks>
+            Exemplo de request:
+            Get/api/Pagamento/id
+            </remarks>
+            <response code="200">Retorna o Pagamento com o identificador informado.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.PagamentoController.Post(salao_beleza_dominio.Pagamento)">
+            <summary>
+            Inclui um novo Pagamento.
+            </summary>
+            <param name="pagamento">Dados do Pagamento.</param>
+            <remarks>
+            Exemplo de request:
+            Post/api/Pagamento
+            </remarks>
+            <response code="200">Retorna todos os Pagamentos.</response>
+            <response code="400">Se data não for informada.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.PagamentoController.Put(System.Int32,salao_beleza_dominio.Pagamento)">
+            <summary>
+            Altera os dados do Pagamento pelo id informado.
+            </summary>
+            <param name="id">Identificador do Pagamento.</param>
+            <param name="pagamento">Dados do Pagamento.</param>
+            <remarks>
+            Exemplo de request:
+            Put/api/Pagamento/id
+            </remarks>
+            <response code="200">Altera os dados do Pagamento.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.PagamentoController.Delete(System.Int32)">
+            <summary>
+            Deleta um Pagamento pelo id.
+            </summary>
+            <param name="id">Identificador do Pagamento.</param>
+            <remarks>
+            Exemplo de request:
+            Delete/api/Pagamento/id
+            </remarks>
+            <response code="200">Retorna todos os Pagamentos.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.ServicoController.GetAll">
+            <summary>
+            Retorna todos os Serviços registrados.
+            </summary>
+            <remarks>
+            Exemplo de request:
+            Get/api/Servico
+            </remarks>
+            <response code="200">Retorna todos os Serviços.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.ServicoController.Get(System.Int32)">
+            <summary>
+            Retorna um Serviço pelo id.
+            </summary>
+            <param name="id">Identificador do Serviço.</param>
+            <remarks>
+            Exemplo de request:
+            Get/api/Servico/id
+            </remarks>
+            <response code="200">Retorna o Serviço com o identificador informado.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.ServicoController.Post(salao_beleza_dominio.Servico)">
+            <summary>
+            Inclui um novo Serviço.
+            </summary>
+            <param name="servico">Dados do Serviço.</param>
+            <remarks>
+            Exemplo de request:
+            Post/api/Servico
+            </remarks>
+            <response code="200">Retorna todos os Serviços.</response>
+            <response code="400">Se Nome, MinutosParaExecução ou Preço não forem informados.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.ServicoController.Put(salao_beleza_dominio.Servico)">
+            <summary>
+            Altera os dados do Serviço pelo id informado.
+            </summary>
+            <param name="servico">Dados do Serviço.</param>
+            <remarks>
+            Exemplo de request:
+            Put/api/Servico/id
+            </remarks>
+            <response code="200">Altera os dados do Serviço.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.ServicoController.Delete(System.Int32)">
+            <summary>
+            Deleta um Serviço pelo id.
+            </summary>
+            <param name="id">Identificador do Serviço.</param>
+            <remarks>
+            Exemplo de request:
+            Delete/api/Servico/id
+            </remarks>
+            <response code="200">Retorna todos os Serviços.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.ServicoSolicitadoController.GetAll">
+            <summary>
+            Retorna todos os Serviços Solicitados registrados.
+            </summary>
+            <remarks>
+            Exemplo de request:
+            Get/api/ServicoSolicitado
+            </remarks>
+            <response code="200">Retorna todos os Serviços Solicitados.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.ServicoSolicitadoController.Get(System.Int32)">
+            <summary>
+            Retorna um Serviço Solicitado pelo id.
+            </summary>
+            <param name="id">Identificador do Serviço Solicitado.</param>
+            <remarks>
+            Exemplo de request:
+            Get/api/ServicoSolicitado/id
+            </remarks>
+            <response code="200">Retorna o Serviço Solicitado com o identificador informado.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.ServicoSolicitadoController.Post(salao_beleza_dominio.ServicoSolicitado)">
+            <summary>
+            Inclui um novo Serviço Solicitado.
+            </summary>
+            <param name="servicoSolicitado">Dados do Serviço Solicitado.</param>
+            <remarks>
+            Exemplo de request:
+            Post/api/ServicoSolicitado
+            </remarks>
+            <response code="200">Retorna todos os Serviços Solicitados.</response>
+            <response code="400">Se data não for informada.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.ServicoSolicitadoController.Put(System.Int32,salao_beleza_dominio.ServicoSolicitado)">
+            <summary>
+            Altera os dados do Serviço Solicitado pelo id informado.
+            </summary>
+            <param name="id">Identificador do Serviço Solicitado.</param>
+            <param name="servicoSolicitado">Dados do Serviço Solicitado.</param>
+            <remarks>
+            Exemplo de request:
+            Put/api/ServicoSolicitado/id
+            </remarks>
+            <response code="200">Altera os dados do Serviço Solicitado.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+        <member name="M:salao_beleza_api.Controllers.ServicoSolicitadoController.Delete(System.Int32)">
+            <summary>
+            Deleta um Serviço Solicitado pelo id.
+            </summary>
+            <param name="id">Identificador do Serviço Solicitado.</param>
+            <remarks>
+            Exemplo de request:
+            Delete/api/ServicoSolicitado/id
+            </remarks>
+            <response code="200">Retorna todos os Serviços Solicitados.</response>
+            <response code="500">Erro do servidor.</response>
+        </member>
+    </members>
+</doc>

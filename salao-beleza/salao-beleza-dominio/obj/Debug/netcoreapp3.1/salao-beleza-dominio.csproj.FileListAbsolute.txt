@@ -6,3 +6,4 @@ C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-dominio\o
 C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-dominio\obj\Debug\netcoreapp3.1\salao-beleza-dominio.csproj.CoreCompileInputs.cache
 C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-dominio\obj\Debug\netcoreapp3.1\salao-beleza-dominio.dll
 C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-dominio\obj\Debug\netcoreapp3.1\salao-beleza-dominio.pdb
+C:\Users\Karina Moreira\capinas-tech-talents\salao-beleza\salao-beleza-dominio\obj\Debug\netcoreapp3.1\salao-beleza-dominio.csprojAssemblyReference.cache

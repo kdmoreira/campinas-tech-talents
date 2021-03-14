@@ -16,10 +16,21 @@ namespace Escola.Data.Repository
             _guid = Guid.NewGuid();
         }
 
+        // Incluindo ordenação alfabética de nome
         public List<Aluno> SelecionarTudoCompleto()
         {
             return _contexto.Aluno
-                .Include(x => x.TurmaAluno)
+                .Include(x => x.TurmaAluno).OrderBy(x => x.Nome)
+                .ToList();
+        }
+        public List<Aluno> SelecionarNome(string nome)
+        {
+            return _contexto.Aluno.Include(x => x.Nome == nome).ToList();
+        }
+        public List<Aluno> SelecionarEmail(string email)
+        {
+            return _contexto.Aluno
+                .Include(x => x.Nome.Contains(email))
                 .ToList();
         }
 

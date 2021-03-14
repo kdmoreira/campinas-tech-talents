@@ -6,10 +6,11 @@ using System.Text;
 
 namespace salao_beleza_data.Repository
 {
-    public class EnderecoRepository : BaseRepository<Endereco>, IEnderecoRepository
+    public class ServicoSolicitadoRepository : BaseRepository<ServicoSolicitado>, IServicoSolicitadoRepository
     {
-        public EnderecoRepository(Contexto contexto) : base(contexto)
+        public ServicoSolicitadoRepository(Contexto contexto) : base(contexto)
         {
         }
     }
+
 }

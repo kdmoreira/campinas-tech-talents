@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Escola
 {
-    public class Configuracoes
+    public static class Configuracoes
     {
         // Quanto maior a palavra, mais seguro o Token
         public static string Secret = "cursoShareRh12345";

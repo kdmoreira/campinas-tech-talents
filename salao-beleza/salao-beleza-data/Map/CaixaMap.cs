@@ -17,14 +17,11 @@ namespace salao_beleza_data.Map
 
             builder.Property(x => x.Data).HasColumnType("datetime");
 
-            builder.Property(x => x.TotalDiario).HasColumnType("float")
-                .IsRequired();
+            builder.Property(x => x.TotalDiario).HasColumnType("float");
 
-            builder.Property(x => x.ComissaoDiaria).HasColumnType("varchar(15)")
-                .IsRequired();
+            builder.Property(x => x.ComissaoDiaria).HasColumnType("varchar(15)");
 
-            builder.Property(x => x.LucroDiario).HasColumnType("varchar(15)")
-                .IsRequired();
+            builder.Property(x => x.LucroDiario).HasColumnType("varchar(15)");
 
             builder.HasMany<Pagamento>(cx => cx.Pagamentos).WithOne(p => p.Caixa);
 

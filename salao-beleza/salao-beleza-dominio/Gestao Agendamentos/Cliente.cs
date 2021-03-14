@@ -8,7 +8,7 @@ namespace salao_beleza_dominio
         public string Nome { get; set; }
         public string Telefone { get; set; }
         public string Cpf { get; set; }
-        public Endereco Endereco { get; set; }
+        public string Endereco { get; set; }
         public List<Agendamento> Agendamentos { get; set; }
 
         /* public void Incluir(string nome, string telefone, string cpf, Endereco endereco)

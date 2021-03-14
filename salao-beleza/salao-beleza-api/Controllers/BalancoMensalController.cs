@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using salao_beleza_data.Interface;
 using salao_beleza_dominio;
@@ -11,6 +12,8 @@ namespace salao_beleza_api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+    [Authorize(Roles = "Administrador")]
     public class BalancoMensalController : ControllerBase
     {
         private readonly IBalancoMensalRepository _repo;
@@ -21,45 +24,43 @@ namespace salao_beleza_api.Controllers
         }
 
         /// <summary>
-        /// Retorna todos os balanços mensais registrados.
+        /// Retorna todos os Balanços Mensais registrados.
         /// </summary>
         /// <remarks>
         /// Exemplo de request:
-        /// Get/api/balancomensal
+        /// Get/api/BalancoMensal
         /// </remarks>
-        /// <response code="200">Retorna todos os balanços mensais.</response>
-        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
+        /// <response code="200">Retorna todos os Balanços Mensais.</response>
+        /// <response code="500">Erro do servidor.</response>
         // GET: api/<BalancoMensalController>
         [HttpGet]
         [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
         [ProducesResponseType(500)]
         public IActionResult GetAll()
         {
             try
             {
-                return Ok(_repo.SelecionarTudo());
+                return Ok(_repo.SelecionarTudoCompleto());
             }
             catch (System.Exception)
             {
-                return BadRequest("Aconteceu um erro");
+                return StatusCode(500);
             }
         }
 
         /// <summary>
-        /// Retorna um balanço mensal pelo id.
+        /// Retorna um Balanço Mensal pelo id.
         /// </summary>
-        /// <param name="id">Identificador do balanço mensal.</param>
+        /// <param name="id">Identificador do Balanço Mensal.</param>
         /// <remarks>
         /// Exemplo de request:
-        /// Get/api/balancomensal/id
+        /// Get/api/BalancoMensal/id
         /// </remarks>
-        /// <response code="200">Retorna o balanço mensal com o identificador informado.</response>
-        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
+        /// <response code="200">Retorna o Balanço Mensal com o identificador informado.</response>
+        /// <response code="500">Erro do servidor.</response>
         // GET api/<BalancoMensalController>/5
         [HttpGet("{id}")]
         [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
         [ProducesResponseType(500)]
         public IActionResult Get(int id)
         {
@@ -69,20 +70,21 @@ namespace salao_beleza_api.Controllers
             }
             catch (System.Exception)
             {
-                return BadRequest("Aconteceu um erro");
+                return StatusCode(500);
             }
         }
 
         /// <summary>
-        /// Inclui um novo balanço mensal.
+        /// Inclui um novo Balanço Mensal.
         /// </summary>
-        /// <param name="balancoMensal">Dados do balanço mensal.</param>
+        /// <param name="balancoMensal">Dados do Balanço Mensal.</param>
         /// <remarks>
         /// Exemplo de request:
-        /// Post/api/balancomensal
+        /// Post/api/BalancoMensal
         /// </remarks>
-        /// <response code="200">Retorna todos os balanços mensais após a inclusão.</response>
-        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
+        /// <response code="200">Retorna todos os Balanços Mensais.</response>
+        /// <response code="400">Se Mês ou Ano não forem informados.</response>
+        /// <response code="500">Erro do servidor.</response>
         // POST api/<BalancoMensalController>
         [HttpPost]
         [ProducesResponseType(200)]
@@ -92,6 +94,8 @@ namespace salao_beleza_api.Controllers
         {
             try
             {
+                if (balancoMensal.Mes == 0 || balancoMensal.Ano == 0)
+                    return BadRequest("Mês ou Ano não foram informados.");
                 _repo.Incluir(balancoMensal);
                 return Ok(_repo.SelecionarTudo());
             }
@@ -102,48 +106,46 @@ namespace salao_beleza_api.Controllers
         }
 
         /// <summary>
-        /// Altera os dados do balanço mensal pelo id informado.
+        /// Altera os dados do Balanço Mensal pelo id informado.
         /// </summary>
         /// <param name="id">Identificador do Balanço Mensal.</param>
         /// <param name="balancoMensal">Dados do Balanço Mensal.</param>
         /// <remarks>
         /// Exemplo de request:
-        /// Put/api/balancomensal/id
+        /// Put/api/BalancoMensal/id
         /// </remarks>
         /// <response code="200">Altera os dados do Balanço Mensal.</response>
-        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
+        /// <response code="500">Erro do servidor.</response>
         // PUT api/<BalancoMensalController>/5
         [HttpPut("{id}")]
         [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
         [ProducesResponseType(500)]
         public IActionResult Put(int id, [FromBody] BalancoMensal balancoMensal)
         {
             try
             {
                 _repo.Alterar(balancoMensal);
-                return Ok();
+                return Ok(_repo.SelecionarTudo());
             }
             catch (System.Exception)
             {
-                return BadRequest("Aconteceu um erro");
+                return StatusCode(500);
             }
         }
 
         /// <summary>
-        /// Deleta um balanço mensal pelo id.
+        /// Deleta um Balanço Mensal pelo id.
         /// </summary>
-        /// <param name="id">Identificador do balanço mensal.</param>
+        /// <param name="id">Identificador do Balanço Mensal.</param>
         /// <remarks>
         /// Exemplo de request:
-        /// Delete/api/balancomensal/id
+        /// Delete/api/BalancoMensal/id
         /// </remarks>
-        /// <response code="200">Retorna todos os balanços mensais.</response>
-        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
+        /// <response code="200">Retorna todos os Balanços Mensais.</response>
+        /// <response code="500">Erro do servidor.</response>
         // DELETE api/<BalancoMensalController>/5
         [HttpDelete("{id}")]
         [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
         [ProducesResponseType(500)]
         public IActionResult Delete(int id)
         {
@@ -154,7 +156,7 @@ namespace salao_beleza_api.Controllers
             }
             catch (System.Exception)
             {
-                return BadRequest("Aconteceu um erro");
+                return StatusCode(500);
             }
         }
     }

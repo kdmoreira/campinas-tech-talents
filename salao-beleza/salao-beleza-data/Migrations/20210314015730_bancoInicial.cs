@@ -25,22 +25,39 @@ namespace salao_beleza_data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Endereco",
+                name: "Cliente",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Logradouro = table.Column<string>(type: "varchar(60)", nullable: false),
-                    CEP = table.Column<string>(type: "varchar(10)", nullable: false),
-                    Bairro = table.Column<string>(type: "varchar(40)", nullable: false),
-                    Cidade = table.Column<string>(type: "varchar(20)", nullable: false),
-                    UF = table.Column<string>(type: "varchar(10)", nullable: false),
-                    Numero = table.Column<string>(type: "varchar(10)", nullable: false),
-                    Complemento = table.Column<string>(type: "varchar(10)", nullable: true)
+                    Nome = table.Column<string>(type: "varchar(150)", nullable: false),
+                    Telefone = table.Column<string>(type: "varchar(15)", nullable: false),
+                    Cpf = table.Column<string>(type: "varchar(11)", nullable: false),
+                    Endereco = table.Column<string>(type: "varchar(200)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Endereco", x => x.Id);
+                    table.PrimaryKey("PK_Cliente", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Funcionario",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(type: "varchar(150)", nullable: false),
+                    Telefone = table.Column<string>(type: "varchar(15)", nullable: false),
+                    Endereco = table.Column<string>(type: "varchar(200)", nullable: false),
+                    Cpf = table.Column<string>(type: "varchar(11)", nullable: false),
+                    Cargo = table.Column<int>(type: "int", nullable: false),
+                    HorarioEntrada = table.Column<DateTime>(type: "datetime", nullable: false),
+                    HorarioSaida = table.Column<DateTime>(type: "datetime", nullable: false),
+                    ComissaoAReceber = table.Column<double>(type: "float", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Funcionario", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -103,74 +120,6 @@ namespace salao_beleza_data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Cliente",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(type: "varchar(150)", nullable: false),
-                    Telefone = table.Column<string>(type: "varchar(15)", nullable: false),
-                    Cpf = table.Column<string>(type: "varchar(11)", nullable: false),
-                    EnderecoId = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Cliente", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Cliente_Endereco_EnderecoId",
-                        column: x => x.EnderecoId,
-                        principalTable: "Endereco",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Funcionario",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(type: "varchar(150)", nullable: false),
-                    Telefone = table.Column<string>(type: "varchar(15)", nullable: false),
-                    EnderecoId = table.Column<int>(nullable: true),
-                    Cargo = table.Column<int>(type: "int", nullable: false),
-                    HorarioEntrada = table.Column<DateTime>(type: "datetime", nullable: false),
-                    HorarioSaida = table.Column<DateTime>(type: "datetime", nullable: false),
-                    ComissaoAReceber = table.Column<double>(type: "float", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Funcionario", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Funcionario_Endereco_EnderecoId",
-                        column: x => x.EnderecoId,
-                        principalTable: "Endereco",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Pagamento",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ValorServico = table.Column<double>(type: "float", nullable: false),
-                    Comissao = table.Column<double>(type: "float", nullable: false),
-                    CaixaId = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Pagamento", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Pagamento_Caixa_CaixaId",
-                        column: x => x.CaixaId,
-                        principalTable: "Caixa",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Comissao",
                 columns: table => new
                 {
@@ -201,23 +150,23 @@ namespace salao_beleza_data.Migrations
                 name: "FuncionarioServico",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    IdFuncionario = table.Column<int>(type: "int", nullable: false),
-                    IdServico = table.Column<int>(type: "int", nullable: false)
+                    FuncionarioId = table.Column<int>(nullable: false),
+                    ServicoId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FuncionarioServico", x => new { x.IdFuncionario, x.IdServico });
+                    table.PrimaryKey("PK_FuncionarioServico", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_FuncionarioServico_Funcionario_IdFuncionario",
-                        column: x => x.IdFuncionario,
+                        name: "FK_FuncionarioServico_Funcionario_FuncionarioId",
+                        column: x => x.FuncionarioId,
                         principalTable: "Funcionario",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_FuncionarioServico_Servico_IdServico",
-                        column: x => x.IdServico,
+                        name: "FK_FuncionarioServico_Servico_ServicoId",
+                        column: x => x.ServicoId,
                         principalTable: "Servico",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -227,24 +176,44 @@ namespace salao_beleza_data.Migrations
                 name: "ServicoSolicitado",
                 columns: table => new
                 {
+                    FuncionarioId = table.Column<int>(nullable: false),
+                    ServicoId = table.Column<int>(nullable: false),
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ServicoId = table.Column<int>(nullable: true),
-                    FuncionarioId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ServicoSolicitado", x => x.Id);
+                    table.PrimaryKey("PK_ServicoSolicitado", x => new { x.FuncionarioId, x.ServicoId });
                     table.ForeignKey(
                         name: "FK_ServicoSolicitado_Funcionario_FuncionarioId",
                         column: x => x.FuncionarioId,
                         principalTable: "Funcionario",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ServicoSolicitado_Servico_ServicoId",
                         column: x => x.ServicoId,
                         principalTable: "Servico",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Pagamento",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ValorServico = table.Column<double>(type: "float", nullable: false),
+                    Comissao = table.Column<double>(type: "float", nullable: false),
+                    CaixaId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pagamento", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Pagamento_Caixa_CaixaId",
+                        column: x => x.CaixaId,
+                        principalTable: "Caixa",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -255,7 +224,8 @@ namespace salao_beleza_data.Migrations
                 {
                     Id = table.Column<int>(nullable: false),
                     ClienteId = table.Column<int>(nullable: true),
-                    ServicoSolicitadoId = table.Column<int>(nullable: true),
+                    ServicoSolicitadoFuncionarioId = table.Column<int>(nullable: true),
+                    ServicoSolicitadoServicoId = table.Column<int>(nullable: true),
                     DataAgendamento = table.Column<DateTime>(type: "datetime", nullable: false),
                     Anotacao = table.Column<string>(type: "varchar(100)", nullable: true),
                     Status = table.Column<int>(type: "int", nullable: false)
@@ -276,10 +246,10 @@ namespace salao_beleza_data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Agendamento_ServicoSolicitado_ServicoSolicitadoId",
-                        column: x => x.ServicoSolicitadoId,
+                        name: "FK_Agendamento_ServicoSolicitado_ServicoSolicitadoFuncionarioId_ServicoSolicitadoServicoId",
+                        columns: x => new { x.ServicoSolicitadoFuncionarioId, x.ServicoSolicitadoServicoId },
                         principalTable: "ServicoSolicitado",
-                        principalColumn: "Id",
+                        principalColumns: new[] { "FuncionarioId", "ServicoId" },
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -289,19 +259,14 @@ namespace salao_beleza_data.Migrations
                 column: "ClienteId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Agendamento_ServicoSolicitadoId",
+                name: "IX_Agendamento_ServicoSolicitadoFuncionarioId_ServicoSolicitadoServicoId",
                 table: "Agendamento",
-                column: "ServicoSolicitadoId");
+                columns: new[] { "ServicoSolicitadoFuncionarioId", "ServicoSolicitadoServicoId" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Caixa_BalancoMensalId",
                 table: "Caixa",
                 column: "BalancoMensalId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Cliente_EnderecoId",
-                table: "Cliente",
-                column: "EnderecoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Comissao_BalancoMensalId",
@@ -312,11 +277,6 @@ namespace salao_beleza_data.Migrations
                 name: "IX_Comissao_FuncionarioId",
                 table: "Comissao",
                 column: "FuncionarioId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Funcionario_EnderecoId",
-                table: "Funcionario",
-                column: "EnderecoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_FuncionarioServico_FuncionarioId",
@@ -337,11 +297,6 @@ namespace salao_beleza_data.Migrations
                 name: "IX_Pagamento_CaixaId",
                 table: "Pagamento",
                 column: "CaixaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ServicoSolicitado_FuncionarioId",
-                table: "ServicoSolicitado",
-                column: "FuncionarioId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ServicoSolicitado_ServicoId",
@@ -383,9 +338,6 @@ namespace salao_beleza_data.Migrations
 
             migrationBuilder.DropTable(
                 name: "BalancoMensal");
-
-            migrationBuilder.DropTable(
-                name: "Endereco");
         }
     }
 }

@@ -6,15 +6,12 @@ namespace salao_beleza_dominio
 {
     public class Funcionario : IEntity
     {
-        //public Funcionario()
-        //{
-        //    Servicos = new List<Servico>();
-        //}
 
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Telefone { get; set; }
-        public Endereco Endereco { get; set; }
+        public string Endereco { get; set; }
+        public string Cpf { get; set; }
         public CargoFunc Cargo { get; set; }
         public DateTime HorarioEntrada { get; set; }
         public DateTime HorarioSaida { get; set; }
@@ -25,10 +22,8 @@ namespace salao_beleza_dominio
             Esteticista,
             Barbeiro
         }
-        // public List<Servico> Servicos { get; set; }
         public float ComissaoAReceber { get; set; }
         public List<Comissao> ComissoesRecebidas { get; set; }
-        public List<FuncionarioServico> FuncionarioServico { get; set; }
         public List<ServicoSolicitado> ServicosSolicitados { get; set; }
 
         /* public void Incluir(string nome, string telefone, Endereco endereco, CargoFunc cargo)

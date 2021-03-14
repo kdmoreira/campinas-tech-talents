@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using salao_beleza_dominio;
 using salao_beleza_data.Interface;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,6 +13,8 @@ namespace salao_beleza_api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+    [Authorize(Roles = "Administrador")]
     public class FuncionarioController : ControllerBase
     {
         private readonly IFuncionarioRepository _repo;
@@ -22,45 +25,43 @@ namespace salao_beleza_api.Controllers
         }
 
         /// <summary>
-        /// Retorna todos os funcionários registrados.
+        /// Retorna todos os Funcionários registrados.
         /// </summary>
         /// <remarks>
         /// Exemplo de request:
-        /// Get/api/funcionario
+        /// Get/api/Funcionario
         /// </remarks>
-        /// <response code="200">Retorna todos os funcionários.</response>
-        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
+        /// <response code="200">Retorna todos os Funcionários.</response>
+        /// <response code="500">Erro do servidor.</response>
         // GET: api/<FuncionarioController>
         [HttpGet]
         [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
         [ProducesResponseType(500)]
         public IActionResult GetAll()
         {
             try
             {
-                return Ok(_repo.SelecionarTudo());
+                return Ok(_repo.SelecionarTudoCompleto());
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
-                return BadRequest("Aconteceu um erro");
+                return StatusCode(500);
             }
         }
 
         /// <summary>
-        /// Retorna um funcionário pelo id.
+        /// Retorna um Funcionário pelo id.
         /// </summary>
-        /// <param name="id">Identificador do funcionário.</param>
+        /// <param name="id">Identificador do Funcionário.</param>
         /// <remarks>
         /// Exemplo de request:
-        /// Get/api/funcionario/id
+        /// Get/api/Funcionario/id
         /// </remarks>
-        /// <response code="200">Retorna o funcionário com o identificador informado.</response>
-        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
+        /// <response code="200">Retorna o Funcionário com o identificador informado.</response>
+        /// <response code="500">Erro do servidor.</response>
         // GET api/<FuncionarioController>/5
         [HttpGet("{id}")]
         [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
         [ProducesResponseType(500)]
         public IActionResult Get(int id)
         {
@@ -70,20 +71,21 @@ namespace salao_beleza_api.Controllers
             }
             catch (System.Exception)
             {
-                return BadRequest("Aconteceu um erro");
+                return StatusCode(500);
             }
         }
 
         /// <summary>
-        /// Inclui um novo funcionário.
+        /// Inclui um novo Funcionário.
         /// </summary>
-        /// <param name="funcionario">Dados do funcionário.</param>
+        /// <param name="funcionario">Dados do Funcionário.</param>
         /// <remarks>
         /// Exemplo de request:
-        /// Post/api/funcionario
+        /// Post/api/Funcionario
         /// </remarks>
-        /// <response code="200">Retorna todos os funcionários após a inclusão.</response>
-        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
+        /// <response code="200">Retorna todos os Funcionários.</response>
+        /// <response code="400">Se Nome, CPF, Telefone ou Endereço não forem informados.</response>
+        /// <response code="500">Erro do servidor.</response>
         // POST api/<FuncionarioController>
         [HttpPost]
         [ProducesResponseType(200)]
@@ -93,8 +95,46 @@ namespace salao_beleza_api.Controllers
         {
             try
             {
+                if (string.IsNullOrEmpty(funcionario.Nome) || string.IsNullOrEmpty(funcionario.Cpf) ||
+                    string.IsNullOrEmpty(funcionario.Telefone) || string.IsNullOrEmpty(funcionario.Endereco))
+                    return BadRequest("Nome, Cpf, Telefone ou Endereço não foram informados.");
+                
+                if (funcionario.Cpf.Length != 11)
+                    return BadRequest("Cpf não foi informado corretamente, informe um Cpf com 11 dígitos.");
+                
                 _repo.Incluir(funcionario);
                 return Ok(_repo.SelecionarTudo());
+            }
+            catch (System.Exception ex)
+            {
+                return StatusCode(500);
+            }
+        }
+
+        /// <summary>
+        /// Altera os dados do Funcionário pelo id informado.
+        /// </summary>
+
+        /// <param name="funcionario">Dados do Funcionário.</param>
+        /// <remarks>
+        /// Exemplo de request:
+        /// Put/api/Funcionario/id
+        /// </remarks>
+        /// <response code="200">Altera os dados do Funcionário.</response>
+        /// <response code="500">Erro do servidor.</response>
+        // PUT api/<FuncionarioController>/5
+        [HttpPut("{id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(500)]
+        public IActionResult Put([FromBody] Funcionario funcionario)
+        {
+            try
+            {
+                if (!_repo.Encontrar(funcionario))
+                    return NoContent();
+
+                _repo.Alterar(funcionario);
+                return Ok("Funcionário alterado com sucesso!");
             }
             catch (System.Exception)
             {
@@ -103,48 +143,18 @@ namespace salao_beleza_api.Controllers
         }
 
         /// <summary>
-        /// Altera os dados do funcionário pelo id informado.
+        /// Deleta um Funcionário pelo id.
         /// </summary>
-        /// <param name="id">Identificador do funcionário.</param>
-        /// <param name="funcionario">Dados do funcionário.</param>
+        /// <param name="id">Identificador do Funcionário.</param>
         /// <remarks>
         /// Exemplo de request:
-        /// Put/api/funcionario/id
+        /// Delete/api/Funcionario/id
         /// </remarks>
-        /// <response code="200">Altera os dados do funcionário.</response>
-        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
-        // PUT api/<FuncionarioController>/5
-        [HttpPut("{id}")]
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(500)]
-        public IActionResult Put(int id, [FromBody] Funcionario funcionario)
-        {
-            try
-            {
-                _repo.Alterar(funcionario);
-                return Ok();
-            }
-            catch (System.Exception)
-            {
-                return BadRequest("Aconteceu um erro");
-            }
-        }
-
-        /// <summary>
-        /// Deleta um funcionário pelo id.
-        /// </summary>
-        /// <param name="id">Identificador do funcionário.</param>
-        /// <remarks>
-        /// Exemplo de request:
-        /// Delete/api/funcionario/id
-        /// </remarks>
-        /// <response code="200">Retorna todos os funcionários.</response>
-        /// <response code="400">Se acontecer alguma exceção não tratada.</response>
+        /// <response code="200">Retorna todos os Funcionários.</response>
+        /// <response code="500">Erro do servidor.</response>
         // DELETE api/<FuncionarioController>/5
         [HttpDelete("{id}")]
         [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
         [ProducesResponseType(500)]
         public IActionResult Delete(int id)
         {
@@ -155,7 +165,7 @@ namespace salao_beleza_api.Controllers
             }
             catch (System.Exception)
             {
-                return BadRequest("Aconteceu um erro");
+                return StatusCode(500);
             }
         }
     }
